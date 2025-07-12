@@ -1,0 +1,5 @@
+assignment.duckdb
+node_modules/
+Logs/
+Queried/
+.vscode/

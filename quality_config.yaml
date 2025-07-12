@@ -1,0 +1,134 @@
+quality_checks:
+  - check_name: "soc_dem_client_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "client"
+    is_check_unique: true
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+
+  - check_name: "soc_dem_sex_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "sex"
+    is_check_unique: false
+    is_check_enum: true
+    enum_values: ['M','F']
+    is_check_positive: false
+    is_check_null: true
+    is_check_type: true
+    df_type: "string"
+
+  - check_name: "soc_dem_age_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "age"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "soc_dem_tenure_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "tenure"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_client_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "client"
+    is_check_unique: true
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_Count_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_Count_SA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_SA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_Count_MF_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_MF"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_Count_OVD_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_OVD"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_Count_CL_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_CL"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+
+  - check_name: "products_actbalance_ActBal_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_CL"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
