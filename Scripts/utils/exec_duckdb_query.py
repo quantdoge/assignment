@@ -85,3 +85,15 @@ def save_queried(query_result: Dict[str, Any],
 test_dq_query= 'SELECT * FROM dq.dq_results'
 test_dq= execute_query(query=test_dq_query)
 save_queried(test_dq,file_name='test_dq.csv')
+
+test_silver_train_query= 'SELECT * FROM silver.train'
+test_silver_train= execute_query(query=test_silver_train_query)
+save_queried(test_silver_train,file_name='test_silver_train.csv')
+
+test_silver_profiling_query= 'SELECT * FROM profile.numerical_profiling_results'
+test_silver_profiling= execute_query(query=test_silver_profiling_query)
+save_queried(test_silver_profiling,file_name='test_silver_profiling.csv')
+
+test_silver_cat_profiling_query= 'SELECT * FROM profile.categorical_profiling_results'
+test_silver_cat_profiling= execute_query(query=test_silver_cat_profiling_query)
+save_queried(test_silver_cat_profiling,file_name='test_silver_cat_profiling.csv')

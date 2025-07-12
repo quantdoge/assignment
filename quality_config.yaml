@@ -80,6 +80,7 @@ quality_checks:
     sync_null_field: "ActBal_CA"
     is_sync_zero: true
     sync_zero_field: "ActBal_CA"
+    is_zero_check: true
 
   - check_name: "products_actbalance_Count_SA_validation"
     database_name: "assignment.duckdb"
@@ -96,6 +97,7 @@ quality_checks:
     sync_null_field: "ActBal_SA"
     is_sync_zero: true
     sync_zero_field: "ActBal_SA"
+    is_zero_check: true
 
 
   - check_name: "products_actbalance_Count_MF_validation"
@@ -113,6 +115,7 @@ quality_checks:
     sync_null_field: "ActBal_MF"
     is_sync_zero: true
     sync_zero_field: "ActBal_MF"
+    is_zero_check: true
 
   - check_name: "products_actbalance_Count_OVD_validation"
     database_name: "assignment.duckdb"
@@ -129,6 +132,7 @@ quality_checks:
     sync_null_field: "ActBal_OVD"
     is_sync_zero: true
     sync_zero_field: "ActBal_OVD"
+    is_zero_check: true
 
   - check_name: "products_actbalance_Count_CL_validation"
     database_name: "assignment.duckdb"
@@ -145,6 +149,7 @@ quality_checks:
     sync_null_field: "ActBal_CL"
     is_sync_zero: true
     sync_zero_field: "ActBal_CL"
+    is_zero_check: true
 
   - check_name: "products_actbalance_ActBal_CA_validation"
     database_name: "assignment.duckdb"
@@ -161,6 +166,7 @@ quality_checks:
     sync_null_field: "Count_CA"
     is_sync_zero: true
     sync_zero_field: "Count_CA"
+    is_zero_check: true
 
   - check_name: "products_actbalance_ActBal_SA_validation"
     database_name: "assignment.duckdb"
@@ -177,6 +183,7 @@ quality_checks:
     sync_null_field: "Count_SA"
     is_sync_zero: true
     sync_zero_field: "Count_SA"
+    is_zero_check: true
 
   - check_name: "products_actbalance_ActBal_MF_validation"
     database_name: "assignment.duckdb"
@@ -193,6 +200,7 @@ quality_checks:
     sync_null_field: "Count_MF"
     is_sync_zero: true
     sync_zero_field: "Count_MF"
+    is_zero_check: true
 
   - check_name: "products_actbalance_ActBal_OVD_validation"
     database_name: "assignment.duckdb"
@@ -209,6 +217,7 @@ quality_checks:
     sync_null_field: "Count_OVD"
     is_sync_zero: true
     sync_zero_field: "Count_OVD"
+    is_zero_check: true
 
   - check_name: "products_actbalance_ActBal_CC_validation"
     database_name: "assignment.duckdb"
@@ -225,6 +234,7 @@ quality_checks:
     sync_null_field: "Count_CC"
     is_sync_zero: true
     sync_zero_field: "Count_CC"
+    is_zero_check: true
 
   - check_name: "products_actbalance_ActBal_CL_validation"
     database_name: "assignment.duckdb"
@@ -241,6 +251,7 @@ quality_checks:
     sync_null_field: "Count_CL"
     is_sync_zero: true
     sync_zero_field: "Count_CL"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_Client_validation"
     database_name: "assignment.duckdb"
@@ -270,6 +281,7 @@ quality_checks:
     sync_null_field: "TransactionsCred"
     is_sync_zero: true
     sync_zero_field: "TransactionsCred"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_VolumeCred_CA_validation"
     database_name: "assignment.duckdb"
@@ -286,6 +298,7 @@ quality_checks:
     sync_null_field: "TransactionsCred_CA"
     is_sync_zero: true
     sync_zero_field: "TransactionsCred_CA"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_TransactionsCred_validation"
     database_name: "assignment.duckdb"
@@ -302,6 +315,7 @@ quality_checks:
     sync_null_field: "VolumeCred"
     is_sync_zero: true
     sync_zero_field: "VolumeCred"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_TransactionsCred_CA_validation"
     database_name: "assignment.duckdb"
@@ -318,6 +332,7 @@ quality_checks:
     sync_null_field: "VolumeCred_CA"
     is_sync_zero: true
     sync_zero_field: "VolumeCred_CA"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_VolumeDeb_validation"
     database_name: "assignment.duckdb"
@@ -334,6 +349,7 @@ quality_checks:
     sync_null_field: "TransactionsDeb"
     is_sync_zero: true
     sync_zero_field: "TransactionsDeb"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_VolumeDeb_CA_validation"
     database_name: "assignment.duckdb"
@@ -349,6 +365,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "TransactionsDeb_CA"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_VolumeDebCash_Card_validation"
     database_name: "assignment.duckdb"
@@ -364,6 +381,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "TransactionsDebCash_Card"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_VolumeDebCashless_Card_validation"
     database_name: "assignment.duckdb"
@@ -379,6 +397,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "TransactionsDebCashless_Card"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_VolumeDeb_PaymentOrder_validation"
     database_name: "assignment.duckdb"
@@ -394,6 +413,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "TransactionsDeb_PaymentOrder"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_TransactionsDeb_validation"
     database_name: "assignment.duckdb"
@@ -409,6 +429,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "VolumeDeb"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_TransactionsDeb_CA_validation"
     database_name: "assignment.duckdb"
@@ -424,6 +445,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "VolumeDeb_CA"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_TransactionsDebCash_Card_validation"
     database_name: "assignment.duckdb"
@@ -439,6 +461,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "VolumeDebCash_Card"
+    is_zero_check: true
 
   - check_name: "inflow_outflow_TransactionsDebCashless_Card_validation"
     database_name: "assignment.duckdb"
@@ -454,6 +477,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "VolumeDebCashless_Card"
+    is_zero_check: true
 
 
   - check_name: "inflow_outflow_TransactionsDeb_PaymentOrder_validation"
@@ -470,6 +494,7 @@ quality_checks:
     is_sync_null: false
     is_sync_zero: true
     sync_zero_field: "VolumeDeb_PaymentOrder"
+    is_zero_check: true
 
   - check_name: "sales_revenues_Client_validation"
     database_name: "assignment.duckdb"
@@ -551,6 +576,7 @@ quality_checks:
     sync_null_field: "Sale_MF"
     is_sync_zero: true
     sync_zero_field: "Sale_MF"
+
 
   - check_name: "sales_revenues_Revenue_CC_validation"
     database_name: "assignment.duckdb"
