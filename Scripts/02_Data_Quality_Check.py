@@ -42,6 +42,7 @@ class CheckType(str, Enum):
     NON_NULL = "non_null"
     TYPE = "type"
     SYNC_NULL = "sync_null"
+    SYNC_ZERO = "sync_zero"
 
 class DataQualityCheck(BaseModel):
     """
@@ -61,6 +62,8 @@ class DataQualityCheck(BaseModel):
     df_type: Optional[str] = Field(default=None, description="Expected DataFrame type for the field ('numerical' or 'datetime')")
     is_sync_null: bool = Field(default=False, description="Check if this field has synchronized null state with sync_null_field")
     sync_null_field: Optional[str] = Field(default=None, description="Field name to synchronize null state with")
+    is_sync_zero: bool = Field(default=False, description="Check if this field has synchronized zero state with sync_zero_field")
+    sync_zero_field: Optional[str] = Field(default=None, description="Field name to synchronize zero state with")
 
 
     @field_validator('enum_values')
@@ -84,6 +87,13 @@ class DataQualityCheck(BaseModel):
     def validate_sync_null_field(cls, v, info):
         if info.data.get('is_sync_null') and not v:
             raise ValueError("sync_null_field must be provided when is_sync_null is True")
+        return v
+
+    @field_validator('sync_zero_field')
+    @classmethod
+    def validate_sync_zero_field(cls, v, info):
+        if info.data.get('is_sync_zero') and not v:
+            raise ValueError("sync_zero_field must be provided when is_sync_zero is True")
         return v
 
 class DataQualityResult(BaseModel):
@@ -289,6 +299,29 @@ def run_data_quality_check(check_config: DataQualityCheck) -> List[DataQualityRe
                 records_passed=sync_null_passed,
                 records_failed=total_records - sync_null_passed,
                 check_name=f"{check_config.check_name}_sync_null_{check_config.sync_null_field}"
+            ))
+
+        # Check synchronized zero values
+        if check_config.is_sync_zero:
+            sync_zero_query = f"""
+            SELECT COUNT(*) as sync_zero_passed_count
+            FROM {check_config.schema_name}.{check_config.table_name}
+            WHERE ({check_config.data_field_name} = 0 AND {check_config.sync_zero_field} = 0)
+            OR ({check_config.data_field_name} != 0 AND {check_config.sync_zero_field} != 0)
+            OR ({check_config.data_field_name} IS NULL OR {check_config.sync_zero_field} IS NULL)
+            """
+            sync_zero_passed = conn.execute(sync_zero_query).fetchone()[0]
+
+            results.append(DataQualityResult(
+                database_name=check_config.database_name,
+                schema_name=check_config.schema_name,
+                table_name=check_config.table_name,
+                data_field_name=check_config.data_field_name,
+                total_records=total_records,
+                check_type=CheckType.SYNC_ZERO,
+                records_passed=sync_zero_passed,
+                records_failed=total_records - sync_zero_passed,
+                check_name=f"{check_config.check_name}_sync_zero_{check_config.sync_zero_field}"
             ))
 
     except Exception as e:
