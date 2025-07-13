@@ -1,0 +1,16 @@
+{
+  "model_name": "final_xgboost_cl_model",
+  "auc_score": 0.860966939210807,
+  "accuracy": 0.7698658410732714,
+  "precision": 0.5917808219178082,
+  "recall": 0.7448275862068966,
+  "f1_score": 0.6595419847328245,
+  "true_positives": 216,
+  "true_negatives": 530,
+  "false_positives": 149,
+  "false_negatives": 74,
+  "training_time_seconds": 0.121363,
+  "training_samples": 969,
+  "positive_class_count": 290,
+  "negative_class_count": 679
+}

@@ -535,14 +535,18 @@ if __name__ == "__main__":
 
     try:
         # Configuration - Update these variables as needed
-        response_variable = "Sale_CC" #Sale_MF
-        predictive_variables = ["TransactionsDebCashless_Card","Count_MF", "Age", "VolumeCred_CA"]
+        response_variable = "Sale_CL" #Sale_MF, Sale_CC
+        predictive_variables_mf = ["TransactionsDebCashless_Card","Count_MF", "Age", "VolumeCred_CA"]
+        predictive_variables_cc = ["VolumeDeb_PaymentOrder","ActBal_CA","TransactionsDebCashless_Card",
+                                   "VolumeCred_CA","VolumeDebCash_Card","Tenure","ActBal_SA",
+                                   "Age","VolumeCred","TransactionsDeb"]
+        predictive_variables= ["Tenure","Age","VolumeCred_CA","VolumeDeb_CA","ActBal_CA"]
 
         categorical_variables = []  # Add categorical variables if any, e.g., ["Sex"]
 
         # Model configuration
-        model_name = "final_xgboost_mf_model"  # Update based on response variable
-        training_results_table = "xgboost_mf_sales_top"  # Update to match your training results table
+        model_name = "final_xgboost_cl_model"  # final_xgboost_mf_model, final_xgboost_cc_model
+        training_results_table = "xgboost_cl_sales_top"  # xgboost_mf_sales_top, xgboost_cc_sales_top
 
         logger.info(f"Training final model for: {response_variable}")
         logger.info(f"Using predictive variables: {predictive_variables}")
