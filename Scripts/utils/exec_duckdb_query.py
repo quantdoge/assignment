@@ -97,3 +97,25 @@ save_queried(test_silver_profiling,file_name='test_silver_profiling.csv')
 test_silver_cat_profiling_query= 'SELECT * FROM profile.categorical_profiling_results'
 test_silver_cat_profiling= execute_query(query=test_silver_cat_profiling_query)
 save_queried(test_silver_cat_profiling,file_name='test_silver_cat_profiling.csv')
+
+test_mf_model_query= 'SELECT * FROM models.xgboost_mf_sales'
+test_mf_model_profiling= execute_query(query=test_mf_model_query)
+save_queried(test_mf_model_profiling,file_name='test_mf_model_profiling.csv')
+
+# shap_mf_query= 'SELECT * FROM models.shap_analysis_mf_sales'
+# shap_mf_result= execute_query(query=shap_mf_query)
+# save_queried(shap_mf_result,file_name='shap_mf_result.csv')
+
+test_mf_model_query= 'SELECT * FROM models.xgboost_mf_sales_top'
+test_mf_model_profiling= execute_query(query=test_mf_model_query)
+save_queried(test_mf_model_profiling,file_name='test_mf_model_top_profiling.csv')
+
+mf_query= 'SELECT Sale_MF, TransactionsDebCashless_Card, Count_MF, * FROM silver.train WHERE Sale_MF=1'
+mf_result= execute_query(query=mf_query)
+save_queried(mf_result,file_name='mf_result.csv')
+
+test_cl_model_query= 'SELECT * FROM models.xgboost_cl_sales'
+test_cl_model_profiling= execute_query(query=test_cl_model_query)
+save_queried(test_cl_model_profiling,file_name='test_cl_model_profiling.csv')
+
+
