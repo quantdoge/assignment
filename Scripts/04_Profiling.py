@@ -139,6 +139,21 @@ def profile_numerical_data(
                         KURTOSIS("{column}") as kurtosis_value
                     FROM {schema_name}.{table_name}
                     WHERE "{column}" IS NOT NULL
+                ),
+                stats_non_zero AS (
+                    SELECT
+                        MIN("{column}") as min_value_non_zero,
+                        MAX("{column}") as max_value_non_zero,
+                        MEDIAN("{column}") as median_value_non_zero,
+                        AVG("{column}") as mean_value_non_zero,
+                        MODE() WITHIN GROUP (ORDER BY "{column}") as mode_value_non_zero,
+                        PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY "{column}") as p25_non_zero,
+                        PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY "{column}") as p75_non_zero,
+                        SKEWNESS("{column}") as skewness_value_non_zero,
+                        KURTOSIS("{column}") as kurtosis_value_non_zero,
+                        COUNT(*) as count_non_zero
+                    FROM {schema_name}.{table_name}
+                    WHERE "{column}" IS NOT NULL AND "{column}" != 0
                 )
                 SELECT
                     min_value,
@@ -151,8 +166,20 @@ def profile_numerical_data(
                     p75 as percentile_75,
                     (p75 - p25) as iqr,
                     skewness_value,
-                    kurtosis_value
-                FROM stats
+                    kurtosis_value,
+                    min_value_non_zero,
+                    max_value_non_zero,
+                    (max_value_non_zero - min_value_non_zero) as min_max_range_non_zero,
+                    median_value_non_zero,
+                    mean_value_non_zero,
+                    mode_value_non_zero,
+                    p25_non_zero as percentile_25_non_zero,
+                    p75_non_zero as percentile_75_non_zero,
+                    (p75_non_zero - p25_non_zero) as iqr_non_zero,
+                    skewness_value_non_zero,
+                    kurtosis_value_non_zero,
+                    count_non_zero
+                FROM stats, stats_non_zero
                 """
 
                 result = conn.execute(stats_query).fetchone()
@@ -174,14 +201,27 @@ def profile_numerical_data(
                         '75_percentile_value': result[7],
                         'iqr': result[8],
                         'skewness': result[9],
-                        'kurtosis': result[10]
+                        'kurtosis': result[10],
+                        'min_value_non_zero': result[11],
+                        'max_value_non_zero': result[12],
+                        'min_max_range_non_zero': result[13],
+                        'median_value_non_zero': result[14],
+                        'mean_value_non_zero': result[15],
+                        'mode_non_zero': result[16],
+                        '25_percentile_value_non_zero': result[17],
+                        '75_percentile_value_non_zero': result[18],
+                        'iqr_non_zero': result[19],
+                        'skewness_non_zero': result[20],
+                        'kurtosis_non_zero': result[21],
+                        'count_non_zero': result[22]
                     }
 
                     profiling_results.append(profile_dict)
                     logger.info(f"Successfully profiled column: {column}")
 
-                    # Log some key metrics
-                    logger.info(f"  Min: {result[0]}, Max: {result[1]}, Mean: {result[4]:.4f}, Median: {result[3]}")
+                    # Log some key metrics including non-zero statistics
+                    logger.info(f"  All values - Min: {result[0]}, Max: {result[1]}, Mean: {result[4]:.4f}, Median: {result[3]}")
+                    logger.info(f"  Non-zero values - Min: {result[11]}, Max: {result[12]}, Mean: {result[15]:.4f}, Median: {result[14]}, Count: {result[22]}")
 
             except Exception as e:
                 logger.error(f"Error profiling column {column}: {e}")

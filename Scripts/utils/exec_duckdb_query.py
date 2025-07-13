@@ -92,7 +92,7 @@ save_queried(test_silver_train,file_name='test_silver_train.csv')
 
 test_silver_profiling_query= 'SELECT * FROM profile.numerical_profiling_results'
 test_silver_profiling= execute_query(query=test_silver_profiling_query)
-save_queried(test_silver_profiling,file_name='test_silver_profiling.csv')
+save_queried(test_silver_profiling,file_name='test_silver_num_profiling.csv')
 
 test_silver_cat_profiling_query= 'SELECT * FROM profile.categorical_profiling_results'
 test_silver_cat_profiling= execute_query(query=test_silver_cat_profiling_query)
