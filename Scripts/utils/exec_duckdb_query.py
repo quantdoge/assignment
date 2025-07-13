@@ -126,6 +126,38 @@ xgbreg_sales_mf_query= 'SELECT * FROM models.xgbreg_sales_mf_revenue'
 xgbreg_sales_mf_result= execute_query(query=xgbreg_sales_mf_query)
 save_queried(xgbreg_sales_mf_result,file_name='xgbreg_sales_mf_revenue.csv')
 
+query='''
+WITH AVG_CMF AS (
+	SELECT 1 AS dummy, AVG(Revenue_MF) AS avg_revenue_mf
+	FROM silver.train
+    WHERE Revenue_MF!=0 AND Revenue_MF IS NOT NULL
+), INT AS (
+	SELECT a.*,
+		   ABS(a.Revenue_MF - b.avg_revenue_mf) as abs_error
+    FROM (SELECT 1 AS dummy, * FROM silver.train) a
+    LEFT JOIN AVG_CMF b ON a.dummy=b.dummy
+    WHERE a.Revenue_MF!=0 AND a.Revenue_MF IS NOT NULL
+)
+SELECT AVG(ABS_ERROR) AS mae_mf FROM INT
+'''
+query_result= execute_query(query=query)
+print(query_result)
 
+query='''
+WITH AVG_CMF AS (
+	SELECT 1 AS dummy, AVG(Revenue_CC) AS avg_revenue_cc
+	FROM silver.train
+    WHERE Revenue_CC!=0 AND Revenue_CC IS NOT NULL
+), INT AS (
+	SELECT a.*,
+		   ABS(a.Revenue_CC - b.avg_revenue_cc) as abs_error
+    FROM (SELECT 1 AS dummy, * FROM silver.train) a
+    LEFT JOIN AVG_CMF b ON a.dummy=b.dummy
+    WHERE a.Revenue_CC!=0 AND a.Revenue_CC IS NOT NULL
+)
+SELECT AVG(ABS_ERROR) AS mae_cc FROM INT
+'''
+query_result= execute_query(query=query)
+print(query_result)
 
 

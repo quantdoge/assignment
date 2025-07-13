@@ -868,24 +868,25 @@ if __name__ == "__main__":
             duckdb_name="assignment.duckdb",
             schema_name="silver",
             table_name="train",
-            col_non_zero="Revenue_MF"
+            col_non_zero="Revenue_CC" #Revenue_MF
         )
         print('DEBUG >>>')
         print(data.head(3))
         print('<<<')
 
         # Configuration for regression task
-        response_variable = "Revenue_MF"  # Example continuous variable for regression
-        predictive_variables = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
+        response_variable = "Revenue_CC"  # Example continuous variable for regression
+        predictive_variables_all = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
             "VolumeDebCash_Card","VolumeDebCashless_Card","VolumeDeb_PaymentOrder","TransactionsDeb","TransactionsDeb_CA",
             "TransactionsDebCash_Card","TransactionsDebCashless_Card","TransactionsDeb_PaymentOrder","Count_CA","Count_SA",
             "Count_MF","Count_OVD","Count_CC","Count_CL","ActBal_SA","ActBal_MF","ActBal_OVD","ActBal_CC",
             "ActBal_CL","Age","Tenure","Sex"
         ]
-        predictive_variables_all = ["Tenure","Age","VolumeCred_CA","VolumeDeb_CA","Count_CA"]
+        predictive_variables_mf = ["VolumeDebCash_Card","VolumeDeb","VolumeDebCashless_Card","VolumeDeb_PaymentOrder"]
+        predictive_variables = ["VolumeDebCashless_Card","Tenure","Age"]
 
-        categorical_variables = ["Sex"]
-        categorical_variables_all = []
+        categorical_variables_all = ["Sex"]
+        categorical_variables = []
 
         logger.info("Starting regressor training with Dask...")
 
@@ -895,7 +896,7 @@ if __name__ == "__main__":
             response_variable=response_variable,
             predictive_variables=predictive_variables,
             categorical_variables=categorical_variables,
-            n_iter=100,  # Reduced per iteration, but more parallel iterations
+            n_iter=200,  # Reduced per iteration, but more parallel iterations
             random_state=42,
             dask_client=dask_client,
             iterations_per_kfold=10  # More iterations per k-fold for better exploration
@@ -908,7 +909,7 @@ if __name__ == "__main__":
             save_model_results(
                 results_df=results_df,
                 target_schema_name="models",
-                target_table_name="xgboost_sales_mf_revenue",
+                target_table_name="xgboost_sales_cc_revenue_top", # xgboost_sales_mf_revenue, xgboost_sales_mf_revenue_top, xgboost_sales_cc_revenue
                 duckdb_name="assignment.duckdb"
             )
             logger.info("✅ Model results saved to database successfully")
@@ -923,7 +924,7 @@ if __name__ == "__main__":
                 save_feature_importance_results(
                     feature_data_list=all_feature_data,
                     target_schema_name="models",
-                    target_table_name="xgbreg_sales_mf_revenue",
+                    target_table_name="xgbreg_sales_cc_revenue_top", #xgbreg_sales_mf_revenue, xgbreg_sales_mf_revenue_top, xgbreg_sales_cc_revenue
                     duckdb_name="assignment.duckdb"
                 )
                 logger.info("✅ Feature importance results saved to database successfully")
