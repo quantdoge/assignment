@@ -536,7 +536,7 @@ if __name__ == "__main__":
     try:
         # Configuration - Update these variables as needed
         response_variable = "Sale_CL" #Sale_MF, Sale_CC
-        predictive_variables_mf = ["TransactionsDebCashless_Card","Count_MF", "Age", "VolumeCred_CA"]
+        predictive_variables = ["TransactionsDebCashless_Card","Count_MF", "Age", "VolumeCred_CA"]
         predictive_variables_cc = ["VolumeDeb_PaymentOrder","ActBal_CA","TransactionsDebCashless_Card",
                                    "VolumeCred_CA","VolumeDebCash_Card","Tenure","ActBal_SA",
                                    "Age","VolumeCred","TransactionsDeb"]

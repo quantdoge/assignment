@@ -181,3 +181,6 @@ final_mf_sales_query= 'SELECT * FROM models.final_xgboost_mf_model'
 final_mf_sales_result= execute_query(query=final_mf_sales_query)
 save_queried(final_mf_sales_result,file_name='final_mf_sales_result.csv')
 
+cl_sales_predictions_query= 'SELECT * FROM models.test_predictions_cl_sales'
+cl_sales_predictions= execute_query(query=cl_sales_predictions_query)
+save_queried(cl_sales_predictions,file_name='cl_sales_predictions_query.csv')
