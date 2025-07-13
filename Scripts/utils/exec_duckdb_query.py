@@ -118,4 +118,8 @@ test_cl_model_query= 'SELECT * FROM models.xgboost_cl_sales'
 test_cl_model_profiling= execute_query(query=test_cl_model_query)
 save_queried(test_cl_model_profiling,file_name='test_cl_model_profiling.csv')
 
+test_cl_model_query= 'SELECT * FROM models.xgboost_cl_sales_top'
+test_cl_model_profiling= execute_query(query=test_cl_model_query)
+save_queried(test_cl_model_profiling,file_name='test_cl_model_top_profiling.csv')
+
 

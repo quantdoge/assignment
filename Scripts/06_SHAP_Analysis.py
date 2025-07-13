@@ -582,6 +582,12 @@ def save_shap_results(
         conn.close()
 
 def run_shap_analysis_with_parameters(
+    response_variable: str,
+    model_table_name: str ,
+    generated_img_prefix: str,
+    saved_to_table_name: str,
+    predictive_variables: Optional[List[str]] = None,
+    categorical_variables: Optional[List[str]] = None,
     max_depth: int = 6,
     min_child_weight: int = 1,
     gamma: float = 0.0,
@@ -592,13 +598,15 @@ def run_shap_analysis_with_parameters(
     n_estimators: int = 100,
     use_best_params: bool = True,
     model_duckdb_name: str = "assignment.duckdb",
-    model_schema_name: str = "models",
-    model_table_name: str = "xgboost_cc_sales"
+    model_schema_name: str = "models"
 ) -> None:
     """
     Main function to run SHAP analysis with specified or best parameters
 
     Args:
+        response_variable: Name of the target variable column
+        predictive_variables: List of predictor variable names (if None, uses default)
+        categorical_variables: List of categorical variables for one-hot encoding (if None, uses default)
         max_depth: Maximum tree depth
         min_child_weight: Minimum sum of instance weight needed in a child
         gamma: Minimum loss reduction required to make a split
@@ -623,15 +631,21 @@ def run_shap_analysis_with_parameters(
             table_name="train"
         )
 
-        # Configuration
-        response_variable = "Sale_CC"
-        predictive_variables = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
-            "VolumeDebCash_Card","VolumeDebCashless_Card","VolumeDeb_PaymentOrder","TransactionsDeb","TransactionsDeb_CA",
-            "TransactionsDebCash_Card","TransactionsDebCashless_Card","TransactionsDeb_PaymentOrder","Count_CA","Count_SA",
-            "Count_MF","Count_OVD","Count_CC","Count_CL","ActBal_CA","ActBal_SA","ActBal_MF","ActBal_OVD","ActBal_CC",
-            "ActBal_CL","Age","Tenure","Sex"
-        ]
-        categorical_variables = ["Sex"]
+        # Set default variables if not provided
+        if predictive_variables is None:
+            predictive_variables = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
+                "VolumeDebCash_Card","VolumeDebCashless_Card","VolumeDeb_PaymentOrder","TransactionsDeb","TransactionsDeb_CA",
+                "TransactionsDebCash_Card","TransactionsDebCashless_Card","TransactionsDeb_PaymentOrder","Count_CA","Count_SA",
+                "Count_MF","Count_OVD","Count_CC","Count_CL","ActBal_CA","ActBal_SA","ActBal_MF","ActBal_OVD","ActBal_CC",
+                "ActBal_CL","Age","Tenure","Sex"
+            ]
+
+        if categorical_variables is None:
+            categorical_variables = ["Sex"]
+
+        logger.info(f"Using response variable: {response_variable}")
+        logger.info(f"Using {len(predictive_variables)} predictive variables")
+        logger.info(f"Using {len(categorical_variables)} categorical variables: {categorical_variables}")
 
         # Use best parameters if requested
         if use_best_params:
@@ -699,7 +713,7 @@ def run_shap_analysis_with_parameters(
             shap_values=shap_values,
             X_sample=X_sample,
             feature_names=feature_names,
-            file_prefix='cc_shap'
+            file_prefix=generated_img_prefix
         )
 
         # Save results to database
@@ -709,7 +723,7 @@ def run_shap_analysis_with_parameters(
             X_sample=X_sample,
             feature_names=feature_names,
             target_schema_name="models",
-            target_table_name="shap_analysis_cc_sales"
+            target_table_name=saved_to_table_name,
         )
 
         # Print summary
@@ -717,6 +731,7 @@ def run_shap_analysis_with_parameters(
         top_features_idx = np.argsort(mean_abs_shap)[::-1][:10]
 
         print(f"\n🎯 SHAP Analysis Summary:")
+        print(f"Response variable: {response_variable}")
         print(f"Model parameters used:")
         print(f"  max_depth: {max_depth}")
         print(f"  min_child_weight: {min_child_weight}")
@@ -741,18 +756,26 @@ if __name__ == "__main__":
     logger = setup_logging()
     logger.info("Starting SHAP analysis")
 
-    # Run SHAP analysis with best parameters from training
-    run_shap_analysis_with_parameters(use_best_params=True)
+    # Run SHAP analysis with best parameters from training (using default variables)
+    run_shap_analysis_with_parameters(
+		response_variable= "Sale_CL",
+		model_table_name= "xgboost_cl_sales" ,
+		use_best_params=True,
+		model_duckdb_name = "assignment.duckdb",
+		model_schema_name = "models",
+		saved_to_table_name= "shap_values_cl",
+		generated_img_prefix= "cl_shap"
+  	)
 
-    # Alternatively, you can specify custom parameters:
+    # Example of using custom variables:
+    # custom_predictive_vars = ["Age", "Tenure", "Sex", "ActBal_CA", "ActBal_SA"]
+    # custom_categorical_vars = ["Sex"]
+    #
     # run_shap_analysis_with_parameters(
-    #     max_depth=10,
-    #     min_child_weight=5,
-    #     gamma=0.1,
-    #     reg_lambda=2.0,
-    #     colsample_bytree=0.8,
-    #     reg_alpha=1.0,
-    #     learning_rate=0.1,
-    #     n_estimators=500,
-    #     use_best_params=False
+    #     response_variable="Sale_MF",
+    #     predictive_variables=custom_predictive_vars,
+    #     categorical_variables=custom_categorical_vars,
+    #     use_best_params=False,
+    #     max_depth=6,
+    #     learning_rate=0.1
     # )

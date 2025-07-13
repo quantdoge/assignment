@@ -770,18 +770,16 @@ if __name__ == "__main__":
 
         # Configuration
         response_variable = "Sale_CL" #"Sale_CC" #"Sale_MF"
-        predictive_variables = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
+        predictive_variables_all = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
             "VolumeDebCash_Card","VolumeDebCashless_Card","VolumeDeb_PaymentOrder","TransactionsDeb","TransactionsDeb_CA",
             "TransactionsDebCash_Card","TransactionsDebCashless_Card","TransactionsDeb_PaymentOrder","Count_CA","Count_SA",
             "Count_MF","Count_OVD","Count_CC","Count_CL","ActBal_CA","ActBal_SA","ActBal_MF","ActBal_OVD","ActBal_CC",
             "ActBal_CL","Age","Tenure","Sex"
         ]
-        predictive_variables_all = ["VolumeDeb_PaymentOrder","VolumeCred_CA","TransactionsDebCashless_Card","ActBal_CA",
-                                "VolumeDebCash_Card","Tenure","Age","ActBal_SA","VolumeCred","TransactionsDeb",
-                                "Count_OVD"]
+        predictive_variables = ["Tenure","Age","VolumeCred_CA","VolumeDeb_CA","ActBal_CA"]
 
-        categorical_variables = ["Sex"]
-        categorical_variables_all=[]
+        categorical_variables_all = ["Sex"]
+        categorical_variables=[]
 
         logger.info("Starting model training with Dask...")
 
@@ -804,7 +802,7 @@ if __name__ == "__main__":
             save_model_results(
                 results_df=results_df,
                 target_schema_name="models",
-                target_table_name="xgboost_cl_sales",#"xgboost_mf_sales", "xgboost_cc_sales_top"
+                target_table_name="xgboost_cl_sales_top",#"xgboost_mf_sales", "xgboost_cc_sales_top"
                 duckdb_name="assignment.duckdb"
             )
             logger.info("✅ Model results saved to database successfully")
@@ -819,7 +817,7 @@ if __name__ == "__main__":
                        'colsample_bytree', 'reg_alpha', 'learning_rate', 'n_estimators']:
                 print(f"  {col}: {best_row[col]}")
 
-            print(f"\nResults saved to: models.xgboost_training_results")
+            print(f"\nResults saved")
 
     except Exception as e:
         logger.error(f"❌ Model training failed: {e}")
