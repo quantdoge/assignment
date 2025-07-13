@@ -181,8 +181,10 @@ def train_single_kfold_xgboost(
     # Create XGBoost regressor
     xgb_regressor = xgb.XGBRegressor(
         objective='reg:absoluteerror',
+        eval_metric='mae',
+        tree_method='exact',  # Use 'exact' for better accuracy
         random_state=random_state,
-        n_jobs=1,  # Use 1 job per worker to avoid oversubscription
+        n_jobs=-1,  # Use 1 job per worker to avoid oversubscription
         verbosity=0
     )
 
@@ -222,6 +224,48 @@ def train_single_kfold_xgboost(
         # Extract XGBoost parameters from best_params
         xgb_params = {key.replace('xgb__', ''): value for key, value in best_params.items() if key.startswith('xgb__')}
 
+        # Get feature names and importance from the best model
+        best_model = random_search.best_estimator_
+
+        # Transform features to get feature names after preprocessing
+        X_transformed = best_model.named_steps['preprocessor'].fit_transform(X)
+
+        # Get feature names after preprocessing
+        feature_names = []
+        if hasattr(best_model.named_steps['preprocessor'], 'get_feature_names_out'):
+            feature_names = best_model.named_steps['preprocessor'].get_feature_names_out()
+        else:
+            # Fallback for older sklearn versions
+            feature_names = [f"feature_{i}" for i in range(X_transformed.shape[1])]
+
+        # Get feature importance from the trained XGBoost model
+        xgb_model = best_model.named_steps['xgb']
+        feature_importance = xgb_model.feature_importances_
+
+        # Calculate explained variance (approximate using feature importance as proxy)
+        # Note: XGBoost doesn't directly provide explained variance per feature
+        # We'll use normalized feature importance as an approximation
+        total_importance = np.sum(feature_importance)
+        print('DEBUG >>>')
+        print(f"Feature importance: {feature_importance}")
+        print('<<<')
+
+        explained_variance = feature_importance / total_importance if total_importance > 0 else feature_importance
+
+        # Create feature importance ranking
+        importance_ranks = np.argsort(-feature_importance) + 1  # Rank 1 = highest importance
+
+        # Create feature importance data
+        feature_data = []
+        for i, feature_name in enumerate(feature_names):
+            feature_data.append({
+                'iteration_id': iteration_id,
+                'feature_name': str(feature_name),
+                'feature_importance': float(feature_importance[i]),
+                'explained_variance': float(explained_variance[i]),
+                'feature_importance_rank': int(importance_ranks[i])
+            })
+
         # Store result
         result = {
             'iteration_id': iteration_id,
@@ -237,7 +281,8 @@ def train_single_kfold_xgboost(
             'runtime_seconds': runtime,
             'neg_mae_score': best_score,  # Negative MAE score
             'mae_score': -best_score,     # Positive MAE score
-            'cv_std': random_search.cv_results_['std_test_score'][random_search.best_index_]
+            'cv_std': random_search.cv_results_['std_test_score'][random_search.best_index_],
+            'feature_data': feature_data  # Add feature importance data
         }
 
         print(f"✅ Completed iteration {iteration_id + 1}: MAE={-best_score:.4f}, Runtime={runtime:.1f}s")
@@ -302,9 +347,21 @@ def train_xgboost_regressor_dask(
         y = y.dropna()
         X = X[y.index]
 
-    logger.info(f"Target variable statistics: mean={y.mean():.4f}, std={y.std():.4f}, min={y.min():.4f}, max={y.max():.4f}")
+    logger.info(f"Target variable statistics BEFORE scaling: mean={y.mean():.4f}, std={y.std():.4f}, min={y.min():.4f}, max={y.max():.4f}")
 
-    # Set up preprocessing pipeline
+    # Apply StandardScaler to the response variable
+    logger.info("Applying StandardScaler to response variable...")
+    response_scaler = StandardScaler()
+    y_scaled = pd.Series(
+        response_scaler.fit_transform(y.values.reshape(-1, 1)).flatten(),
+        index=y.index,
+        name=response_variable
+    )
+
+    logger.info(f"Target variable statistics AFTER scaling: mean={y_scaled.mean():.4f}, std={y_scaled.std():.4f}, min={y_scaled.min():.4f}, max={y_scaled.max():.4f}")
+    logger.info(f"Response variable scaling completed successfully")
+
+    # Set up preprocessing pipeline for features
     categorical_vars = categorical_variables if categorical_variables else []
     numerical_vars = [var for var in predictive_variables if var not in categorical_vars]
 
@@ -318,14 +375,14 @@ def train_xgboost_regressor_dask(
 
     # Define parameter distributions
     param_distributions = {
-        'xgb__max_depth': list(range(3, 11)),
-        'xgb__min_child_weight': list(range(1, 26)),
-        'xgb__gamma': np.linspace(0, 10, 21),
-        'xgb__reg_lambda': list(range(1, 11)),
-        'xgb__colsample_bytree': np.linspace(0.5, 0.8, 4),
-        'xgb__reg_alpha': list(range(0, 11)),
-        'xgb__learning_rate': np.arange(0.05, 0.35, 0.05),
-        'xgb__n_estimators': [100, 200, 300, 500, 700, 1000, 1500, 2000]
+        'xgb__max_depth': list(range(3, 15)),  # Increased from 11
+        'xgb__min_child_weight': list(range(1, 11)),  # Reduced from 26
+        'xgb__gamma': np.linspace(0, 2, 21),  # Reduced from 10
+        'xgb__reg_lambda': np.linspace(0.1, 2, 20),  # Changed to float range
+        'xgb__colsample_bytree': np.linspace(0.6, 1.0, 5),  # Increased range
+        'xgb__reg_alpha': np.linspace(0, 1, 11),  # Changed to float range
+        'xgb__learning_rate': np.arange(0.01, 0.3, 0.02),  # Lowered minimum
+        'xgb__n_estimators': [50, 100, 200, 300, 500, 1000]  # Added smaller values
     }
 
     k_fold_options = list(range(3, 6))  # 3 to 5
@@ -340,7 +397,7 @@ def train_xgboost_regressor_dask(
         for i in range(iterations_per_kfold):
             task = train_single_kfold_xgboost(
                 X=X,
-                y=y,
+                y=y,  # Use scaled response variable
                 k_folds=k_folds,
                 param_distributions=param_distributions,
                 n_iter=n_iter,
@@ -353,7 +410,7 @@ def train_xgboost_regressor_dask(
 
     total_iterations = len(delayed_tasks)
     logger.info(f"Created {total_iterations} parallel training tasks")
-    print(f"🚀 Starting {total_iterations} parallel training iterations...")
+    print(f"🚀 Starting {total_iterations} parallel training iterations with scaled response variable...")
 
     # Execute tasks in parallel with progress tracking
     start_time = time.time()
@@ -404,10 +461,10 @@ def train_xgboost_regressor_dask(
     if not results_df.empty:
         results_df = results_df.sort_values('mae_score', ascending=True).reset_index(drop=True)  # Sort by MAE ascending (lower is better)
         logger.info(f"Training completed. Generated {len(results_df)} successful results")
-        logger.info(f"Best MAE score: {results_df.iloc[0]['mae_score']:.4f}")
+        logger.info(f"Best MAE score (on scaled target): {results_df.iloc[0]['mae_score']:.4f}")
 
         # Log top 5 results
-        logger.info(f"Top 5 results:")
+        logger.info(f"Top 5 results (MAE on scaled target):")
         for idx, row in results_df.head().iterrows():
             logger.info(f"  Rank {idx+1}: MAE={row['mae_score']:.4f}, K-fold={row['k_folds']}, "
                        f"max_depth={row['max_depth']}, learning_rate={row['learning_rate']:.3f}")
@@ -512,14 +569,14 @@ def train_xgboost_regressor(
 
     # Define parameter distributions for RandomizedSearchCV
     param_distributions = {
-        'xgb__max_depth': list(range(3, 26)),
-        'xgb__min_child_weight': list(range(1, 6)),
-        'xgb__gamma': np.linspace(0, 6, 100),
-        'xgb__reg_lambda': list(range(0, 6)),
-        'xgb__colsample_bytree': np.linspace(0.4, 0.7, 4),
-        'xgb__reg_alpha': list(range(0, 6)),
-        'xgb__learning_rate': np.arange(0.05, 0.16, 0.01),
-        'xgb__n_estimators': np.arange(100, 1100, 100)
+        'xgb__max_depth': list(range(3, 15)),  # Increased from 11
+        'xgb__min_child_weight': list(range(1, 11)),  # Reduced from 26
+        'xgb__gamma': np.linspace(0, 2, 21),  # Reduced from 10
+        'xgb__reg_lambda': np.linspace(0.1, 2, 20),  # Changed to float range
+        'xgb__colsample_bytree': np.linspace(0.6, 1.0, 5),  # Increased range
+        'xgb__reg_alpha': np.linspace(0, 1, 11),  # Changed to float range
+        'xgb__learning_rate': np.arange(0.01, 0.3, 0.02),  # Lowered minimum
+        'xgb__n_estimators': [50, 100, 200, 300, 500, 1000]  # Added smaller values
     }
 
     # K-Fold cross-validation options
@@ -539,6 +596,8 @@ def train_xgboost_regressor(
         # Create XGBoost regressor
         xgb_regressor = xgb.XGBRegressor(
             objective='reg:absoluteerror',
+            eval_metric='mae',
+            tree_method='exact',  # Use 'exact' for better accuracy
             random_state=random_state,
             n_jobs=n_jobs,
             verbosity=0
@@ -721,6 +780,72 @@ def save_model_results(
         conn.close()
         logger.info("Database connection closed")
 
+def save_feature_importance_results(
+    feature_data_list: List[Dict],
+    target_schema_name: str = "models",
+    target_table_name: str = "xgbreg_features",
+    duckdb_name: str = "assignment.duckdb"
+) -> None:
+    """
+    Save feature importance results to a specified schema and table in DuckDB
+
+    Args:
+        feature_data_list: List of dictionaries containing feature importance data
+        target_schema_name: Schema name where the results table will be created
+        target_table_name: Table name for storing the results
+        duckdb_name: Name of the DuckDB database file
+    """
+    logger = logging.getLogger('ModelTrainingRegressor')
+
+    if not feature_data_list:
+        logger.warning("No feature importance data to save")
+        return
+
+    # Get the project root directory (parent of Scripts folder)
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent
+
+    # Define database path
+    db_path = project_root / duckdb_name
+
+    logger.info(f"Saving feature importance results to {target_schema_name}.{target_table_name}")
+    logger.info(f"Database path: {db_path}")
+
+    # Convert to DataFrame
+    features_df = pd.DataFrame(feature_data_list)
+
+    # Initialize DuckDB connection
+    conn = duckdb.connect(str(db_path))
+
+    try:
+        # Create target schema if it doesn't exist
+        conn.execute(f"CREATE SCHEMA IF NOT EXISTS {target_schema_name}")
+        logger.info(f"Created/verified schema: {target_schema_name}")
+
+        # Drop the table if it exists and create new one
+        conn.execute(f"DROP TABLE IF EXISTS {target_schema_name}.{target_table_name}")
+        logger.info(f"Dropped existing table if present: {target_schema_name}.{target_table_name}")
+
+        # Save DataFrame to DuckDB table
+        conn.execute(f"CREATE TABLE {target_schema_name}.{target_table_name} AS SELECT * FROM features_df")
+        logger.info(f"Successfully created table: {target_schema_name}.{target_table_name}")
+
+        # Verify the data was saved correctly
+        result = conn.execute(f"SELECT COUNT(*) as row_count FROM {target_schema_name}.{target_table_name}").fetchone()
+        logger.info(f"Verified: {result[0]} rows saved to {target_schema_name}.{target_table_name}")
+
+        # Show sample of saved data
+        logger.info("Sample of saved feature importance results:")
+        sample_data = conn.execute(f"SELECT * FROM {target_schema_name}.{target_table_name} LIMIT 5").fetchdf()
+        logger.info(f"\n{sample_data}")
+
+    except Exception as e:
+        logger.error(f"Error saving feature importance results: {e}")
+        raise
+    finally:
+        conn.close()
+        logger.info("Database connection closed")
+
 if __name__ == "__main__":
     # Set up logging first
     logger = setup_logging()
@@ -745,6 +870,9 @@ if __name__ == "__main__":
             table_name="train",
             col_non_zero="Revenue_MF"
         )
+        print('DEBUG >>>')
+        print(data.head(3))
+        print('<<<')
 
         # Configuration for regression task
         response_variable = "Revenue_MF"  # Example continuous variable for regression
@@ -785,6 +913,22 @@ if __name__ == "__main__":
             )
             logger.info("✅ Model results saved to database successfully")
 
+            # Extract and save feature importance data
+            all_feature_data = []
+            for _, row in results_df.iterrows():
+                if 'feature_data' in row and row['feature_data']:
+                    all_feature_data.extend(row['feature_data'])
+
+            if all_feature_data:
+                save_feature_importance_results(
+                    feature_data_list=all_feature_data,
+                    target_schema_name="models",
+                    target_table_name="xgbreg_sales_mf_revenue",
+                    duckdb_name="assignment.duckdb"
+                )
+                logger.info("✅ Feature importance results saved to database successfully")
+                print(f"💾 Saved {len(all_feature_data)} feature importance records to models.xgbreg_features")
+
             # Print summary
             print(f"\n🎯 Regressor Training Summary:")
             print(f"Total parameter combinations tested: {len(results_df)}")
@@ -795,7 +939,9 @@ if __name__ == "__main__":
                        'colsample_bytree', 'reg_alpha', 'learning_rate', 'n_estimators']:
                 print(f"  {col}: {best_row[col]}")
 
-            print(f"\nResults saved")
+            print(f"\nResults saved to:")
+            print(f"  - Model results")
+            print(f"  - Feature importance: models.xgbreg_features")
 
     except Exception as e:
         logger.error(f"❌ Regressor training failed: {e}")
