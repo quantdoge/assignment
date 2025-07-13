@@ -503,8 +503,6 @@ if __name__ == "__main__":
                        'colsample_bytree', 'reg_alpha', 'learning_rate', 'early_stopping_rounds']:
                 print(f"  {col}: {best_row[col]}")
 
-            print(f"\nResults saved to: models.xgboost_training_results")
-
     except Exception as e:
         logger.error(f"❌ Model training failed: {e}")
         raise
