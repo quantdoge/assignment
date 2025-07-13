@@ -570,13 +570,13 @@ def train_xgboost_regressor(
     # Define parameter distributions for RandomizedSearchCV
     param_distributions = {
         'xgb__max_depth': list(range(3, 15)),  # Increased from 11
-        'xgb__min_child_weight': list(range(1, 11)),  # Reduced from 26
+        'xgb__min_child_weight': list(range(1, 6)),  # Reduced from 26
         'xgb__gamma': np.linspace(0, 2, 21),  # Reduced from 10
         'xgb__reg_lambda': np.linspace(0.1, 2, 20),  # Changed to float range
-        'xgb__colsample_bytree': np.linspace(0.6, 1.0, 5),  # Increased range
+        'xgb__colsample_bytree': np.linspace(0.7, 1.0, 6),  # Increased range
         'xgb__reg_alpha': np.linspace(0, 1, 11),  # Changed to float range
         'xgb__learning_rate': np.arange(0.01, 0.3, 0.02),  # Lowered minimum
-        'xgb__n_estimators': [50, 100, 200, 300, 500, 1000]  # Added smaller values
+        'xgb__n_estimators': [100, 200, 300, 500, 1000, 2000]  # Added smaller values
     }
 
     # K-Fold cross-validation options
@@ -868,14 +868,14 @@ if __name__ == "__main__":
             duckdb_name="assignment.duckdb",
             schema_name="silver",
             table_name="train",
-            col_non_zero="Revenue_CC" #Revenue_MF
+            col_non_zero="Revenue_CL" #Revenue_MF, Revenue_CC
         )
         print('DEBUG >>>')
         print(data.head(3))
         print('<<<')
 
         # Configuration for regression task
-        response_variable = "Revenue_CC"  # Example continuous variable for regression
+        response_variable = "Revenue_CL"  # Example continuous variable for regression
         predictive_variables_all = ["VolumeCred","VolumeCred_CA","TransactionsCred","TransactionsCred_CA","VolumeDeb","VolumeDeb_CA",
             "VolumeDebCash_Card","VolumeDebCashless_Card","VolumeDeb_PaymentOrder","TransactionsDeb","TransactionsDeb_CA",
             "TransactionsDebCash_Card","TransactionsDebCashless_Card","TransactionsDeb_PaymentOrder","Count_CA","Count_SA",
@@ -883,7 +883,8 @@ if __name__ == "__main__":
             "ActBal_CL","Age","Tenure","Sex"
         ]
         predictive_variables_mf = ["VolumeDebCash_Card","VolumeDeb","VolumeDebCashless_Card","VolumeDeb_PaymentOrder"]
-        predictive_variables = ["VolumeDebCashless_Card","Tenure","Age"]
+        predictive_variables_cc = ["VolumeDebCashless_Card","Tenure","Age"]
+        predictive_variables= ['VolumeCred_CA','TransactionsDeb','Tenure','VolumeDeb_PaymentOrder','VolumeCred','VolumeDebCash_Card']
 
         categorical_variables_all = ["Sex"]
         categorical_variables = []
@@ -909,7 +910,7 @@ if __name__ == "__main__":
             save_model_results(
                 results_df=results_df,
                 target_schema_name="models",
-                target_table_name="xgboost_sales_cc_revenue_top", # xgboost_sales_mf_revenue, xgboost_sales_mf_revenue_top, xgboost_sales_cc_revenue
+                target_table_name="xgboost_sales_cl_revenue_top", # xgboost_sales_mf_revenue, xgboost_sales_mf_revenue_top, xgboost_sales_cc_revenue, xgboost_sales_cc_revenue_top, xgboost_sales_cl_revenue
                 duckdb_name="assignment.duckdb"
             )
             logger.info("✅ Model results saved to database successfully")
@@ -924,7 +925,7 @@ if __name__ == "__main__":
                 save_feature_importance_results(
                     feature_data_list=all_feature_data,
                     target_schema_name="models",
-                    target_table_name="xgbreg_sales_cc_revenue_top", #xgbreg_sales_mf_revenue, xgbreg_sales_mf_revenue_top, xgbreg_sales_cc_revenue
+                    target_table_name="xgbreg_sales_cl_revenue_top", #xgbreg_sales_mf_revenue, xgbreg_sales_mf_revenue_top, xgbreg_sales_cc_revenue, xgbreg_sales_cc_revenue_top, xgbreg_sales_cl_revenue
                     duckdb_name="assignment.duckdb"
                 )
                 logger.info("✅ Feature importance results saved to database successfully")

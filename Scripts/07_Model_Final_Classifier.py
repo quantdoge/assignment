@@ -535,13 +535,14 @@ if __name__ == "__main__":
 
     try:
         # Configuration - Update these variables as needed
-        response_variable = "Sale_CL"  # Change to "Sale_CC" or "Sale_MF" as needed
-        predictive_variables = ["Tenure", "Age", "VolumeCred_CA", "VolumeDeb_CA", "ActBal_CA"]
+        response_variable = "Sale_CC" #Sale_MF
+        predictive_variables = ["TransactionsDebCashless_Card","Count_MF", "Age", "VolumeCred_CA"]
+
         categorical_variables = []  # Add categorical variables if any, e.g., ["Sex"]
 
         # Model configuration
-        model_name = "final_xgboost_cl_model"  # Update based on response variable
-        training_results_table = "xgboost_cl_sales_top"  # Update to match your training results table
+        model_name = "final_xgboost_mf_model"  # Update based on response variable
+        training_results_table = "xgboost_mf_sales_top"  # Update to match your training results table
 
         logger.info(f"Training final model for: {response_variable}")
         logger.info(f"Using predictive variables: {predictive_variables}")
@@ -587,7 +588,7 @@ if __name__ == "__main__":
             response_variable=response_variable,
             predictive_variables=predictive_variables,
             target_schema_name="models",
-            target_table_name="final_model_results",
+            target_table_name=model_name,
             duckdb_name="assignment.duckdb"
         )
 
@@ -604,7 +605,7 @@ if __name__ == "__main__":
         print(f"F1 Score: {metrics['f1_score']:.4f}")
         print(f"Training Time: {metrics['training_time_seconds']:.2f} seconds")
         print(f"Model saved to: Models/")
-        print(f"Metrics saved to database: models.final_model_results")
+        print(f"Metrics saved to database: models.{model_name}")
 
     except Exception as e:
         logger.error(f"❌ Final model training failed: {e}")

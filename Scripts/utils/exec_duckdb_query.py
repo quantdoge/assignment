@@ -160,4 +160,24 @@ SELECT AVG(ABS_ERROR) AS mae_cc FROM INT
 query_result= execute_query(query=query)
 print(query_result)
 
+query='''
+WITH AVG_CMF AS (
+	SELECT 1 AS dummy, AVG(Revenue_CL) AS avg_revenue_cl
+	FROM silver.train
+    WHERE Revenue_CL!=0 AND Revenue_CL IS NOT NULL
+), INT AS (
+	SELECT a.*,
+		   ABS(a.Revenue_CL - b.avg_revenue_cl) as abs_error
+    FROM (SELECT 1 AS dummy, * FROM silver.train) a
+    LEFT JOIN AVG_CMF b ON a.dummy=b.dummy
+    WHERE a.Revenue_CL!=0 AND a.Revenue_CL IS NOT NULL
+)
+SELECT AVG(ABS_ERROR) AS mae_cl FROM INT
+'''
+query_result= execute_query(query=query)
+print(query_result)
+
+final_mf_sales_query= 'SELECT * FROM models.final_xgboost_mf_model'
+final_mf_sales_result= execute_query(query=final_mf_sales_query)
+save_queried(final_mf_sales_result,file_name='final_mf_sales_result.csv')
 

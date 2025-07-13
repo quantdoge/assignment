@@ -777,14 +777,14 @@ if __name__ == "__main__":
 
     # Run SHAP analysis with best parameters from training (using default variables)
     run_shap_analysis_with_parameters(
-        response_variable="Revenue_CC", #Revenue_MF
-        model_table_name="xgboost_sales_cc_revenue", #xgboost_sales_cc_revenue
+        response_variable="Revenue_CL", #Revenue_MF, Revenue_CC
+        model_table_name="xgboost_sales_cl_revenue", #xgboost_sales_cc_revenue, xgboost_sales_cl_revenue
         use_best_params=True,
         model_duckdb_name="assignment.duckdb",
         model_schema_name="models",
-        saved_to_table_name="shap_values_cc_revenue", #shap_values_mf_revenue
-        generated_img_prefix="cc_revenue_shap", #mf_revenue_shap
-        col_non_zero="Revenue_CC",
+        saved_to_table_name="shap_values_cl_revenue", #shap_values_mf_revenue
+        generated_img_prefix="cl_revenue_shap", #mf_revenue_shap
+        col_non_zero="Revenue_CL",
         scale_response=True
     )
 
