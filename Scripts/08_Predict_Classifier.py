@@ -442,14 +442,29 @@ if __name__ == "__main__":
     logger.info("Starting model prediction process for test data")
 
     try:
-        final_xgboost_cl_model
-        final_xgboost_cl_model_Sale_CL_20250714_020030
-        test_predictions_cl_sales
-        test_predictions_cl_sales.csv
+        # model_table_name:
+        #     - final_xgboost_cl_model
+        #	  - final_xgboost_mf_model
+        #	  - final_xgboost_cc_model
+
+		# model_filename:
+        # 	- final_xgboost_cl_model_Sale_CL_20250714_020030
+        #	- final_xgboost_mf_model_Sale_MF_20250714_014227.joblib
+        #   - final_xgboost_cc_model_Sale_CC_20250714_015428.joblib"
+
+        # target_table_name:
+        # 	- test_predictions_cl_sales
+        #   - test_predictions_mf_sales
+        #	- test_predictions_cc_sales
+
+        # filename:
+        # 	- test_predictions_cl_sales.csv
+        #   - test_predictions_mf_sales.csv
+        #	- test_predictions_cc_sales.csv
 
         # Configuration
-        model_table_name = "final_xgboost_cl_model"
-        model_filename = "final_xgboost_cl_model_Sale_CL_20250714_020030.joblib"
+        model_table_name = "final_xgboost_cc_model"
+        model_filename = "final_xgboost_cc_model_Sale_CC_20250714_015428.joblib"
         categorical_variables = []  # Update if there were categorical variables in training
 
         logger.info(f"Using model table: {model_table_name}")
@@ -491,14 +506,14 @@ if __name__ == "__main__":
         save_predictions_to_db(
             predictions=predictions,
             target_schema_name="models",
-            target_table_name="test_predictions_cl_sales",
+            target_table_name="test_predictions_cc_sales",
             duckdb_name="assignment.duckdb"
         )
 
         # Step 7: Save predictions to CSV
         csv_path = save_predictions_to_csv(
             predictions=predictions,
-            filename="test_predictions_cl_sales.csv"
+            filename="test_predictions_cc_sales.csv"
         )
 
         logger.info("✅ Model prediction process completed successfully")
