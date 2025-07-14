@@ -1,0 +1,615 @@
+quality_checks:
+  - check_name: "soc_dem_client_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "client"
+    is_check_unique: true
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+
+  - check_name: "soc_dem_sex_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "sex"
+    is_check_unique: false
+    is_check_enum: true
+    enum_values: ['M','F']
+    is_check_positive: false
+    is_check_null: true
+    is_check_type: true
+    df_type: "string"
+    is_sync_null: false
+
+  - check_name: "soc_dem_age_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "age"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+
+  - check_name: "soc_dem_tenure_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "soc_dem"
+    data_field_name: "tenure"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+
+  - check_name: "products_actbalance_client_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "client"
+    is_check_unique: true
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+
+  - check_name: "products_actbalance_Count_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "ActBal_CA"
+    is_sync_zero: true
+    sync_zero_field: "ActBal_CA"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_Count_SA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_SA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "ActBal_SA"
+    is_sync_zero: true
+    sync_zero_field: "ActBal_SA"
+    is_zero_check: true
+
+
+  - check_name: "products_actbalance_Count_MF_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_MF"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "ActBal_MF"
+    is_sync_zero: true
+    sync_zero_field: "ActBal_MF"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_Count_OVD_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_OVD"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "ActBal_OVD"
+    is_sync_zero: true
+    sync_zero_field: "ActBal_OVD"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_Count_CL_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "Count_CL"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "ActBal_CL"
+    is_sync_zero: true
+    sync_zero_field: "ActBal_CL"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_ActBal_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "ActBal_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Count_CA"
+    is_sync_zero: true
+    sync_zero_field: "Count_CA"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_ActBal_SA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "ActBal_SA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Count_SA"
+    is_sync_zero: true
+    sync_zero_field: "Count_SA"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_ActBal_MF_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "ActBal_MF"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Count_MF"
+    is_sync_zero: true
+    sync_zero_field: "Count_MF"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_ActBal_OVD_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "ActBal_OVD"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Count_OVD"
+    is_sync_zero: true
+    sync_zero_field: "Count_OVD"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_ActBal_CC_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "ActBal_CC"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Count_CC"
+    is_sync_zero: true
+    sync_zero_field: "Count_CC"
+    is_zero_check: true
+
+  - check_name: "products_actbalance_ActBal_CL_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "products_actbalance"
+    data_field_name: "ActBal_CL"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Count_CL"
+    is_sync_zero: true
+    sync_zero_field: "Count_CL"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_Client_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "Client"
+    is_check_unique: true
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+
+  - check_name: "inflow_outflow_VolumeCred_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeCred"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "TransactionsCred"
+    is_sync_zero: true
+    sync_zero_field: "TransactionsCred"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_VolumeCred_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeCred_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "TransactionsCred_CA"
+    is_sync_zero: true
+    sync_zero_field: "TransactionsCred_CA"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_TransactionsCred_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsCred"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "VolumeCred"
+    is_sync_zero: true
+    sync_zero_field: "VolumeCred"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_TransactionsCred_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsCred_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "VolumeCred_CA"
+    is_sync_zero: true
+    sync_zero_field: "VolumeCred_CA"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_VolumeDeb_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeDeb"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "TransactionsDeb"
+    is_sync_zero: true
+    sync_zero_field: "TransactionsDeb"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_VolumeDeb_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeDeb_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "TransactionsDeb_CA"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_VolumeDebCash_Card_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeDebCash_Card"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "TransactionsDebCash_Card"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_VolumeDebCashless_Card_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeDebCashless_Card"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "TransactionsDebCashless_Card"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_VolumeDeb_PaymentOrder_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "VolumeDeb_PaymentOrder"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "TransactionsDeb_PaymentOrder"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_TransactionsDeb_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsDeb"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "VolumeDeb"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_TransactionsDeb_CA_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsDeb_CA"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "VolumeDeb_CA"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_TransactionsDebCash_Card_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsDebCash_Card"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "VolumeDebCash_Card"
+    is_zero_check: true
+
+  - check_name: "inflow_outflow_TransactionsDebCashless_Card_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsDebCashless_Card"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "VolumeDebCashless_Card"
+    is_zero_check: true
+
+
+  - check_name: "inflow_outflow_TransactionsDeb_PaymentOrder_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "inflow_outflow"
+    data_field_name: "TransactionsDeb_PaymentOrder"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: true
+    sync_zero_field: "VolumeDeb_PaymentOrder"
+    is_zero_check: true
+
+  - check_name: "sales_revenues_Client_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Client"
+    is_check_unique: true
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: false
+    is_sync_zero: false
+
+  - check_name: "sales_revenues_Sale_MF_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Sale_MF"
+    is_check_unique: false
+    is_check_enum: true
+    enum_values: [0,1]
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Revenue_MF"
+    is_sync_zero: true
+    sync_zero_field: "Revenue_MF"
+
+  - check_name: "sales_revenues_Sale_CC_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Sale_CC"
+    is_check_unique: false
+    is_check_enum: true
+    enum_values: [0,1]
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Revenue_CC"
+    is_sync_zero: true
+    sync_zero_field: "Revenue_CC"
+
+  - check_name: "sales_revenues_Sale_CL_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Sale_CL"
+    is_check_unique: false
+    is_check_enum: true
+    enum_values: [0,1]
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Revenue_CL"
+    is_sync_zero: true
+    sync_zero_field: "Revenue_CL"
+
+  - check_name: "sales_revenues_Revenue_MF_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Revenue_MF"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Sale_MF"
+    is_sync_zero: true
+    sync_zero_field: "Sale_MF"
+
+
+  - check_name: "sales_revenues_Revenue_CC_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Revenue_CC"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Sale_CC"
+    is_sync_zero: true
+    sync_zero_field: "Sale_CC"
+
+  - check_name: "sales_revenues_Revenue_CL_validation"
+    database_name: "assignment.duckdb"
+    schema_name: "bronze"
+    table_name: "sales_revenues"
+    data_field_name: "Revenue_CL"
+    is_check_unique: false
+    is_check_enum: false
+    is_check_positive: true
+    is_check_null: true
+    is_check_type: true
+    df_type: "numerical"
+    is_sync_null: true
+    sync_null_field: "Sale_CL"
+    is_sync_zero: true
+    sync_zero_field: "Sale_CL"
+
+
+
+

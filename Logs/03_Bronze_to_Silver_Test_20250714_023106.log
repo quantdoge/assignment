@@ -1,0 +1,18 @@
+2025-07-14 02:31:06,425 - BronzeToSilver - INFO - Starting Bronze to Silver transformation process
+2025-07-14 02:31:06,427 - BronzeToSilver - INFO - Database path: c:\Users\jason\assignment\assignment.duckdb
+2025-07-14 02:31:06,452 - BronzeToSilver - INFO - Connected to DuckDB database: c:\Users\jason\assignment\assignment.duckdb
+2025-07-14 02:31:06,452 - BronzeToSilver - INFO - Created silver schema
+2025-07-14 02:31:06,476 - BronzeToSilver - INFO - Found bronze.sales_revenues
+2025-07-14 02:31:06,479 - BronzeToSilver - INFO - Found bronze.inflow_outflow
+2025-07-14 02:31:06,497 - BronzeToSilver - INFO - Found bronze.products_actbalance
+2025-07-14 02:31:06,502 - BronzeToSilver - INFO - Found bronze.soc_dem
+2025-07-14 02:31:06,502 - BronzeToSilver - INFO - Analyzing table schemas...
+2025-07-14 02:31:06,506 - BronzeToSilver - INFO - bronze.sales_revenues has 7 columns
+2025-07-14 02:31:06,508 - BronzeToSilver - INFO - bronze.inflow_outflow has 15 columns
+2025-07-14 02:31:06,511 - BronzeToSilver - INFO - bronze.products_actbalance has 13 columns
+2025-07-14 02:31:06,515 - BronzeToSilver - INFO - bronze.soc_dem has 4 columns
+2025-07-14 02:31:06,515 - BronzeToSilver - INFO - Building JOIN query...
+2025-07-14 02:31:06,516 - BronzeToSilver - INFO - Executing JOIN query to create silver.test table...
+2025-07-14 02:31:06,519 - BronzeToSilver - ERROR - Error occurred: Parser Error: syntax error at or near "."
+2025-07-14 02:31:06,523 - BronzeToSilver - INFO - Database connection closed
+2025-07-14 02:31:06,524 - BronzeToSilver - ERROR - ❌ Bronze to Silver transformation process failed: Parser Error: syntax error at or near "."

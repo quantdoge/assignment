@@ -1,0 +1,61 @@
+2025-07-13 13:02:57,377 - SHAPAnalysisRegressor - INFO - Starting SHAP analysis for regression
+2025-07-13 13:02:57,377 - SHAPAnalysisRegressor - INFO - Loading training data...
+2025-07-13 13:02:57,377 - SHAPAnalysisRegressor - INFO - Loading data from silver.train
+2025-07-13 13:02:57,377 - SHAPAnalysisRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 13:02:57,466 - SHAPAnalysisRegressor - INFO - Successfully loaded 193 rows and 36 columns
+2025-07-13 13:02:57,466 - SHAPAnalysisRegressor - INFO - Data shape: (193, 36)
+2025-07-13 13:02:57,473 - SHAPAnalysisRegressor - INFO - Using response variable: Revenue_MF
+2025-07-13 13:02:57,473 - SHAPAnalysisRegressor - INFO - Using 28 predictive variables
+2025-07-13 13:02:57,473 - SHAPAnalysisRegressor - INFO - Using 1 categorical variables: ['Sex']
+2025-07-13 13:02:57,473 - SHAPAnalysisRegressor - INFO - Loading best model parameters from training results...
+2025-07-13 13:02:57,473 - SHAPAnalysisRegressor - INFO - Loading best model parameters from models.xgboost_sales_mf_revenue
+2025-07-13 13:02:57,522 - SHAPAnalysisRegressor - INFO - Best model MAE score: 8.3963
+2025-07-13 13:02:57,522 - SHAPAnalysisRegressor - INFO - Best model parameters loaded successfully
+2025-07-13 13:02:57,527 - SHAPAnalysisRegressor - INFO - Using parameters: max_depth=9, min_child_weight=2, gamma=1.5, reg_lambda=8.0, colsample_bytree=0.8, reg_alpha=7.0, learning_rate=0.2, n_estimators=100
+2025-07-13 13:02:57,527 - SHAPAnalysisRegressor - INFO - Building and training XGBoost regressor...
+2025-07-13 13:02:57,527 - SHAPAnalysisRegressor - INFO - Building XGBoost regressor with specified parameters
+2025-07-13 13:02:57,527 - SHAPAnalysisRegressor - INFO - Parameters: max_depth=9, min_child_weight=2, gamma=1.5, reg_lambda=8.0, colsample_bytree=0.8, reg_alpha=7.0, learning_rate=0.2, n_estimators=100
+2025-07-13 13:02:57,527 - SHAPAnalysisRegressor - INFO - Preparing data...
+2025-07-13 13:02:57,530 - SHAPAnalysisRegressor - INFO - Data after filtering for non-zero Revenue_MF: (193, 29)
+2025-07-13 13:02:57,534 - SHAPAnalysisRegressor - INFO - Data after cleaning: (193, 29)
+2025-07-13 13:02:57,534 - SHAPAnalysisRegressor - INFO - Target variable statistics: mean=9.6650, std=20.5742, min=0.0048, max=220.4882
+2025-07-13 13:02:57,534 - SHAPAnalysisRegressor - INFO - Training set size: (154, 28)
+2025-07-13 13:02:57,534 - SHAPAnalysisRegressor - INFO - Test set size: (39, 28)
+2025-07-13 13:02:57,542 - SHAPAnalysisRegressor - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-13 13:02:57,542 - SHAPAnalysisRegressor - INFO - Categorical variables: ['Sex']
+2025-07-13 13:02:57,542 - SHAPAnalysisRegressor - INFO - Training model...
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Model training completed
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Test MAE score: 5.9720
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Test R² score: -0.1298
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Computing SHAP values...
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Computing SHAP values...
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Sample size for SHAP: 1000
+2025-07-13 13:02:57,582 - SHAPAnalysisRegressor - INFO - Background size for SHAP: 100
+2025-07-13 13:02:57,588 - SHAPAnalysisRegressor - INFO - Feature names after preprocessing: 28 features
+2025-07-13 13:02:57,588 - SHAPAnalysisRegressor - INFO - Using 39 samples for SHAP computation
+2025-07-13 13:02:57,588 - SHAPAnalysisRegressor - INFO - Using 100 background samples
+2025-07-13 13:02:57,588 - SHAPAnalysisRegressor - INFO - Creating SHAP TreeExplainer...
+2025-07-13 13:02:57,601 - SHAPAnalysisRegressor - INFO - Computing SHAP values...
+2025-07-13 13:02:57,605 - SHAPAnalysisRegressor - INFO - SHAP values computed successfully
+2025-07-13 13:02:57,605 - SHAPAnalysisRegressor - INFO - SHAP values shape: (39, 28)
+2025-07-13 13:02:57,605 - SHAPAnalysisRegressor - INFO - Creating SHAP visualizations...
+2025-07-13 13:02:57,605 - SHAPAnalysisRegressor - INFO - Saving SHAP visualizations to: C:\Users\jason\assignment\Outputs\SHAP_Analysis_Regressor
+2025-07-13 13:02:57,605 - SHAPAnalysisRegressor - INFO - Using file prefix: mf_revenue_shap
+2025-07-13 13:02:57,607 - SHAPAnalysisRegressor - INFO - Creating SHAP summary plot (bar)...
+2025-07-13 13:02:58,505 - SHAPAnalysisRegressor - INFO - Creating SHAP summary plot (beeswarm)...
+2025-07-13 13:02:59,284 - SHAPAnalysisRegressor - INFO - Creating SHAP waterfall plot...
+2025-07-13 13:02:59,977 - SHAPAnalysisRegressor - INFO - Creating SHAP force plots...
+2025-07-13 13:02:59,993 - SHAPAnalysisRegressor - INFO - Creating partial dependence plots for top features...
+2025-07-13 13:03:00,157 - SHAPAnalysisRegressor - WARNING - Could not create partial dependence plot for Sex_M: name 'model' is not defined
+2025-07-13 13:03:00,157 - SHAPAnalysisRegressor - WARNING - Could not create partial dependence plot for Tenure: name 'model' is not defined
+2025-07-13 13:03:00,157 - SHAPAnalysisRegressor - WARNING - Could not create partial dependence plot for VolumeCred_CA: name 'model' is not defined
+2025-07-13 13:03:00,157 - SHAPAnalysisRegressor - WARNING - Could not create partial dependence plot for TransactionsCred: name 'model' is not defined
+2025-07-13 13:03:00,159 - SHAPAnalysisRegressor - WARNING - Could not create partial dependence plot for TransactionsCred_CA: name 'model' is not defined
+2025-07-13 13:03:00,744 - SHAPAnalysisRegressor - INFO - SHAP visualizations created successfully
+2025-07-13 13:03:00,744 - SHAPAnalysisRegressor - INFO - Saving SHAP results to database...
+2025-07-13 13:03:00,744 - SHAPAnalysisRegressor - INFO - Saving SHAP results to models.shap_values_mf_revenue
+2025-07-13 13:03:00,774 - SHAPAnalysisRegressor - INFO - Saved SHAP summary to models.shap_values_mf_revenue_summary
+2025-07-13 13:03:00,782 - SHAPAnalysisRegressor - INFO - Saved detailed SHAP values to models.shap_values_mf_revenue_detailed
+2025-07-13 13:03:00,784 - SHAPAnalysisRegressor - INFO - Verified: 28 features in summary table
+2025-07-13 13:03:00,784 - SHAPAnalysisRegressor - INFO - Verified: 1092 SHAP value records in detailed table
+2025-07-13 13:03:00,829 - SHAPAnalysisRegressor - INFO - ✅ SHAP analysis for regression completed successfully

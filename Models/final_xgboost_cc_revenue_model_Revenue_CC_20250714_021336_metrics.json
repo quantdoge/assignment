@@ -1,0 +1,13 @@
+{
+  "model_name": "final_xgboost_cc_revenue_model",
+  "mae": 8.102994867153685,
+  "mse": 1197.241755148978,
+  "rmse": 34.601181412619106,
+  "r2_score": -0.028819702542145054,
+  "mae_percentage": 74.59592872197925,
+  "mean_actual": 10.862516233766234,
+  "std_actual": 34.18380896973605,
+  "training_time_seconds": 0.044515,
+  "training_samples": 242,
+  "response_scaled": false
+}

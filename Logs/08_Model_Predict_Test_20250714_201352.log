@@ -1,0 +1,26 @@
+2025-07-14 20:13:52,728 - ModelPrediction - INFO - Starting model prediction process for test data
+2025-07-14 20:13:52,729 - ModelPrediction - INFO - Using model table: final_xgboost_mf_model
+2025-07-14 20:13:52,729 - ModelPrediction - INFO - Using model file: final_xgboost_mf_model_Sale_MF_20250714_014227.joblib
+2025-07-14 20:13:52,729 - ModelPrediction - INFO - Getting predictor variables from models.final_xgboost_mf_model
+2025-07-14 20:13:52,910 - ModelPrediction - INFO - Found 4 predictor variables: ['TransactionsDebCashless_Card', 'Count_MF', 'Age', 'VolumeCred_CA']
+2025-07-14 20:13:52,925 - ModelPrediction - INFO - Loading test data from silver.test
+2025-07-14 20:13:52,925 - ModelPrediction - INFO - Selecting predictors: ['TransactionsDebCashless_Card', 'Count_MF', 'Age', 'VolumeCred_CA']
+2025-07-14 20:13:53,009 - ModelPrediction - INFO - Successfully loaded 636 rows and 5 columns
+2025-07-14 20:13:53,009 - ModelPrediction - INFO - Test data shape: (636, 5)
+2025-07-14 20:13:53,015 - ModelPrediction - INFO - Loading trained model from: C:\Users\jason\assignment\Models\final_xgboost_mf_model_Sale_MF_20250714_014227.joblib
+2025-07-14 20:13:53,040 - ModelPrediction - INFO - Successfully loaded trained model
+2025-07-14 20:13:53,040 - ModelPrediction - INFO - Pipeline steps: ['preprocessor', 'xgb']
+2025-07-14 20:13:53,040 - ModelPrediction - INFO - Preprocessing test data...
+2025-07-14 20:13:53,040 - ModelPrediction - INFO - Input shape: (636, 5)
+2025-07-14 20:13:53,044 - ModelPrediction - INFO - Data after cleaning: (636, 5)
+2025-07-14 20:13:53,048 - ModelPrediction - INFO - Making predictions...
+2025-07-14 20:13:53,048 - ModelPrediction - INFO - Prediction input shape: (636, 4)
+2025-07-14 20:13:53,061 - ModelPrediction - INFO - Predictions completed. Results shape: (636, 3)
+2025-07-14 20:13:53,061 - ModelPrediction - INFO - Prediction distribution: {0: 434, 1: 202}
+2025-07-14 20:13:53,062 - ModelPrediction - INFO - Probability statistics: min=0.3187, max=0.7326, mean=0.4756
+2025-07-14 20:13:53,062 - ModelPrediction - INFO - Saving predictions to models.test_predictions_mf_sales
+2025-07-14 20:13:53,088 - ModelPrediction - INFO - Created/verified schema: models
+2025-07-14 20:13:53,093 - ModelPrediction - INFO - Successfully saved 636 predictions to models.test_predictions_mf_sales
+2025-07-14 20:13:53,095 - ModelPrediction - INFO - Verified: 636 records in table
+2025-07-14 20:13:53,168 - ModelPrediction - INFO - Predictions saved to CSV: C:\Users\jason\assignment\Outputs\test_predictions_mf_sales_20250714_201353.csv
+2025-07-14 20:13:53,168 - ModelPrediction - INFO - ✅ Model prediction process completed successfully

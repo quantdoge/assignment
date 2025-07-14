@@ -1,0 +1,45 @@
+2025-07-12 23:41:30,346 - ModelTraining - INFO - Starting XGBoost model training process with Dask
+2025-07-12 23:41:33,920 - ModelTraining - INFO - Dask client created successfully
+2025-07-12 23:41:33,920 - ModelTraining - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-12 23:41:33,920 - ModelTraining - INFO - Workers: 5
+2025-07-12 23:41:33,920 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 23:41:33,920 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 23:41:34,042 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 23:41:34,042 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 23:41:34,049 - ModelTraining - INFO - Starting model training with Dask...
+2025-07-12 23:41:34,049 - ModelTraining - INFO - Starting XGBoost binary classifier training with Dask
+2025-07-12 23:41:34,050 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 23:41:34,050 - ModelTraining - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-12 23:41:34,050 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 23:41:34,050 - ModelTraining - INFO - Preparing data...
+2025-07-12 23:41:34,067 - ModelTraining - INFO - Data after cleaning: (969, 30)
+2025-07-12 23:41:34,072 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-12 23:41:34,072 - ModelTraining - INFO - Setting up parallel training with Dask...
+2025-07-12 23:41:34,082 - ModelTraining - INFO - Created 30 parallel training tasks
+2025-07-12 23:46:13,713 - ModelTraining - INFO - Parallel training completed in 279.63 seconds
+2025-07-12 23:46:13,729 - ModelTraining - INFO - Training completed. Generated 30 successful results
+2025-07-12 23:46:13,729 - ModelTraining - INFO - Best AUC score: 0.5993
+2025-07-12 23:46:13,729 - ModelTraining - INFO - Top 5 results:
+2025-07-12 23:46:13,730 - ModelTraining - INFO -   Rank 1: AUC=0.5993, K-fold=4.0, max_depth=9.0, learning_rate=0.300
+2025-07-12 23:46:13,730 - ModelTraining - INFO -   Rank 2: AUC=0.5983, K-fold=4.0, max_depth=7.0, learning_rate=0.200
+2025-07-12 23:46:13,730 - ModelTraining - INFO -   Rank 3: AUC=0.5979, K-fold=5.0, max_depth=6.0, learning_rate=0.250
+2025-07-12 23:46:13,731 - ModelTraining - INFO -   Rank 4: AUC=0.5971, K-fold=4.0, max_depth=9.0, learning_rate=0.150
+2025-07-12 23:46:13,731 - ModelTraining - INFO -   Rank 5: AUC=0.5970, K-fold=4.0, max_depth=10.0, learning_rate=0.150
+2025-07-12 23:46:13,738 - ModelTraining - INFO - ✅ Model training completed successfully. Generated 30 result combinations
+2025-07-12 23:46:13,738 - ModelTraining - INFO - Saving model results to models.xgboost_mf_sales
+2025-07-12 23:46:13,738 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 23:46:13,767 - ModelTraining - INFO - Created/verified schema: models
+2025-07-12 23:46:13,770 - ModelTraining - INFO - Dropped existing table if present: models.xgboost_mf_sales
+2025-07-12 23:46:13,779 - ModelTraining - INFO - Successfully created table: models.xgboost_mf_sales
+2025-07-12 23:46:13,780 - ModelTraining - INFO - Verified: 30 rows saved to models.xgboost_mf_sales
+2025-07-12 23:46:13,780 - ModelTraining - INFO - Sample of saved model results:
+2025-07-12 23:46:13,808 - ModelTraining - INFO - 
+   iteration_id  k_folds  max_depth  min_child_weight  gamma  ...  n_estimators  scale_pos_weight  runtime_seconds  auc_score    cv_std
+0            13        4          9                19    7.5  ...          2000          4.020725       117.674469   0.599322  0.037762
+1            17        4          7                18    7.0  ...           100          4.020725       145.675932   0.598253  0.051786
+2            24        5          6                 3    3.5  ...           200          4.020725       177.083599   0.597905  0.094813
+
+[3 rows x 14 columns]
+2025-07-12 23:46:13,869 - ModelTraining - INFO - Database connection closed
+2025-07-12 23:46:13,869 - ModelTraining - INFO - ✅ Model results saved to database successfully
+2025-07-12 23:46:14,658 - ModelTraining - INFO - Dask client closed

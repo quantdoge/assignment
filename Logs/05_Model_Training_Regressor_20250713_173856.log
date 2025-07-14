@@ -1,0 +1,64 @@
+2025-07-13 17:38:56,553 - ModelTrainingRegressor - INFO - Starting XGBoost regressor training process with Dask
+2025-07-13 17:39:00,058 - ModelTrainingRegressor - INFO - Dask client created successfully
+2025-07-13 17:39:00,060 - ModelTrainingRegressor - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-13 17:39:00,060 - ModelTrainingRegressor - INFO - Workers: 5
+2025-07-13 17:39:00,062 - ModelTrainingRegressor - INFO - Loading data from silver.train
+2025-07-13 17:39:00,062 - ModelTrainingRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 17:39:00,150 - ModelTrainingRegressor - INFO - Successfully loaded 242 rows and 36 columns
+2025-07-13 17:39:00,150 - ModelTrainingRegressor - INFO - Data shape: (242, 36)
+2025-07-13 17:39:00,194 - ModelTrainingRegressor - INFO - Starting regressor training with Dask...
+2025-07-13 17:39:00,194 - ModelTrainingRegressor - INFO - Starting XGBoost regressor training with Dask
+2025-07-13 17:39:00,194 - ModelTrainingRegressor - INFO - Response variable: Revenue_CC
+2025-07-13 17:39:00,194 - ModelTrainingRegressor - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-13 17:39:00,194 - ModelTrainingRegressor - INFO - Categorical variables: ['Sex']
+2025-07-13 17:39:00,194 - ModelTrainingRegressor - INFO - Preparing data...
+2025-07-13 17:39:00,204 - ModelTrainingRegressor - INFO - Data after cleaning: (242, 29)
+2025-07-13 17:39:00,205 - ModelTrainingRegressor - INFO - Target variable statistics BEFORE scaling: mean=10.8625, std=34.1838, min=0.0714, max=407.9625
+2025-07-13 17:39:00,205 - ModelTrainingRegressor - INFO - Applying StandardScaler to response variable...
+2025-07-13 17:39:00,206 - ModelTrainingRegressor - INFO - Target variable statistics AFTER scaling: mean=-0.0000, std=1.0021, min=-0.3163, max=11.6407
+2025-07-13 17:39:00,206 - ModelTrainingRegressor - INFO - Response variable scaling completed successfully
+2025-07-13 17:39:00,206 - ModelTrainingRegressor - INFO - Setting up parallel training with Dask...
+2025-07-13 17:39:00,213 - ModelTrainingRegressor - INFO - Created 30 parallel training tasks
+2025-07-13 17:50:58,140 - ModelTrainingRegressor - INFO - Parallel training completed in 717.93 seconds
+2025-07-13 17:50:58,143 - ModelTrainingRegressor - INFO - Training completed. Generated 30 successful results
+2025-07-13 17:50:58,143 - ModelTrainingRegressor - INFO - Best MAE score (on scaled target): 8.5215
+2025-07-13 17:50:58,143 - ModelTrainingRegressor - INFO - Top 5 results (MAE on scaled target):
+2025-07-13 17:50:58,144 - ModelTrainingRegressor - INFO -   Rank 1: MAE=8.5215, K-fold=5, max_depth=11, learning_rate=0.010
+2025-07-13 17:50:58,144 - ModelTrainingRegressor - INFO -   Rank 2: MAE=8.5227, K-fold=5, max_depth=3, learning_rate=0.030
+2025-07-13 17:50:58,144 - ModelTrainingRegressor - INFO -   Rank 3: MAE=8.5239, K-fold=5, max_depth=9, learning_rate=0.010
+2025-07-13 17:50:58,144 - ModelTrainingRegressor - INFO -   Rank 4: MAE=8.5241, K-fold=5, max_depth=9, learning_rate=0.010
+2025-07-13 17:50:58,144 - ModelTrainingRegressor - INFO -   Rank 5: MAE=8.5252, K-fold=5, max_depth=10, learning_rate=0.010
+2025-07-13 17:50:58,148 - ModelTrainingRegressor - INFO - ✅ Regressor training completed successfully. Generated 30 result combinations
+2025-07-13 17:50:58,148 - ModelTrainingRegressor - INFO - Saving model results to models.xgboost_sales_cc_revenue
+2025-07-13 17:50:58,148 - ModelTrainingRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 17:50:58,184 - ModelTrainingRegressor - INFO - Created/verified schema: models
+2025-07-13 17:50:58,192 - ModelTrainingRegressor - INFO - Dropped existing table if present: models.xgboost_sales_cc_revenue
+2025-07-13 17:50:58,214 - ModelTrainingRegressor - INFO - Successfully created table: models.xgboost_sales_cc_revenue
+2025-07-13 17:50:58,215 - ModelTrainingRegressor - INFO - Verified: 30 rows saved to models.xgboost_sales_cc_revenue
+2025-07-13 17:50:58,215 - ModelTrainingRegressor - INFO - Sample of saved model results:
+2025-07-13 17:50:58,245 - ModelTrainingRegressor - INFO - 
+   iteration_id  k_folds  max_depth  ...  mae_score    cv_std                                       feature_data
+0            29        5         11  ...   8.521489  4.046427  [{'iteration_id': 29, 'feature_name': 'num__Vo...
+1            20        5          3  ...   8.522689  4.040608  [{'iteration_id': 20, 'feature_name': 'num__Vo...
+2            24        5          9  ...   8.523898  4.042382  [{'iteration_id': 24, 'feature_name': 'num__Vo...
+
+[3 rows x 15 columns]
+2025-07-13 17:50:58,310 - ModelTrainingRegressor - INFO - Database connection closed
+2025-07-13 17:50:58,310 - ModelTrainingRegressor - INFO - ✅ Model results saved to database successfully
+2025-07-13 17:50:58,312 - ModelTrainingRegressor - INFO - Saving feature importance results to models.xgbreg_sales_cc_revenue
+2025-07-13 17:50:58,312 - ModelTrainingRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 17:50:58,352 - ModelTrainingRegressor - INFO - Created/verified schema: models
+2025-07-13 17:50:58,359 - ModelTrainingRegressor - INFO - Dropped existing table if present: models.xgbreg_sales_cc_revenue
+2025-07-13 17:50:58,368 - ModelTrainingRegressor - INFO - Successfully created table: models.xgbreg_sales_cc_revenue
+2025-07-13 17:50:58,369 - ModelTrainingRegressor - INFO - Verified: 840 rows saved to models.xgbreg_sales_cc_revenue
+2025-07-13 17:50:58,369 - ModelTrainingRegressor - INFO - Sample of saved feature importance results:
+2025-07-13 17:50:58,378 - ModelTrainingRegressor - INFO - 
+   iteration_id              feature_name  feature_importance  explained_variance  feature_importance_rank
+0            29           num__VolumeCred            0.036854            0.036854                        8
+1            29        num__VolumeCred_CA            0.034613            0.034613                       23
+2            29     num__TransactionsCred            0.043197            0.043197                       13
+3            29  num__TransactionsCred_CA            0.044304            0.044304                       14
+4            29            num__VolumeDeb            0.044715            0.044715                       12
+2025-07-13 17:50:58,449 - ModelTrainingRegressor - INFO - Database connection closed
+2025-07-13 17:50:58,449 - ModelTrainingRegressor - INFO - ✅ Feature importance results saved to database successfully
+2025-07-13 17:50:59,737 - ModelTrainingRegressor - INFO - Dask client closed

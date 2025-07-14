@@ -1,0 +1,56 @@
+2025-07-13 17:34:57,703 - SHAPAnalysisRegressor - INFO - Starting SHAP analysis for regressor
+2025-07-13 17:34:57,704 - SHAPAnalysisRegressor - INFO - Loading training data...
+2025-07-13 17:34:57,704 - SHAPAnalysisRegressor - INFO - Loading data from silver.train
+2025-07-13 17:34:57,704 - SHAPAnalysisRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 17:34:57,819 - SHAPAnalysisRegressor - INFO - Successfully loaded 242 rows and 36 columns
+2025-07-13 17:34:57,819 - SHAPAnalysisRegressor - INFO - Data shape: (242, 36)
+2025-07-13 17:34:57,831 - SHAPAnalysisRegressor - INFO - Using response variable: Revenue_CC
+2025-07-13 17:34:57,831 - SHAPAnalysisRegressor - INFO - Using 28 predictive variables
+2025-07-13 17:34:57,832 - SHAPAnalysisRegressor - INFO - Using 1 categorical variables: ['Sex']
+2025-07-13 17:34:57,832 - SHAPAnalysisRegressor - INFO - Loading best model parameters from training results...
+2025-07-13 17:34:57,832 - SHAPAnalysisRegressor - INFO - Loading best model parameters from models.xgboost_sales_cc_revenue
+2025-07-13 17:34:57,881 - SHAPAnalysisRegressor - INFO - Best model MAE score: 2.1398
+2025-07-13 17:34:57,882 - SHAPAnalysisRegressor - INFO - Best model parameters loaded successfully
+2025-07-13 17:34:57,887 - SHAPAnalysisRegressor - INFO - Using parameters: max_depth=3, min_child_weight=5, gamma=0.1, reg_lambda=0.2, colsample_bytree=1.0, reg_alpha=0.8, learning_rate=0.01, n_estimators=50
+2025-07-13 17:34:57,887 - SHAPAnalysisRegressor - INFO - Building and training XGBoost regressor...
+2025-07-13 17:34:57,887 - SHAPAnalysisRegressor - INFO - Building XGBoost regressor with specified parameters
+2025-07-13 17:34:57,887 - SHAPAnalysisRegressor - INFO - Parameters: max_depth=3, min_child_weight=5, gamma=0.1, reg_lambda=0.2, colsample_bytree=1.0, reg_alpha=0.8, learning_rate=0.01, n_estimators=50
+2025-07-13 17:34:57,888 - SHAPAnalysisRegressor - INFO - Preparing data...
+2025-07-13 17:34:57,894 - SHAPAnalysisRegressor - INFO - Data after cleaning: (242, 29)
+2025-07-13 17:34:57,894 - SHAPAnalysisRegressor - INFO - Target variable statistics BEFORE scaling: mean=10.8625, std=34.1838, min=0.0714, max=407.9625
+2025-07-13 17:34:57,894 - SHAPAnalysisRegressor - INFO - Applying StandardScaler to response variable...
+2025-07-13 17:34:57,894 - SHAPAnalysisRegressor - INFO - Target variable statistics AFTER scaling: mean=-0.0000, std=1.0021, min=-0.3163, max=11.6407
+2025-07-13 17:34:57,901 - SHAPAnalysisRegressor - INFO - Training set size: (193, 28)
+2025-07-13 17:34:57,901 - SHAPAnalysisRegressor - INFO - Test set size: (49, 28)
+2025-07-13 17:34:57,901 - SHAPAnalysisRegressor - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-13 17:34:57,901 - SHAPAnalysisRegressor - INFO - Categorical variables: ['Sex']
+2025-07-13 17:34:57,901 - SHAPAnalysisRegressor - INFO - Training model...
+2025-07-13 17:34:57,944 - SHAPAnalysisRegressor - INFO - Model training completed
+2025-07-13 17:34:57,944 - SHAPAnalysisRegressor - INFO - Test MAE score: 0.1784
+2025-07-13 17:34:57,944 - SHAPAnalysisRegressor - INFO - Test R² score: -0.0567
+2025-07-13 17:34:57,945 - SHAPAnalysisRegressor - INFO - Computing SHAP values...
+2025-07-13 17:34:57,945 - SHAPAnalysisRegressor - INFO - Computing SHAP values...
+2025-07-13 17:34:57,945 - SHAPAnalysisRegressor - INFO - Sample size for SHAP: 1000
+2025-07-13 17:34:57,945 - SHAPAnalysisRegressor - INFO - Background size for SHAP: 100
+2025-07-13 17:34:57,951 - SHAPAnalysisRegressor - INFO - Feature names after preprocessing: 28 features
+2025-07-13 17:34:57,952 - SHAPAnalysisRegressor - INFO - Using 49 samples for SHAP computation
+2025-07-13 17:34:57,952 - SHAPAnalysisRegressor - INFO - Using 100 background samples
+2025-07-13 17:34:57,952 - SHAPAnalysisRegressor - INFO - Creating SHAP TreeExplainer...
+2025-07-13 17:34:57,960 - SHAPAnalysisRegressor - INFO - Computing SHAP values...
+2025-07-13 17:34:57,983 - SHAPAnalysisRegressor - INFO - SHAP values computed successfully
+2025-07-13 17:34:57,983 - SHAPAnalysisRegressor - INFO - SHAP values shape: (49, 28)
+2025-07-13 17:34:57,983 - SHAPAnalysisRegressor - INFO - Creating SHAP visualizations...
+2025-07-13 17:34:57,983 - SHAPAnalysisRegressor - INFO - Saving SHAP visualizations to: C:\Users\jason\assignment\Outputs\SHAP_Analysis_Regressor
+2025-07-13 17:34:57,983 - SHAPAnalysisRegressor - INFO - Using file prefix: cc_revenue_shap
+2025-07-13 17:34:57,984 - SHAPAnalysisRegressor - INFO - Creating SHAP summary plot (bar)...
+2025-07-13 17:34:58,764 - SHAPAnalysisRegressor - INFO - Creating SHAP summary plot (beeswarm)...
+2025-07-13 17:34:59,560 - SHAPAnalysisRegressor - INFO - Creating SHAP waterfall plot...
+2025-07-13 17:35:00,394 - SHAPAnalysisRegressor - INFO - Creating SHAP force plots...
+2025-07-13 17:35:00,405 - SHAPAnalysisRegressor - INFO - SHAP visualizations created successfully
+2025-07-13 17:35:00,405 - SHAPAnalysisRegressor - INFO - Saving SHAP results to database...
+2025-07-13 17:35:00,405 - SHAPAnalysisRegressor - INFO - Saving SHAP results to models.shap_values_cc_revenue
+2025-07-13 17:35:00,431 - SHAPAnalysisRegressor - INFO - Saved SHAP summary to models.shap_values_cc_revenue_summary
+2025-07-13 17:35:00,437 - SHAPAnalysisRegressor - INFO - Saved detailed SHAP values to models.shap_values_cc_revenue_detailed
+2025-07-13 17:35:00,440 - SHAPAnalysisRegressor - INFO - Verified: 28 features in summary table
+2025-07-13 17:35:00,440 - SHAPAnalysisRegressor - INFO - Verified: 1372 SHAP value records in detailed table
+2025-07-13 17:35:00,500 - SHAPAnalysisRegressor - INFO - ✅ SHAP analysis completed successfully

@@ -1,0 +1,18 @@
+2025-07-13 02:31:08,604 - ModelTraining - INFO - Starting XGBoost model training process with Dask
+2025-07-13 02:31:12,007 - ModelTraining - INFO - Dask client created successfully
+2025-07-13 02:31:12,008 - ModelTraining - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-13 02:31:12,010 - ModelTraining - INFO - Workers: 5
+2025-07-13 02:31:12,013 - ModelTraining - INFO - Loading data from silver.train
+2025-07-13 02:31:12,013 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 02:31:12,095 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-13 02:31:12,096 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-13 02:31:12,102 - ModelTraining - INFO - Starting model training with Dask...
+2025-07-13 02:31:12,102 - ModelTraining - INFO - Starting XGBoost binary classifier training with Dask
+2025-07-13 02:31:12,102 - ModelTraining - INFO - Response variable: Sale_CC
+2025-07-13 02:31:12,102 - ModelTraining - INFO - Predictive variables: ['VolumeDeb_PaymentOrder', 'VolumeCred_CA', 'TransactionsDebCashless_Card', 'ActBal_CA', 'VolumeDebCash_Card', 'Tenure', 'Age', 'ActBal_SA', 'VolumeCred', 'TransactionsDeb', 'Count_OVD']
+2025-07-13 02:31:12,102 - ModelTraining - INFO - Categorical variables: []
+2025-07-13 02:31:12,102 - ModelTraining - INFO - Preparing data...
+2025-07-13 02:31:12,110 - ModelTraining - INFO - Data after cleaning: (969, 12)
+2025-07-13 02:31:12,111 - ModelTraining - INFO - Target distribution: {0: 727, 1: 242}
+2025-07-13 02:31:12,111 - ModelTraining - INFO - Setting up parallel training with Dask...
+2025-07-13 02:31:12,120 - ModelTraining - INFO - Created 30 parallel training tasks

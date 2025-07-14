@@ -1,0 +1,26 @@
+2025-07-12 17:22:52,588 - BronzeToSilver - INFO - Starting Bronze to Silver transformation process
+2025-07-12 17:22:52,589 - BronzeToSilver - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 17:22:52,625 - BronzeToSilver - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 17:22:52,626 - BronzeToSilver - INFO - Created silver schema
+2025-07-12 17:22:52,646 - BronzeToSilver - INFO - Found bronze.sales_revenues
+2025-07-12 17:22:52,651 - BronzeToSilver - INFO - Found bronze.inflow_outflow
+2025-07-12 17:22:52,654 - BronzeToSilver - INFO - Found bronze.products_actbalance
+2025-07-12 17:22:52,657 - BronzeToSilver - INFO - Found bronze.soc_dem
+2025-07-12 17:22:52,657 - BronzeToSilver - INFO - Analyzing table schemas...
+2025-07-12 17:22:52,664 - BronzeToSilver - INFO - bronze.sales_revenues has 7 columns
+2025-07-12 17:22:52,667 - BronzeToSilver - INFO - bronze.inflow_outflow has 15 columns
+2025-07-12 17:22:52,670 - BronzeToSilver - INFO - bronze.products_actbalance has 13 columns
+2025-07-12 17:22:52,673 - BronzeToSilver - INFO - bronze.soc_dem has 4 columns
+2025-07-12 17:22:52,673 - BronzeToSilver - INFO - Building JOIN query...
+2025-07-12 17:22:52,674 - BronzeToSilver - INFO - Executing JOIN query to create silver.train table...
+2025-07-12 17:22:52,695 - BronzeToSilver - ERROR - Error occurred: Catalog Error: Table with name inflow_outlow does not exist!
+Did you mean "inflow_outflow"?
+
+LINE 9:         LEFT JOIN bronze.inflow_outlow io ON sr.Client = io.Client
+                          ^
+2025-07-12 17:22:52,699 - BronzeToSilver - INFO - Database connection closed
+2025-07-12 17:22:52,699 - BronzeToSilver - ERROR - ❌ Bronze to Silver transformation process failed: Catalog Error: Table with name inflow_outlow does not exist!
+Did you mean "inflow_outflow"?
+
+LINE 9:         LEFT JOIN bronze.inflow_outlow io ON sr.Client = io.Client
+                          ^

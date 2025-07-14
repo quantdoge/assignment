@@ -1,0 +1,22 @@
+2025-07-13 16:22:49,601 - ModelTrainingRegressor - INFO - Starting XGBoost regressor training process with Dask
+2025-07-13 16:22:53,061 - ModelTrainingRegressor - INFO - Dask client created successfully
+2025-07-13 16:22:53,061 - ModelTrainingRegressor - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-13 16:22:53,062 - ModelTrainingRegressor - INFO - Workers: 5
+2025-07-13 16:22:53,062 - ModelTrainingRegressor - INFO - Loading data from silver.train
+2025-07-13 16:22:53,062 - ModelTrainingRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 16:22:53,120 - ModelTrainingRegressor - INFO - Successfully loaded 193 rows and 36 columns
+2025-07-13 16:22:53,120 - ModelTrainingRegressor - INFO - Data shape: (193, 36)
+2025-07-13 16:22:53,154 - ModelTrainingRegressor - INFO - Starting regressor training with Dask...
+2025-07-13 16:22:53,154 - ModelTrainingRegressor - INFO - Starting XGBoost regressor training with Dask
+2025-07-13 16:22:53,154 - ModelTrainingRegressor - INFO - Response variable: Revenue_MF
+2025-07-13 16:22:53,154 - ModelTrainingRegressor - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-13 16:22:53,154 - ModelTrainingRegressor - INFO - Categorical variables: ['Sex']
+2025-07-13 16:22:53,154 - ModelTrainingRegressor - INFO - Preparing data...
+2025-07-13 16:22:53,162 - ModelTrainingRegressor - INFO - Data after cleaning: (193, 29)
+2025-07-13 16:22:53,164 - ModelTrainingRegressor - INFO - Target variable statistics BEFORE scaling: mean=9.6650, std=20.5742, min=0.0048, max=220.4882
+2025-07-13 16:22:53,164 - ModelTrainingRegressor - INFO - Applying StandardScaler to response variable...
+2025-07-13 16:22:53,164 - ModelTrainingRegressor - INFO - Target variable statistics AFTER scaling: mean=-0.0000, std=1.0026, min=-0.4707, max=10.2736
+2025-07-13 16:22:53,164 - ModelTrainingRegressor - INFO - Response variable scaling completed successfully
+2025-07-13 16:22:53,164 - ModelTrainingRegressor - INFO - Setting up parallel training with Dask...
+2025-07-13 16:22:53,167 - ModelTrainingRegressor - INFO - Created 6 parallel training tasks
+2025-07-13 16:23:37,616 - ModelTrainingRegressor - INFO - Dask client closed

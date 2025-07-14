@@ -1,0 +1,5 @@
+name_of_profile,schema_name,table_field_name,data_field_name,total_records,non_null_records,null_records,null_percentage,unique_values_count,most_frequent_category,most_frequent_count,most_frequent_percentage,least_frequent_category,least_frequent_count,least_frequent_percentage,balance_ratio,is_balanced,category_distribution
+silver_train_categorical_profile,silver,train,Sale_MF,969,969,0,0.0,2,0,776,80.08,1,193,19.92,4.020725388601036,False,"{'0': {'count': 776, 'percentage': 80.08}, '1': {'count': 193, 'percentage': 19.92}}"
+silver_train_categorical_profile,silver,train,Sale_CC,969,969,0,0.0,2,0,727,75.03,1,242,24.97,3.0041322314049586,False,"{'0': {'count': 727, 'percentage': 75.03}, '1': {'count': 242, 'percentage': 24.97}}"
+silver_train_categorical_profile,silver,train,Sale_CL,969,969,0,0.0,2,0,679,70.07,1,290,29.93,2.3413793103448275,False,"{'0': {'count': 679, 'percentage': 70.07}, '1': {'count': 290, 'percentage': 29.93}}"
+silver_train_categorical_profile,silver,train,Sex,969,967,2,0.21,2,M,515,53.26,F,452,46.74,1.1393805309734513,True,"{'M': {'count': 515, 'percentage': 53.26}, 'F': {'count': 452, 'percentage': 46.74}}"

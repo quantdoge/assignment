@@ -1,0 +1,84 @@
+2025-07-12 14:19:54,167 - INFO - ============================================================
+2025-07-12 14:19:54,167 - INFO - STARTING DATA QUALITY CHECKS
+2025-07-12 14:19:54,169 - INFO - ============================================================
+2025-07-12 14:19:54,189 - INFO - Found 8 quality checks to process
+2025-07-12 14:19:54,189 - INFO - ============================================================
+2025-07-12 14:19:54,189 - INFO - Running Quality Check 1/8: soc_dem_client_validation
+2025-07-12 14:19:54,189 - INFO - ============================================================
+2025-07-12 14:19:54,231 - INFO - Checking field 'client' in bronze.soc_dem
+2025-07-12 14:19:54,231 - INFO - Total records: 1615
+2025-07-12 14:19:54,241 - INFO - PASSED unique: 1615/1615 records passed
+2025-07-12 14:19:54,241 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,241 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:19:54,241 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,241 - INFO - ============================================================
+2025-07-12 14:19:54,243 - INFO - Running Quality Check 2/8: soc_dem_sex_validation
+2025-07-12 14:19:54,243 - INFO - ============================================================
+2025-07-12 14:19:54,264 - INFO - Checking field 'sex' in bronze.soc_dem
+2025-07-12 14:19:54,264 - INFO - Total records: 1615
+2025-07-12 14:19:54,272 - INFO - PASSED enum: 1615/1615 records passed
+2025-07-12 14:19:54,272 - INFO - FAILED non_null: 1612/1615 records passed
+2025-07-12 14:19:54,272 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,272 - INFO - ============================================================
+2025-07-12 14:19:54,272 - INFO - Running Quality Check 3/8: soc_dem_age_validation
+2025-07-12 14:19:54,272 - INFO - ============================================================
+2025-07-12 14:19:54,291 - INFO - Checking field 'age' in bronze.soc_dem
+2025-07-12 14:19:54,314 - INFO - Total records: 1615
+2025-07-12 14:19:54,323 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,323 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:19:54,323 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,323 - INFO - ============================================================
+2025-07-12 14:19:54,323 - INFO - Running Quality Check 4/8: soc_dem_tenure_validation
+2025-07-12 14:19:54,323 - INFO - ============================================================
+2025-07-12 14:19:54,339 - INFO - Checking field 'tenure' in bronze.soc_dem
+2025-07-12 14:19:54,339 - INFO - Total records: 1615
+2025-07-12 14:19:54,345 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,346 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:19:54,346 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,346 - INFO - ============================================================
+2025-07-12 14:19:54,347 - INFO - Running Quality Check 5/8: products_actbalance_client_validation
+2025-07-12 14:19:54,347 - INFO - ============================================================
+2025-07-12 14:19:54,362 - INFO - Checking field 'client' in bronze.products_actbalance
+2025-07-12 14:19:54,362 - INFO - Total records: 1615
+2025-07-12 14:19:54,372 - INFO - PASSED unique: 1615/1615 records passed
+2025-07-12 14:19:54,372 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,372 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:19:54,372 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,372 - INFO - ============================================================
+2025-07-12 14:19:54,372 - INFO - Running Quality Check 6/8: products_actbalance_Count_CA_validation
+2025-07-12 14:19:54,374 - INFO - ============================================================
+2025-07-12 14:19:54,390 - INFO - Checking field 'Count_CA' in bronze.products_actbalance
+2025-07-12 14:19:54,390 - INFO - Total records: 1615
+2025-07-12 14:19:54,396 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,396 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:19:54,396 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,397 - INFO - ============================================================
+2025-07-12 14:19:54,397 - INFO - Running Quality Check 7/8: products_actbalance_Count_SA_validation
+2025-07-12 14:19:54,397 - INFO - ============================================================
+2025-07-12 14:19:54,413 - INFO - Checking field 'Count_SA' in bronze.products_actbalance
+2025-07-12 14:19:54,415 - INFO - Total records: 1615
+2025-07-12 14:19:54,427 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,427 - INFO - FAILED non_null: 426/1615 records passed
+2025-07-12 14:19:54,427 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,428 - INFO - ============================================================
+2025-07-12 14:19:54,428 - INFO - Running Quality Check 8/8: products_actbalance_Count_MF_validation
+2025-07-12 14:19:54,428 - INFO - ============================================================
+2025-07-12 14:19:54,444 - INFO - Checking field 'Count_MF' in bronze.products_actbalance
+2025-07-12 14:19:54,444 - INFO - Total records: 1615
+2025-07-12 14:19:54,451 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:19:54,451 - INFO - FAILED non_null: 306/1615 records passed
+2025-07-12 14:19:54,454 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:19:54,454 - INFO - ============================================================
+2025-07-12 14:19:54,454 - INFO - Saving results to DuckDB...
+2025-07-12 14:19:54,454 - INFO - ============================================================
+2025-07-12 14:19:54,476 - INFO - Created/verified dq schema
+2025-07-12 14:19:54,487 - INFO - Saved 26 quality check results to dq.dq_results
+2025-07-12 14:19:54,491 - INFO - Quality Check Summary:
+2025-07-12 14:19:54,491 - INFO -   enum: 1 checks, 0.0 failures, 1615.0 records checked
+2025-07-12 14:19:54,491 - INFO -   non_null: 8 checks, 2501.0 failures, 12920.0 records checked
+2025-07-12 14:19:54,496 - INFO -   positive: 7 checks, 0.0 failures, 11305.0 records checked
+2025-07-12 14:19:54,496 - INFO -   type: 8 checks, 0.0 failures, 12920.0 records checked
+2025-07-12 14:19:54,497 - INFO -   unique: 2 checks, 0.0 failures, 3230.0 records checked
+2025-07-12 14:19:54,515 - INFO - ============================================================
+2025-07-12 14:19:54,515 - INFO - All quality checks completed!
+2025-07-12 14:19:54,515 - INFO - ============================================================

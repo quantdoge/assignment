@@ -1,0 +1,121 @@
+2025-07-12 09:53:30,563 - RawToBronze - INFO - Starting Raw to Bronze ingestion process
+2025-07-12 09:53:30,570 - RawToBronze - INFO - Successfully loaded configuration from C:\Users\jason\assignment\config.yaml
+2025-07-12 09:53:30,570 - RawToBronze - INFO - Found 5 ingestion jobs to process
+2025-07-12 09:53:30,570 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:30,570 - RawToBronze - INFO - Processing description_ingestion (1/5)
+2025-07-12 09:53:30,570 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:30,570 - RawToBronze - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:30,570 - RawToBronze - INFO - Excel file path: C:\Users\jason\assignment\Data\Raw\DataScientist_CaseStudy_Dataset.xlsx
+2025-07-12 09:53:30,670 - RawToBronze - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:30,678 - RawToBronze - INFO - Created bronze schema
+2025-07-12 09:53:30,678 - RawToBronze - INFO - Reading Description sheet from Excel file...
+2025-07-12 09:53:31,051 - RawToBronze - INFO - Loaded 39 rows from Description sheet
+2025-07-12 09:53:31,051 - RawToBronze - INFO - Columns: ['Sheet', 'Variable', 'Description']
+2025-07-12 09:53:31,064 - RawToBronze - INFO - Created table bronze.description
+2025-07-12 09:53:31,064 - RawToBronze - INFO - Verified: 39 rows inserted into bronze.description
+2025-07-12 09:53:31,064 - RawToBronze - INFO - First 5 rows of bronze.description
+2025-07-12 09:53:31,075 - RawToBronze - INFO - 
+                 Sheet Variable                    Description
+0              Soc_Dem   Client                      client ID
+1                 None      Sex                         gender
+2                 None      Age                    age [years]
+3                 None   Tenure  tenure with the bank [months]
+4  Products_ActBalance   Client                      client ID
+2025-07-12 09:53:31,094 - RawToBronze - INFO - Database connection closed
+2025-07-12 09:53:31,094 - RawToBronze - INFO - ✅ Successfully completed description_ingestion
+2025-07-12 09:53:31,094 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,094 - RawToBronze - INFO - Processing soc_dem_ingestion (2/5)
+2025-07-12 09:53:31,094 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,094 - RawToBronze - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,094 - RawToBronze - INFO - Excel file path: C:\Users\jason\assignment\Data\Raw\DataScientist_CaseStudy_Dataset.xlsx
+2025-07-12 09:53:31,121 - RawToBronze - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,121 - RawToBronze - INFO - Created bronze schema
+2025-07-12 09:53:31,121 - RawToBronze - INFO - Reading Soc_Dem sheet from Excel file...
+2025-07-12 09:53:31,226 - RawToBronze - INFO - Loaded 1615 rows from Soc_Dem sheet
+2025-07-12 09:53:31,226 - RawToBronze - INFO - Columns: ['Client', 'Sex', 'Age', 'Tenure']
+2025-07-12 09:53:31,234 - RawToBronze - INFO - Created table bronze.soc_dem
+2025-07-12 09:53:31,235 - RawToBronze - INFO - Verified: 1615 rows inserted into bronze.soc_dem
+2025-07-12 09:53:31,235 - RawToBronze - INFO - First 5 rows of bronze.soc_dem
+2025-07-12 09:53:31,242 - RawToBronze - INFO - 
+   Client Sex  Age  Tenure
+0     909   M   21      27
+1    1217   M   38     165
+2     850   F   49      44
+3    1473   M   54      34
+4    1038   M   29     106
+2025-07-12 09:53:31,257 - RawToBronze - INFO - Database connection closed
+2025-07-12 09:53:31,257 - RawToBronze - INFO - ✅ Successfully completed soc_dem_ingestion
+2025-07-12 09:53:31,257 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,257 - RawToBronze - INFO - Processing products_actbalance_ingestion (3/5)
+2025-07-12 09:53:31,257 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,257 - RawToBronze - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,257 - RawToBronze - INFO - Excel file path: C:\Users\jason\assignment\Data\Raw\DataScientist_CaseStudy_Dataset.xlsx
+2025-07-12 09:53:31,285 - RawToBronze - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,285 - RawToBronze - INFO - Created bronze schema
+2025-07-12 09:53:31,285 - RawToBronze - INFO - Reading Products_ActBalance sheet from Excel file...
+2025-07-12 09:53:31,433 - RawToBronze - INFO - Loaded 1615 rows from Products_ActBalance sheet
+2025-07-12 09:53:31,433 - RawToBronze - INFO - Columns: ['Client', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL']
+2025-07-12 09:53:31,451 - RawToBronze - INFO - Created table bronze.products_actbalance
+2025-07-12 09:53:31,452 - RawToBronze - INFO - Verified: 1615 rows inserted into bronze.products_actbalance
+2025-07-12 09:53:31,452 - RawToBronze - INFO - First 5 rows of bronze.products_actbalance
+2025-07-12 09:53:31,514 - RawToBronze - INFO - 
+   Client  Count_CA  Count_SA  Count_MF  Count_OVD  Count_CC  ...    ActBal_CA     ActBal_SA   ActBal_MF  ActBal_OVD    ActBal_CC  ActBal_CL
+0       1         1       NaN       NaN        1.0       NaN  ...  1333.802857           NaN         NaN         0.0          NaN        NaN
+1       2         1       1.0       NaN        NaN       NaN  ...   110.768571  13326.190357         NaN         NaN          NaN        NaN
+2       3         1       NaN       1.0        NaN       NaN  ...   482.654643           NaN  107.251786         NaN          NaN        NaN
+3       4         1       1.0       NaN        NaN       1.0  ...  1599.840714     76.437143         NaN         NaN  1110.381786        NaN
+4       5         1       1.0       NaN        NaN       NaN  ...  5353.483929   8079.715714         NaN         NaN          NaN        NaN
+
+[5 rows x 13 columns]
+2025-07-12 09:53:31,542 - RawToBronze - INFO - Database connection closed
+2025-07-12 09:53:31,542 - RawToBronze - INFO - ✅ Successfully completed products_actbalance_ingestion
+2025-07-12 09:53:31,542 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,542 - RawToBronze - INFO - Processing inflow_outflow_ingestion (4/5)
+2025-07-12 09:53:31,542 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,542 - RawToBronze - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,542 - RawToBronze - INFO - Excel file path: C:\Users\jason\assignment\Data\Raw\DataScientist_CaseStudy_Dataset.xlsx
+2025-07-12 09:53:31,573 - RawToBronze - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,573 - RawToBronze - INFO - Created bronze schema
+2025-07-12 09:53:31,573 - RawToBronze - INFO - Reading Inflow_Outflow sheet from Excel file...
+2025-07-12 09:53:31,806 - RawToBronze - INFO - Loaded 1587 rows from Inflow_Outflow sheet
+2025-07-12 09:53:31,806 - RawToBronze - INFO - Columns: ['Client', 'VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder']
+2025-07-12 09:53:31,831 - RawToBronze - INFO - Created table bronze.inflow_outflow
+2025-07-12 09:53:31,832 - RawToBronze - INFO - Verified: 1587 rows inserted into bronze.inflow_outflow
+2025-07-12 09:53:31,832 - RawToBronze - INFO - First 5 rows of bronze.inflow_outflow
+2025-07-12 09:53:31,859 - RawToBronze - INFO - 
+   Client   VolumeCred  VolumeCred_CA  ...  TransactionsDebCash_Card  TransactionsDebCashless_Card  TransactionsDeb_PaymentOrder
+0    1017     0.005000       0.005000  ...                         2                             9                             0
+1    1456   364.772143     364.752857  ...                         1                            20                             5
+2     545  2471.719286    2471.719286  ...                         3                             5                            12
+3     667  1127.792857    1127.792857  ...                         3                             4                             8
+4    1381   571.618214     571.618214  ...                         1                             5                             0
+
+[5 rows x 15 columns]
+2025-07-12 09:53:31,883 - RawToBronze - INFO - Database connection closed
+2025-07-12 09:53:31,883 - RawToBronze - INFO - ✅ Successfully completed inflow_outflow_ingestion
+2025-07-12 09:53:31,883 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,883 - RawToBronze - INFO - Processing sales_revenues_ingestion (5/5)
+2025-07-12 09:53:31,883 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:31,883 - RawToBronze - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,883 - RawToBronze - INFO - Excel file path: C:\Users\jason\assignment\Data\Raw\DataScientist_CaseStudy_Dataset.xlsx
+2025-07-12 09:53:31,913 - RawToBronze - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 09:53:31,913 - RawToBronze - INFO - Created bronze schema
+2025-07-12 09:53:31,913 - RawToBronze - INFO - Reading Sales_Revenues sheet from Excel file...
+2025-07-12 09:53:32,002 - RawToBronze - INFO - Loaded 969 rows from Sales_Revenues sheet
+2025-07-12 09:53:32,002 - RawToBronze - INFO - Columns: ['Client', 'Sale_MF', 'Sale_CC', 'Sale_CL', 'Revenue_MF', 'Revenue_CC', 'Revenue_CL']
+2025-07-12 09:53:32,007 - RawToBronze - INFO - Created table bronze.sales_revenues
+2025-07-12 09:53:32,012 - RawToBronze - INFO - Verified: 969 rows inserted into bronze.sales_revenues
+2025-07-12 09:53:32,012 - RawToBronze - INFO - First 5 rows of bronze.sales_revenues
+2025-07-12 09:53:32,017 - RawToBronze - INFO - 
+   Client  Sale_MF  Sale_CC  Sale_CL  Revenue_MF  Revenue_CC  Revenue_CL
+0    1094        0        1        0    0.000000    5.138571      0.0000
+1    1484        1        0        1   25.609107    0.000000      8.7225
+2      20        0        1        0    0.000000    3.822500      0.0000
+3    1193        0        0        0    0.000000    0.000000      0.0000
+4     142        0        0        0    0.000000    0.000000      0.0000
+2025-07-12 09:53:32,034 - RawToBronze - INFO - Database connection closed
+2025-07-12 09:53:32,034 - RawToBronze - INFO - ✅ Successfully completed sales_revenues_ingestion
+2025-07-12 09:53:32,034 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:32,034 - RawToBronze - INFO - All ingestion jobs completed!
+2025-07-12 09:53:32,034 - RawToBronze - INFO - ==================================================
+2025-07-12 09:53:32,034 - RawToBronze - INFO - Raw to Bronze ingestion process completed successfully

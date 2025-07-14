@@ -1,0 +1,36 @@
+2025-07-12 21:58:39,479 - ModelTraining - INFO - Starting XGBoost model training process
+2025-07-12 21:58:39,479 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 21:58:39,479 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 21:58:39,554 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 21:58:39,554 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 21:58:39,563 - ModelTraining - INFO - Starting model training...
+2025-07-12 21:58:39,563 - ModelTraining - INFO - Starting XGBoost binary classifier training
+2025-07-12 21:58:39,563 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 21:58:39,563 - ModelTraining - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-12 21:58:39,563 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:58:39,563 - ModelTraining - INFO - Preparing data...
+2025-07-12 21:58:39,572 - ModelTraining - INFO - Data after cleaning: (969, 30)
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Calculated scale_pos_weight: 4.0207
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Setting up hyperparameter optimization...
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Parameter search space size: 9
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Number of iterations: 1000
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Training with 2-fold cross-validation
+2025-07-12 21:58:39,574 - ModelTraining - INFO - Starting RandomizedSearchCV with 2-fold CV...
+2025-07-12 21:59:45,861 - ModelTraining - INFO - Best AUC for 2-fold: 0.5765
+2025-07-12 21:59:45,862 - ModelTraining - INFO - Runtime: 66.29 seconds
+2025-07-12 21:59:45,863 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 10, 'xgb__reg_alpha': 0, 'xgb__n_estimators': 500, 'xgb__min_child_weight': 9, 'xgb__max_depth': 5, 'xgb__learning_rate': 0.2, 'xgb__gamma': 3.5, 'xgb__colsample_bytree': 0.5}
+2025-07-12 21:59:45,880 - ModelTraining - INFO - Training with 3-fold cross-validation
+2025-07-12 21:59:45,882 - ModelTraining - INFO - Starting RandomizedSearchCV with 3-fold CV...
+2025-07-12 22:00:47,713 - ModelTraining - INFO - Best AUC for 3-fold: 0.5894
+2025-07-12 22:00:47,713 - ModelTraining - INFO - Runtime: 61.83 seconds
+2025-07-12 22:00:47,713 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 4, 'xgb__reg_alpha': 10, 'xgb__n_estimators': 700, 'xgb__min_child_weight': 4, 'xgb__max_depth': 7, 'xgb__learning_rate': 0.3, 'xgb__gamma': 1.5, 'xgb__colsample_bytree': 0.7000000000000001}
+2025-07-12 22:00:47,719 - ModelTraining - INFO - Training with 4-fold cross-validation
+2025-07-12 22:00:47,719 - ModelTraining - INFO - Starting RandomizedSearchCV with 4-fold CV...
+2025-07-12 22:02:01,233 - ModelTraining - INFO - Best AUC for 4-fold: 0.6019
+2025-07-12 22:02:01,233 - ModelTraining - INFO - Runtime: 73.51 seconds
+2025-07-12 22:02:01,233 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 8, 'xgb__reg_alpha': 0, 'xgb__n_estimators': 1000, 'xgb__min_child_weight': 18, 'xgb__max_depth': 10, 'xgb__learning_rate': 0.05, 'xgb__gamma': 7.5, 'xgb__colsample_bytree': 0.8}
+2025-07-12 22:02:01,240 - ModelTraining - INFO - Training with 5-fold cross-validation
+2025-07-12 22:02:01,242 - ModelTraining - INFO - Starting RandomizedSearchCV with 5-fold CV...

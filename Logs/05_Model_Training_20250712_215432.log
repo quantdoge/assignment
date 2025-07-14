@@ -1,0 +1,64 @@
+2025-07-12 21:54:32,107 - ModelTraining - INFO - Starting XGBoost model training process
+2025-07-12 21:54:32,107 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 21:54:32,107 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 21:54:32,168 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 21:54:32,168 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 21:54:32,174 - ModelTraining - INFO - Starting model training...
+2025-07-12 21:54:32,174 - ModelTraining - INFO - Starting XGBoost binary classifier training
+2025-07-12 21:54:32,176 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 21:54:32,176 - ModelTraining - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-12 21:54:32,176 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:54:32,176 - ModelTraining - INFO - Preparing data...
+2025-07-12 21:54:32,185 - ModelTraining - INFO - Data after cleaning: (969, 30)
+2025-07-12 21:54:32,188 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-12 21:54:32,188 - ModelTraining - INFO - Calculated scale_pos_weight: 4.0207
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Setting up hyperparameter optimization...
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Parameter search space size: 9
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Number of iterations: 30
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Training with 2-fold cross-validation
+2025-07-12 21:54:32,189 - ModelTraining - INFO - Starting RandomizedSearchCV with 2-fold CV...
+2025-07-12 21:54:35,074 - ModelTraining - INFO - Best AUC for 2-fold: 0.5588
+2025-07-12 21:54:35,074 - ModelTraining - INFO - Runtime: 2.88 seconds
+2025-07-12 21:54:35,074 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 4, 'xgb__reg_alpha': 2, 'xgb__n_estimators': 500, 'xgb__min_child_weight': 8, 'xgb__max_depth': 6, 'xgb__learning_rate': 0.25, 'xgb__gamma': 9.5, 'xgb__colsample_bytree': 0.7000000000000001}
+2025-07-12 21:54:35,090 - ModelTraining - INFO - Training with 3-fold cross-validation
+2025-07-12 21:54:35,090 - ModelTraining - INFO - Starting RandomizedSearchCV with 3-fold CV...
+2025-07-12 21:54:35,888 - ModelTraining - INFO - Best AUC for 3-fold: 0.5881
+2025-07-12 21:54:35,888 - ModelTraining - INFO - Runtime: 0.80 seconds
+2025-07-12 21:54:35,888 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 3, 'xgb__reg_alpha': 9, 'xgb__n_estimators': 100, 'xgb__min_child_weight': 10, 'xgb__max_depth': 5, 'xgb__learning_rate': 0.25, 'xgb__gamma': 2.0, 'xgb__colsample_bytree': 0.7000000000000001}
+2025-07-12 21:54:35,891 - ModelTraining - INFO - Training with 4-fold cross-validation
+2025-07-12 21:54:35,892 - ModelTraining - INFO - Starting RandomizedSearchCV with 4-fold CV...
+2025-07-12 21:54:37,205 - ModelTraining - INFO - Best AUC for 4-fold: 0.5946
+2025-07-12 21:54:37,207 - ModelTraining - INFO - Runtime: 1.31 seconds
+2025-07-12 21:54:37,207 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 3, 'xgb__reg_alpha': 0, 'xgb__n_estimators': 100, 'xgb__min_child_weight': 8, 'xgb__max_depth': 7, 'xgb__learning_rate': 0.05, 'xgb__gamma': 9.0, 'xgb__colsample_bytree': 0.7000000000000001}
+2025-07-12 21:54:37,209 - ModelTraining - INFO - Training with 5-fold cross-validation
+2025-07-12 21:54:37,209 - ModelTraining - INFO - Starting RandomizedSearchCV with 5-fold CV...
+2025-07-12 21:54:38,607 - ModelTraining - INFO - Best AUC for 5-fold: 0.5692
+2025-07-12 21:54:38,607 - ModelTraining - INFO - Runtime: 1.40 seconds
+2025-07-12 21:54:38,607 - ModelTraining - INFO - Best parameters: {'xgb__scale_pos_weight': 4.020725388601036, 'xgb__reg_lambda': 6, 'xgb__reg_alpha': 6, 'xgb__n_estimators': 500, 'xgb__min_child_weight': 5, 'xgb__max_depth': 8, 'xgb__learning_rate': 0.2, 'xgb__gamma': 0.0, 'xgb__colsample_bytree': 0.5}
+2025-07-12 21:54:38,613 - ModelTraining - INFO - Training completed. Generated 44 result combinations
+2025-07-12 21:54:38,613 - ModelTraining - INFO - Best AUC score: 0.5946
+2025-07-12 21:54:38,613 - ModelTraining - INFO - Top 10 results:
+2025-07-12 21:54:38,613 - ModelTraining - INFO -   Rank 1: AUC=0.5946, K-fold=4.0, max_depth=7.0, learning_rate=0.050
+2025-07-12 21:54:38,613 - ModelTraining - INFO -   Rank 2: AUC=0.5946, K-fold=4.0, max_depth=7.0, learning_rate=0.050
+2025-07-12 21:54:38,613 - ModelTraining - INFO -   Rank 3: AUC=0.5889, K-fold=4.0, max_depth=4.0, learning_rate=0.300
+2025-07-12 21:54:38,613 - ModelTraining - INFO -   Rank 4: AUC=0.5881, K-fold=3.0, max_depth=5.0, learning_rate=0.250
+2025-07-12 21:54:38,614 - ModelTraining - INFO -   Rank 5: AUC=0.5881, K-fold=3.0, max_depth=5.0, learning_rate=0.250
+2025-07-12 21:54:38,614 - ModelTraining - INFO - ✅ Model training completed successfully. Generated 44 result combinations
+2025-07-12 21:54:38,614 - ModelTraining - INFO - Saving model results to models.xgboost_training_results
+2025-07-12 21:54:38,614 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 21:54:38,636 - ModelTraining - INFO - Created/verified schema: models
+2025-07-12 21:54:38,637 - ModelTraining - INFO - Dropped existing table if present: models.xgboost_training_results
+2025-07-12 21:54:38,645 - ModelTraining - INFO - Successfully created table: models.xgboost_training_results
+2025-07-12 21:54:38,645 - ModelTraining - INFO - Verified: 44 rows saved to models.xgboost_training_results
+2025-07-12 21:54:38,645 - ModelTraining - INFO - Sample of saved model results:
+2025-07-12 21:54:38,662 - ModelTraining - INFO - 
+   k_folds  max_depth  min_child_weight  gamma  reg_lambda  ...  scale_pos_weight  runtime_seconds  auc_score    cv_std  rank
+0        4          7                 8    9.0           3  ...          4.020725          1.31304   0.594646  0.046641   NaN
+1        4          7                 8    9.0           3  ...          4.020725          1.31304   0.594646  0.046641   1.0
+2        4          4                 4   10.0           5  ...          4.020725          1.31304   0.588873  0.027931   2.0
+
+[3 rows x 14 columns]
+2025-07-12 21:54:38,692 - ModelTraining - INFO - Database connection closed
+2025-07-12 21:54:38,692 - ModelTraining - INFO - ✅ Model results saved to database successfully

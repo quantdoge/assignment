@@ -1,0 +1,53 @@
+2025-07-14 21:50:38,914 - CreatePredictions - INFO - Starting Prediction table creation process
+2025-07-14 21:50:38,914 - CreatePredictions - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 21:50:38,943 - CreatePredictions - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 21:50:38,943 - CreatePredictions - INFO - Created prediction schema
+2025-07-14 21:50:38,963 - CreatePredictions - INFO - Found test_predictions_cc_sales
+2025-07-14 21:50:38,966 - CreatePredictions - INFO - Found test_revenue_cc_predictions
+2025-07-14 21:50:38,981 - CreatePredictions - INFO - Found test_predictions_cl_sales
+2025-07-14 21:50:38,988 - CreatePredictions - INFO - Found test_revenue_cl_predictions
+2025-07-14 21:50:38,994 - CreatePredictions - INFO - Found test_predictions_mf_sales
+2025-07-14 21:50:38,999 - CreatePredictions - INFO - Found test_revenue_mf_predictions
+2025-07-14 21:50:38,999 - CreatePredictions - INFO - Creating predictions.test_predictions_combined table...
+2025-07-14 21:50:39,020 - CreatePredictions - INFO - Successfully created predictions.test_predictions_combined table
+2025-07-14 21:50:39,020 - CreatePredictions - INFO - Verified: 636 rows in predictions.test_predictions_combined table
+2025-07-14 21:50:39,020 - CreatePredictions - INFO - Creating predictions.optimized_outcome table...
+2025-07-14 21:50:39,025 - CreatePredictions - INFO - Successfully created predictions.optimized_outcome table
+2025-07-14 21:50:39,025 - CreatePredictions - INFO - Verified: 636 rows in predictions.optimized_outcome table
+2025-07-14 21:50:39,025 - CreatePredictions - INFO - predictions.test_predictions_combined schema:
+2025-07-14 21:50:39,035 - CreatePredictions - INFO - 
+Empty DataFrame
+Columns: [column_name, data_type]
+Index: []
+2025-07-14 21:50:39,035 - CreatePredictions - INFO - predictions.optimized_outcome schema:
+2025-07-14 21:50:39,040 - CreatePredictions - INFO - 
+Empty DataFrame
+Columns: [column_name, data_type]
+Index: []
+2025-07-14 21:50:39,040 - CreatePredictions - INFO - First 3 rows of predictions.test_predictions_combined:
+2025-07-14 21:50:39,054 - CreatePredictions - INFO - 
+   client  cc_predicted_probability  ...  mf_predicted_revenue  mf_expected_revenue
+0     545                  0.771797  ...              2.664407                  0.0
+1     667                  0.413641  ...              4.356471                  0.0
+2    1360                  0.472071  ...              2.295111                  0.0
+
+[3 rows x 10 columns]
+2025-07-14 21:50:39,054 - CreatePredictions - INFO - First 3 rows of predictions.optimized_outcome:
+2025-07-14 21:50:39,060 - CreatePredictions - INFO - 
+   client  max_expected_revenue best_product_type
+0     545              7.687627                CL
+1     667              0.000000                CC
+2    1360              7.200101                CL
+2025-07-14 21:50:39,060 - CreatePredictions - INFO - Product type distribution in optimized_outcome:
+2025-07-14 21:50:39,070 - CreatePredictions - INFO - 
+  best_product_type  count  percentage
+0                CC    290       45.60
+1                CL    269       42.30
+2                MF     77       12.11
+2025-07-14 21:50:39,070 - CreatePredictions - INFO - Revenue statistics:
+2025-07-14 21:50:39,070 - CreatePredictions - INFO - Average expected revenue: 3.51
+2025-07-14 21:50:39,070 - CreatePredictions - INFO - Minimum expected revenue: 0.0
+2025-07-14 21:50:39,070 - CreatePredictions - INFO - Maximum expected revenue: 9.640000343322754
+2025-07-14 21:50:39,070 - CreatePredictions - INFO - Total expected revenue: 2232.65
+2025-07-14 21:50:39,151 - CreatePredictions - INFO - Database connection closed
+2025-07-14 21:50:39,151 - CreatePredictions - INFO - ✅ Prediction table creation process completed successfully

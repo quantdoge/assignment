@@ -1,0 +1,43 @@
+2025-07-14 02:13:36,286 - FinalRegressorTraining - INFO - Starting final XGBoost regressor training process
+2025-07-14 02:13:36,288 - FinalRegressorTraining - INFO - Training final regressor for: Revenue_CC
+2025-07-14 02:13:36,288 - FinalRegressorTraining - INFO - Using predictive variables: ['VolumeDebCashless_Card', 'Tenure', 'Age']
+2025-07-14 02:13:36,288 - FinalRegressorTraining - INFO - Using categorical variables: []
+2025-07-14 02:13:36,288 - FinalRegressorTraining - INFO - Loading data from silver.train
+2025-07-14 02:13:36,288 - FinalRegressorTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 02:13:36,361 - FinalRegressorTraining - INFO - Filtering data where Revenue_CC is not zero/null
+2025-07-14 02:13:36,368 - FinalRegressorTraining - INFO - Successfully loaded 242 rows and 36 columns
+2025-07-14 02:13:36,375 - FinalRegressorTraining - INFO - Data shape: (242, 36)
+2025-07-14 02:13:36,379 - FinalRegressorTraining - INFO - Loading best parameters from models.xgboost_sales_cc_revenue_top
+2025-07-14 02:13:36,427 - FinalRegressorTraining - INFO - Best MAE score: 8.4831
+2025-07-14 02:13:36,427 - FinalRegressorTraining - INFO - Best parameters: {'max_depth': 11, 'min_child_weight': 1, 'gamma': 0.6000000000000001, 'reg_lambda': 1.7, 'colsample_bytree': 0.6, 'reg_alpha': 0.4, 'learning_rate': 0.049999999999999996, 'n_estimators': 50}
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Starting final XGBoost regressor training
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Response variable: Revenue_CC
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Predictive variables: ['VolumeDebCashless_Card', 'Tenure', 'Age']
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Categorical variables: []
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Model name: final_xgboost_cc_revenue_model
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Scale response: False
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Preparing data...
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Data after cleaning: (242, 4)
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Target variable statistics BEFORE scaling: mean=10.8625, std=34.1838, min=0.0714, max=407.9625
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Response variable not scaled
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Numerical variables: ['VolumeDebCashless_Card', 'Tenure', 'Age']
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - Categorical variables: []
+2025-07-14 02:13:36,433 - FinalRegressorTraining - INFO - XGBoost parameters: {'objective': 'reg:absoluteerror', 'eval_metric': 'mae', 'tree_method': 'exact', 'random_state': 42, 'n_jobs': -1, 'verbosity': 1, 'max_depth': 11, 'min_child_weight': 1, 'gamma': 0.6000000000000001, 'reg_lambda': 1.7, 'colsample_bytree': 0.6, 'reg_alpha': 0.4, 'learning_rate': 0.049999999999999996, 'n_estimators': 50}
+2025-07-14 02:13:36,439 - FinalRegressorTraining - INFO - Training final model...
+2025-07-14 02:13:36,483 - FinalRegressorTraining - INFO - Model training completed in 0.04 seconds
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO - Final model evaluation metrics (on original scale):
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   MAE: 8.1030
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   MSE: 1197.2418
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   RMSE: 34.6012
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   R² Score: -0.0288
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   MAE Percentage: 74.60%
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   Mean Actual: 10.8625
+2025-07-14 02:13:36,490 - FinalRegressorTraining - INFO -   Std Actual: 34.1838
+2025-07-14 02:13:36,496 - FinalRegressorTraining - INFO - Model saved to: C:\Users\jason\assignment\Models\final_xgboost_cc_revenue_model_Revenue_CC_20250714_021336.joblib
+2025-07-14 02:13:36,496 - FinalRegressorTraining - INFO - Model metrics saved to: C:\Users\jason\assignment\Models\final_xgboost_cc_revenue_model_Revenue_CC_20250714_021336_metrics.json
+2025-07-14 02:13:36,499 - FinalRegressorTraining - INFO - Model pickle backup saved to: C:\Users\jason\assignment\Models\final_xgboost_cc_revenue_model_Revenue_CC_20250714_021336.pkl
+2025-07-14 02:13:36,499 - FinalRegressorTraining - INFO - Saving final model metrics to models.final_xgboost_cc_revenue_model
+2025-07-14 02:13:36,524 - FinalRegressorTraining - INFO - Created/verified schema: models
+2025-07-14 02:13:36,544 - FinalRegressorTraining - INFO - Successfully saved final model metrics to models.final_xgboost_cc_revenue_model
+2025-07-14 02:13:36,544 - FinalRegressorTraining - INFO - Total records in table: 1
+2025-07-14 02:13:36,605 - FinalRegressorTraining - INFO - ✅ Final regressor training completed successfully

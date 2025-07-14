@@ -1,0 +1,181 @@
+2025-07-12 21:51:14,921 - ModelTraining - INFO - Starting XGBoost model training process
+2025-07-12 21:51:14,921 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 21:51:14,921 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 21:51:14,968 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 21:51:14,968 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 21:51:14,979 - ModelTraining - INFO - Starting model training...
+2025-07-12 21:51:14,979 - ModelTraining - INFO - Starting XGBoost binary classifier training
+2025-07-12 21:51:14,979 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 21:51:14,979 - ModelTraining - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-12 21:51:14,979 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:51:14,979 - ModelTraining - INFO - Preparing data...
+2025-07-12 21:51:14,993 - ModelTraining - INFO - Data after cleaning: (969, 30)
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Calculated scale_pos_weight: 4.0207
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Setting up hyperparameter optimization...
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Parameter search space size: 9
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Number of iterations: 30
+2025-07-12 21:51:14,995 - ModelTraining - INFO - Training with 2-fold cross-validation
+2025-07-12 21:51:14,997 - ModelTraining - INFO - Starting RandomizedSearchCV with 2-fold CV...
+2025-07-12 21:51:17,440 - ModelTraining - ERROR - Error training with 2-fold CV: 
+All the 60 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+60 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 661, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\sklearn.py", line 1682, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\training.py", line 184, in train
+    if cb_container.after_iteration(bst, i, dtrain, evals):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in after_iteration
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in <genexpr>
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 463, in after_iteration
+    raise ValueError(msg)
+ValueError: Must have at least 1 validation dataset for early stopping.
+
+2025-07-12 21:51:17,440 - ModelTraining - INFO - Training with 3-fold cross-validation
+2025-07-12 21:51:17,440 - ModelTraining - INFO - Starting RandomizedSearchCV with 3-fold CV...
+2025-07-12 21:51:17,726 - ModelTraining - ERROR - Error training with 3-fold CV: 
+All the 90 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+90 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 661, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\sklearn.py", line 1682, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\training.py", line 184, in train
+    if cb_container.after_iteration(bst, i, dtrain, evals):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in after_iteration
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in <genexpr>
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 463, in after_iteration
+    raise ValueError(msg)
+ValueError: Must have at least 1 validation dataset for early stopping.
+
+2025-07-12 21:51:17,726 - ModelTraining - INFO - Training with 4-fold cross-validation
+2025-07-12 21:51:17,726 - ModelTraining - INFO - Starting RandomizedSearchCV with 4-fold CV...
+2025-07-12 21:51:18,063 - ModelTraining - ERROR - Error training with 4-fold CV: 
+All the 120 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+120 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 661, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\sklearn.py", line 1682, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\training.py", line 184, in train
+    if cb_container.after_iteration(bst, i, dtrain, evals):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in after_iteration
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in <genexpr>
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 463, in after_iteration
+    raise ValueError(msg)
+ValueError: Must have at least 1 validation dataset for early stopping.
+
+2025-07-12 21:51:18,063 - ModelTraining - INFO - Training with 5-fold cross-validation
+2025-07-12 21:51:18,063 - ModelTraining - INFO - Starting RandomizedSearchCV with 5-fold CV...
+2025-07-12 21:51:18,451 - ModelTraining - ERROR - Error training with 5-fold CV: 
+All the 150 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+150 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 661, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\sklearn.py", line 1682, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\core.py", line 729, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\training.py", line 184, in train
+    if cb_container.after_iteration(bst, i, dtrain, evals):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in after_iteration
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 267, in <genexpr>
+    ret = any(c.after_iteration(model, epoch, self.history) for c in self.callbacks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\xgboost\callback.py", line 463, in after_iteration
+    raise ValueError(msg)
+ValueError: Must have at least 1 validation dataset for early stopping.
+
+2025-07-12 21:51:18,451 - ModelTraining - WARNING - No successful training results generated
+2025-07-12 21:51:18,451 - ModelTraining - INFO - ✅ Model training completed successfully. Generated 0 result combinations
