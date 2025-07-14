@@ -1,0 +1,51 @@
+2025-07-12 14:06:59,332 - INFO - ============================================================
+2025-07-12 14:06:59,332 - INFO - STARTING DATA QUALITY CHECKS
+2025-07-12 14:06:59,334 - INFO - ============================================================
+2025-07-12 14:06:59,338 - INFO - Found 4 quality checks to process
+2025-07-12 14:06:59,338 - INFO - ============================================================
+2025-07-12 14:06:59,338 - INFO - Running Quality Check 1/4: soc_dem_client_validation
+2025-07-12 14:06:59,340 - INFO - ============================================================
+2025-07-12 14:06:59,383 - INFO - Checking field 'client' in bronze.soc_dem
+2025-07-12 14:06:59,388 - INFO - Total records: 1615
+2025-07-12 14:06:59,398 - INFO - PASSED unique: 1615/1615 records passed
+2025-07-12 14:06:59,398 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 14:06:59,398 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:06:59,400 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:06:59,400 - INFO - ============================================================
+2025-07-12 14:06:59,401 - INFO - Running Quality Check 2/4: soc_dem_sex_validation
+2025-07-12 14:06:59,401 - INFO - ============================================================
+2025-07-12 14:06:59,418 - INFO - Checking field 'sex' in bronze.soc_dem
+2025-07-12 14:06:59,419 - INFO - Total records: 1615
+2025-07-12 14:06:59,427 - INFO - PASSED enum: 1615/1615 records passed
+2025-07-12 14:06:59,427 - INFO - FAILED non_null: 1612/1615 records passed
+2025-07-12 14:06:59,427 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:06:59,427 - INFO - ============================================================
+2025-07-12 14:06:59,429 - INFO - Running Quality Check 3/4: soc_dem_age_validation
+2025-07-12 14:06:59,429 - INFO - ============================================================
+2025-07-12 14:06:59,446 - INFO - Checking field 'age' in bronze.soc_dem
+2025-07-12 14:06:59,447 - INFO - Total records: 1615
+2025-07-12 14:06:59,454 - INFO - FAILED positive: 1614/1615 records passed
+2025-07-12 14:06:59,455 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:06:59,456 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:06:59,456 - INFO - ============================================================
+2025-07-12 14:06:59,456 - INFO - Running Quality Check 4/4: soc_dem_tenure_validation
+2025-07-12 14:06:59,457 - INFO - ============================================================
+2025-07-12 14:06:59,477 - INFO - Checking field 'tenure' in bronze.soc_dem
+2025-07-12 14:06:59,477 - INFO - Total records: 1615
+2025-07-12 14:06:59,479 - INFO - FAILED positive: 1596/1615 records passed
+2025-07-12 14:06:59,479 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 14:06:59,479 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 14:06:59,484 - INFO - ============================================================
+2025-07-12 14:06:59,484 - INFO - Saving results to DuckDB...
+2025-07-12 14:06:59,484 - INFO - ============================================================
+2025-07-12 14:06:59,505 - INFO - Created/verified dq schema
+2025-07-12 14:06:59,513 - INFO - Saved 13 quality check results to dq.dq_results
+2025-07-12 14:06:59,521 - INFO - Quality Check Summary:
+2025-07-12 14:06:59,522 - INFO -   enum: 1 checks, 0.0 failures, 1615.0 records checked
+2025-07-12 14:06:59,522 - INFO -   non_null: 4 checks, 3.0 failures, 6460.0 records checked
+2025-07-12 14:06:59,522 - INFO -   positive: 3 checks, 20.0 failures, 4845.0 records checked
+2025-07-12 14:06:59,524 - INFO -   type: 4 checks, 0.0 failures, 6460.0 records checked
+2025-07-12 14:06:59,524 - INFO -   unique: 1 checks, 0.0 failures, 1615.0 records checked
+2025-07-12 14:06:59,543 - INFO - ============================================================
+2025-07-12 14:06:59,543 - INFO - All quality checks completed!
+2025-07-12 14:06:59,543 - INFO - ============================================================

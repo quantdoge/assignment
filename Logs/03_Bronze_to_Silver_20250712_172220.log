@@ -1,0 +1,9 @@
+2025-07-12 17:22:20,417 - BronzeToSilver - INFO - Starting Bronze to Silver transformation process
+2025-07-12 17:22:20,417 - BronzeToSilver - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 17:22:20,501 - BronzeToSilver - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 17:22:20,510 - BronzeToSilver - INFO - Created silver schema
+2025-07-12 17:22:20,651 - BronzeToSilver - INFO - Found bronze.sales_revenues
+2025-07-12 17:22:20,660 - BronzeToSilver - ERROR - Required bronze table not found: bronze.inflow_outlow
+2025-07-12 17:22:20,662 - BronzeToSilver - ERROR - Error occurred: Required bronze table not found: bronze.inflow_outlow
+2025-07-12 17:22:20,684 - BronzeToSilver - INFO - Database connection closed
+2025-07-12 17:22:20,684 - BronzeToSilver - ERROR - ❌ Bronze to Silver transformation process failed: Required bronze table not found: bronze.inflow_outlow

@@ -1,0 +1,45 @@
+2025-07-13 00:37:12,307 - ModelTraining - INFO - Starting XGBoost model training process with Dask
+2025-07-13 00:37:15,958 - ModelTraining - INFO - Dask client created successfully
+2025-07-13 00:37:15,961 - ModelTraining - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-13 00:37:15,963 - ModelTraining - INFO - Workers: 5
+2025-07-13 00:37:15,963 - ModelTraining - INFO - Loading data from silver.train
+2025-07-13 00:37:15,963 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 00:37:16,027 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-13 00:37:16,029 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-13 00:37:16,036 - ModelTraining - INFO - Starting model training with Dask...
+2025-07-13 00:37:16,036 - ModelTraining - INFO - Starting XGBoost binary classifier training with Dask
+2025-07-13 00:37:16,036 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-13 00:37:16,036 - ModelTraining - INFO - Predictive variables: ['TransactionsDebCashless_Card', 'Count_MF']
+2025-07-13 00:37:16,036 - ModelTraining - INFO - Categorical variables: []
+2025-07-13 00:37:16,036 - ModelTraining - INFO - Preparing data...
+2025-07-13 00:37:16,039 - ModelTraining - INFO - Data after cleaning: (969, 3)
+2025-07-13 00:37:16,041 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-13 00:37:16,042 - ModelTraining - INFO - Setting up parallel training with Dask...
+2025-07-13 00:37:16,050 - ModelTraining - INFO - Created 30 parallel training tasks
+2025-07-13 00:40:46,519 - ModelTraining - INFO - Parallel training completed in 210.47 seconds
+2025-07-13 00:40:46,527 - ModelTraining - INFO - Training completed. Generated 30 successful results
+2025-07-13 00:40:46,528 - ModelTraining - INFO - Best AUC score: 0.6295
+2025-07-13 00:40:46,528 - ModelTraining - INFO - Top 5 results:
+2025-07-13 00:40:46,531 - ModelTraining - INFO -   Rank 1: AUC=0.6295, K-fold=4.0, max_depth=7.0, learning_rate=0.150
+2025-07-13 00:40:46,531 - ModelTraining - INFO -   Rank 2: AUC=0.6291, K-fold=4.0, max_depth=9.0, learning_rate=0.100
+2025-07-13 00:40:46,532 - ModelTraining - INFO -   Rank 3: AUC=0.6289, K-fold=4.0, max_depth=5.0, learning_rate=0.050
+2025-07-13 00:40:46,532 - ModelTraining - INFO -   Rank 4: AUC=0.6288, K-fold=4.0, max_depth=7.0, learning_rate=0.300
+2025-07-13 00:40:46,532 - ModelTraining - INFO -   Rank 5: AUC=0.6286, K-fold=4.0, max_depth=5.0, learning_rate=0.100
+2025-07-13 00:40:46,536 - ModelTraining - INFO - ✅ Model training completed successfully. Generated 30 result combinations
+2025-07-13 00:40:46,536 - ModelTraining - INFO - Saving model results to models.xgboost_mf_sales_top
+2025-07-13 00:40:46,536 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 00:40:46,577 - ModelTraining - INFO - Created/verified schema: models
+2025-07-13 00:40:46,581 - ModelTraining - INFO - Dropped existing table if present: models.xgboost_mf_sales_top
+2025-07-13 00:40:46,593 - ModelTraining - INFO - Successfully created table: models.xgboost_mf_sales_top
+2025-07-13 00:40:46,594 - ModelTraining - INFO - Verified: 30 rows saved to models.xgboost_mf_sales_top
+2025-07-13 00:40:46,594 - ModelTraining - INFO - Sample of saved model results:
+2025-07-13 00:40:46,629 - ModelTraining - INFO - 
+   iteration_id  k_folds  max_depth  min_child_weight  gamma  ...  n_estimators  scale_pos_weight  runtime_seconds  auc_score    cv_std
+0            16        4          7                13    1.0  ...           300          4.020725       102.494552   0.629459  0.028339
+1            15        4          9                18    2.5  ...           200          4.020725       115.872795   0.629145  0.027199
+2            12        4          5                20    1.5  ...           500          4.020725        83.372336   0.628864  0.027421
+
+[3 rows x 14 columns]
+2025-07-13 00:40:46,675 - ModelTraining - INFO - Database connection closed
+2025-07-13 00:40:46,675 - ModelTraining - INFO - ✅ Model results saved to database successfully
+2025-07-13 00:40:47,413 - ModelTraining - INFO - Dask client closed

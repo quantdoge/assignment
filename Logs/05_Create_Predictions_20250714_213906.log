@@ -1,0 +1,22 @@
+2025-07-14 21:39:06,018 - CreatePredictions - INFO - Starting Prediction table creation process
+2025-07-14 21:39:06,018 - CreatePredictions - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 21:39:06,047 - CreatePredictions - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 21:39:06,065 - CreatePredictions - INFO - Created prediction schema
+2025-07-14 21:39:06,094 - CreatePredictions - INFO - Found test_predictions_cc_sales
+2025-07-14 21:39:06,097 - CreatePredictions - INFO - Found test_revenue_cc_predictions
+2025-07-14 21:39:06,097 - CreatePredictions - INFO - Found test_predictions_cl_sales
+2025-07-14 21:39:06,105 - CreatePredictions - INFO - Found test_revenue_cl_predictions
+2025-07-14 21:39:06,107 - CreatePredictions - INFO - Found test_predictions_mf_sales
+2025-07-14 21:39:06,112 - CreatePredictions - INFO - Found test_revenue_mf_predictions
+2025-07-14 21:39:06,112 - CreatePredictions - INFO - Creating prediction.test_predictions_combined table...
+2025-07-14 21:39:06,114 - CreatePredictions - ERROR - Error occurred: Catalog Error: Table with name test_revenue_cc_predictions does not exist!
+Did you mean "predictions.test_revenue_cc_predictions"?
+
+LINE 16:             INNER JOIN models.test_revenue_cc_predictions AS cc_revenue ON cc_sales...
+                                ^
+2025-07-14 21:39:06,121 - CreatePredictions - INFO - Database connection closed
+2025-07-14 21:39:06,121 - CreatePredictions - ERROR - ❌ Prediction table creation process failed: Catalog Error: Table with name test_revenue_cc_predictions does not exist!
+Did you mean "predictions.test_revenue_cc_predictions"?
+
+LINE 16:             INNER JOIN models.test_revenue_cc_predictions AS cc_revenue ON cc_sales...
+                                ^

@@ -1,0 +1,22 @@
+2025-07-13 17:56:16,220 - ModelTrainingRegressor - INFO - Starting XGBoost regressor training process with Dask
+2025-07-13 17:56:19,541 - ModelTrainingRegressor - INFO - Dask client created successfully
+2025-07-13 17:56:19,544 - ModelTrainingRegressor - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-13 17:56:19,549 - ModelTrainingRegressor - INFO - Workers: 5
+2025-07-13 17:56:19,551 - ModelTrainingRegressor - INFO - Loading data from silver.train
+2025-07-13 17:56:19,553 - ModelTrainingRegressor - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 17:56:19,726 - ModelTrainingRegressor - INFO - Successfully loaded 242 rows and 36 columns
+2025-07-13 17:56:19,726 - ModelTrainingRegressor - INFO - Data shape: (242, 36)
+2025-07-13 17:56:19,768 - ModelTrainingRegressor - INFO - Starting regressor training with Dask...
+2025-07-13 17:56:19,769 - ModelTrainingRegressor - INFO - Starting XGBoost regressor training with Dask
+2025-07-13 17:56:19,769 - ModelTrainingRegressor - INFO - Response variable: Revenue_CC
+2025-07-13 17:56:19,769 - ModelTrainingRegressor - INFO - Predictive variables: ['VolumeDebCashless_Card', 'Tenure', 'Age']
+2025-07-13 17:56:19,769 - ModelTrainingRegressor - INFO - Categorical variables: []
+2025-07-13 17:56:19,769 - ModelTrainingRegressor - INFO - Preparing data...
+2025-07-13 17:56:19,778 - ModelTrainingRegressor - INFO - Data after cleaning: (242, 4)
+2025-07-13 17:56:19,778 - ModelTrainingRegressor - INFO - Target variable statistics BEFORE scaling: mean=10.8625, std=34.1838, min=0.0714, max=407.9625
+2025-07-13 17:56:19,778 - ModelTrainingRegressor - INFO - Applying StandardScaler to response variable...
+2025-07-13 17:56:19,781 - ModelTrainingRegressor - INFO - Target variable statistics AFTER scaling: mean=-0.0000, std=1.0021, min=-0.3163, max=11.6407
+2025-07-13 17:56:19,782 - ModelTrainingRegressor - INFO - Response variable scaling completed successfully
+2025-07-13 17:56:19,782 - ModelTrainingRegressor - INFO - Setting up parallel training with Dask...
+2025-07-13 17:56:19,789 - ModelTrainingRegressor - INFO - Created 30 parallel training tasks
+2025-07-13 17:56:34,140 - ModelTrainingRegressor - INFO - Dask client closed

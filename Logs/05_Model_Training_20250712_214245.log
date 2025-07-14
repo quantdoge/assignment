@@ -1,0 +1,281 @@
+2025-07-12 21:42:45,815 - ModelTraining - INFO - Starting XGBoost model training process
+2025-07-12 21:42:45,816 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 21:42:45,816 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 21:42:45,866 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 21:42:45,866 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 21:42:45,875 - ModelTraining - INFO - Starting model training...
+2025-07-12 21:42:45,875 - ModelTraining - INFO - Starting XGBoost binary classifier training
+2025-07-12 21:42:45,875 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 21:42:45,875 - ModelTraining - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 21:42:45,875 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:42:45,877 - ModelTraining - INFO - Preparing data...
+2025-07-12 21:42:45,893 - ModelTraining - INFO - Data after cleaning: (969, 29)
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Calculated scale_pos_weight: 4.0207
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Setting up hyperparameter optimization...
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Parameter search space size: 9
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Number of iterations: 30
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Training with 2-fold cross-validation
+2025-07-12 21:42:45,895 - ModelTraining - INFO - Starting RandomizedSearchCV with 2-fold CV...
+2025-07-12 21:42:48,865 - ModelTraining - ERROR - Error training with 2-fold CV: 
+All the 60 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+60 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 431, in _get_column_indices
+    col_idx = all_columns.get_loc(col)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 653, in fit
+    Xt = self._fit(X, y, routed_params, raw_params=params)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 587, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\joblib\memory.py", line 326, in __call__
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 1539, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 988, in fit_transform
+    self._validate_column_callables(X)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 541, in _validate_column_callables
+    transformer_to_input_indices[name] = _get_column_indices(X, columns)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 439, in _get_column_indices
+    raise ValueError("A given column is not a column of the dataframe") from e
+ValueError: A given column is not a column of the dataframe
+
+2025-07-12 21:42:48,865 - ModelTraining - INFO - Training with 3-fold cross-validation
+2025-07-12 21:42:48,865 - ModelTraining - INFO - Starting RandomizedSearchCV with 3-fold CV...
+2025-07-12 21:42:49,062 - ModelTraining - ERROR - Error training with 3-fold CV: 
+All the 90 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+90 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 431, in _get_column_indices
+    col_idx = all_columns.get_loc(col)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 653, in fit
+    Xt = self._fit(X, y, routed_params, raw_params=params)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 587, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\joblib\memory.py", line 326, in __call__
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 1539, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 988, in fit_transform
+    self._validate_column_callables(X)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 541, in _validate_column_callables
+    transformer_to_input_indices[name] = _get_column_indices(X, columns)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 439, in _get_column_indices
+    raise ValueError("A given column is not a column of the dataframe") from e
+ValueError: A given column is not a column of the dataframe
+
+2025-07-12 21:42:49,063 - ModelTraining - INFO - Training with 4-fold cross-validation
+2025-07-12 21:42:49,063 - ModelTraining - INFO - Starting RandomizedSearchCV with 4-fold CV...
+2025-07-12 21:42:49,274 - ModelTraining - ERROR - Error training with 4-fold CV: 
+All the 120 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+120 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 431, in _get_column_indices
+    col_idx = all_columns.get_loc(col)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 653, in fit
+    Xt = self._fit(X, y, routed_params, raw_params=params)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 587, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\joblib\memory.py", line 326, in __call__
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 1539, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 988, in fit_transform
+    self._validate_column_callables(X)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 541, in _validate_column_callables
+    transformer_to_input_indices[name] = _get_column_indices(X, columns)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 439, in _get_column_indices
+    raise ValueError("A given column is not a column of the dataframe") from e
+ValueError: A given column is not a column of the dataframe
+
+2025-07-12 21:42:49,274 - ModelTraining - INFO - Training with 5-fold cross-validation
+2025-07-12 21:42:49,274 - ModelTraining - INFO - Starting RandomizedSearchCV with 5-fold CV...
+2025-07-12 21:42:49,539 - ModelTraining - ERROR - Error training with 5-fold CV: 
+All the 150 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+150 fits failed with the following error:
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 431, in _get_column_indices
+    col_idx = all_columns.get_loc(col)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Sex'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 653, in fit
+    Xt = self._fit(X, y, routed_params, raw_params=params)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 587, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\joblib\memory.py", line 326, in __call__
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\pipeline.py", line 1539, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\base.py", line 1363, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 988, in fit_transform
+    self._validate_column_callables(X)
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\compose\_column_transformer.py", line 541, in _validate_column_callables
+    transformer_to_input_indices[name] = _get_column_indices(X, columns)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jason\anaconda3\envs\assignment\Lib\site-packages\sklearn\utils\_indexing.py", line 439, in _get_column_indices
+    raise ValueError("A given column is not a column of the dataframe") from e
+ValueError: A given column is not a column of the dataframe
+
+2025-07-12 21:42:49,539 - ModelTraining - WARNING - No successful training results generated
+2025-07-12 21:42:49,539 - ModelTraining - INFO - ✅ Model training completed successfully. Generated 0 result combinations

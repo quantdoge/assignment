@@ -1,0 +1,22 @@
+2025-07-14 21:37:01,398 - CreatePredictions - INFO - Starting Prediction table creation process
+2025-07-14 21:37:01,398 - CreatePredictions - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 21:37:01,449 - CreatePredictions - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 21:37:01,461 - CreatePredictions - INFO - Created prediction schema
+2025-07-14 21:37:01,478 - CreatePredictions - INFO - Found test_predictions_cc_sales
+2025-07-14 21:37:01,482 - CreatePredictions - INFO - Found test_revenue_cc_predictions
+2025-07-14 21:37:01,485 - CreatePredictions - INFO - Found test_predictions_cl_sales
+2025-07-14 21:37:01,488 - CreatePredictions - INFO - Found test_revenue_cl_predictions
+2025-07-14 21:37:01,491 - CreatePredictions - INFO - Found test_predictions_mf_sales
+2025-07-14 21:37:01,493 - CreatePredictions - INFO - Found test_revenue_mf_predictions
+2025-07-14 21:37:01,493 - CreatePredictions - INFO - Creating prediction.test_predictions_combined table...
+2025-07-14 21:37:01,501 - CreatePredictions - ERROR - Error occurred: Catalog Error: Table with name test_predictions_cc_sales does not exist!
+Did you mean "models.test_predictions_cc_sales"?
+
+LINE 15:                 test_predictions_cc_sales AS cc_sales
+                         ^
+2025-07-14 21:37:01,566 - CreatePredictions - INFO - Database connection closed
+2025-07-14 21:37:01,566 - CreatePredictions - ERROR - ❌ Prediction table creation process failed: Catalog Error: Table with name test_predictions_cc_sales does not exist!
+Did you mean "models.test_predictions_cc_sales"?
+
+LINE 15:                 test_predictions_cc_sales AS cc_sales
+                         ^

@@ -1,5 +1,2 @@
-assignment.duckdb
-node_modules/
-Logs/
-Queried/
 .vscode/
+node_modules/

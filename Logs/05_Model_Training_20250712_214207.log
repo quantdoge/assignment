@@ -1,0 +1,11 @@
+2025-07-12 21:42:07,957 - ModelTraining - INFO - Starting XGBoost model training process
+2025-07-12 21:42:07,957 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 21:42:07,957 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 21:42:08,090 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 21:42:08,090 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 21:42:08,104 - ModelTraining - INFO - Starting model training...
+2025-07-12 21:42:08,104 - ModelTraining - INFO - Starting XGBoost binary classifier training
+2025-07-12 21:42:08,104 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 21:42:08,104 - ModelTraining - INFO - Predictive variables: ['Volume_Cred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 21:42:08,104 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 21:42:08,104 - ModelTraining - ERROR - ❌ Model training failed: Predictive variables not found in data: ['Volume_Cred']

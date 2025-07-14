@@ -1,0 +1,73 @@
+2025-07-12 17:23:15,221 - BronzeToSilver - INFO - Starting Bronze to Silver transformation process
+2025-07-12 17:23:15,222 - BronzeToSilver - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 17:23:15,243 - BronzeToSilver - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 17:23:15,244 - BronzeToSilver - INFO - Created silver schema
+2025-07-12 17:23:15,261 - BronzeToSilver - INFO - Found bronze.sales_revenues
+2025-07-12 17:23:15,264 - BronzeToSilver - INFO - Found bronze.inflow_outflow
+2025-07-12 17:23:15,273 - BronzeToSilver - INFO - Found bronze.products_actbalance
+2025-07-12 17:23:15,276 - BronzeToSilver - INFO - Found bronze.soc_dem
+2025-07-12 17:23:15,276 - BronzeToSilver - INFO - Analyzing table schemas...
+2025-07-12 17:23:15,280 - BronzeToSilver - INFO - bronze.sales_revenues has 7 columns
+2025-07-12 17:23:15,282 - BronzeToSilver - INFO - bronze.inflow_outflow has 15 columns
+2025-07-12 17:23:15,285 - BronzeToSilver - INFO - bronze.products_actbalance has 13 columns
+2025-07-12 17:23:15,286 - BronzeToSilver - INFO - bronze.soc_dem has 4 columns
+2025-07-12 17:23:15,287 - BronzeToSilver - INFO - Building JOIN query...
+2025-07-12 17:23:15,287 - BronzeToSilver - INFO - Executing JOIN query to create silver.train table...
+2025-07-12 17:23:15,316 - BronzeToSilver - INFO - Successfully created silver.train table with JOINs
+2025-07-12 17:23:15,316 - BronzeToSilver - INFO - Handling NULL values...
+2025-07-12 17:23:15,320 - BronzeToSilver - INFO - Found 35 numeric columns to process for NULL handling
+2025-07-12 17:23:15,338 - BronzeToSilver - INFO - Successfully filled NULL values with 0 for numeric columns - Client||Sale_MF||Sale_CC||Sale_CL||Revenue_MF||Revenue_CC||Revenue_CL||VolumeCred||VolumeCred_CA||TransactionsCred||TransactionsCred_CA||VolumeDeb||VolumeDeb_CA||VolumeDebCash_Card||VolumeDebCashless_Card||VolumeDeb_PaymentOrder||TransactionsDeb||TransactionsDeb_CA||TransactionsDebCash_Card||TransactionsDebCashless_Card||TransactionsDeb_PaymentOrder||Count_CA||Count_SA||Count_MF||Count_OVD||Count_CC||Count_CL||ActBal_CA||ActBal_SA||ActBal_MF||ActBal_OVD||ActBal_CC||ActBal_CL||Age||Tenure
+2025-07-12 17:23:15,339 - BronzeToSilver - INFO - Verified: 969 rows in silver.train table
+2025-07-12 17:23:15,339 - BronzeToSilver - INFO - Final table schema:
+2025-07-12 17:23:15,354 - BronzeToSilver - INFO - 
+                     column_name data_type
+0                         Client    BIGINT
+1                        Sale_MF    BIGINT
+2                        Sale_CC    BIGINT
+3                        Sale_CL    BIGINT
+4                     Revenue_MF    DOUBLE
+5                     Revenue_CC    DOUBLE
+6                     Revenue_CL    DOUBLE
+7                     VolumeCred    DOUBLE
+8                  VolumeCred_CA    DOUBLE
+9               TransactionsCred    BIGINT
+10           TransactionsCred_CA    BIGINT
+11                     VolumeDeb    DOUBLE
+12                  VolumeDeb_CA    DOUBLE
+13            VolumeDebCash_Card    DOUBLE
+14        VolumeDebCashless_Card    DOUBLE
+15        VolumeDeb_PaymentOrder    DOUBLE
+16               TransactionsDeb    BIGINT
+17            TransactionsDeb_CA    BIGINT
+18      TransactionsDebCash_Card    BIGINT
+19  TransactionsDebCashless_Card    BIGINT
+20  TransactionsDeb_PaymentOrder    BIGINT
+21                      Count_CA    BIGINT
+22                      Count_SA    DOUBLE
+23                      Count_MF    DOUBLE
+24                     Count_OVD    DOUBLE
+25                      Count_CC    DOUBLE
+26                      Count_CL    DOUBLE
+27                     ActBal_CA    DOUBLE
+28                     ActBal_SA    DOUBLE
+29                     ActBal_MF    DOUBLE
+30                    ActBal_OVD    DOUBLE
+31                     ActBal_CC    DOUBLE
+32                     ActBal_CL    DOUBLE
+33                           Sex   VARCHAR
+34                           Age    BIGINT
+35                        Tenure    BIGINT
+2025-07-12 17:23:15,354 - BronzeToSilver - INFO - First 3 rows of silver.train:
+2025-07-12 17:23:15,392 - BronzeToSilver - INFO - 
+   Client  Sale_MF  Sale_CC  Sale_CL  Revenue_MF  Revenue_CC  Revenue_CL  ...  ActBal_MF  ActBal_OVD  ActBal_CC  ActBal_CL  Sex  Age  Tenure
+0    1017        0        0        0         0.0    0.000000         0.0  ...        0.0         0.0        0.0        0.0    M   57     145
+1    1456        0        1        0         0.0    3.607143         0.0  ...        0.0         0.0        0.0        0.0    F   61     149
+2    1381        0        0        0         0.0    0.000000         0.0  ...        0.0         0.0        0.0        0.0    M   38     135
+
+[3 rows x 36 columns]
+2025-07-12 17:23:15,393 - BronzeToSilver - INFO - Data summary:
+2025-07-12 17:23:15,395 - BronzeToSilver - INFO - Total columns: 36
+2025-07-12 17:23:15,395 - BronzeToSilver - INFO - Total rows: 969
+2025-07-12 17:23:15,395 - BronzeToSilver - INFO - NULL clients: 0
+2025-07-12 17:23:15,435 - BronzeToSilver - INFO - Database connection closed
+2025-07-12 17:23:15,436 - BronzeToSilver - INFO - ✅ Bronze to Silver transformation process completed successfully

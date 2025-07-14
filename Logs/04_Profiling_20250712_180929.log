@@ -1,0 +1,215 @@
+2025-07-12 18:09:29,941 - Profiling - INFO - Starting numerical data profiling process
+2025-07-12 18:09:29,941 - Profiling - INFO - Starting numerical data profiling for silver.train
+2025-07-12 18:09:29,942 - Profiling - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 18:09:30,015 - Profiling - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 18:09:30,063 - Profiling - INFO - Found table: silver.train
+2025-07-12 18:09:30,063 - Profiling - INFO - Found 35 numerical columns: ['Client', 'Sale_MF', 'Sale_CC', 'Sale_CL', 'Revenue_MF', 'Revenue_CC', 'Revenue_CL', 'VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-12 18:09:30,063 - Profiling - INFO - Profiling column: Client
+2025-07-12 18:09:30,107 - Profiling - INFO - Successfully profiled column: Client
+2025-07-12 18:09:30,107 - Profiling - INFO -   Min: 1, Max: 1615, Mean: 814.7812, Median: 819.0
+2025-07-12 18:09:30,107 - Profiling - INFO - Profiling column: Sale_MF
+2025-07-12 18:09:30,113 - Profiling - INFO - Successfully profiled column: Sale_MF
+2025-07-12 18:09:30,113 - Profiling - INFO -   Min: 0, Max: 1, Mean: 0.1992, Median: 0.0
+2025-07-12 18:09:30,115 - Profiling - INFO - Profiling column: Sale_CC
+2025-07-12 18:09:30,119 - Profiling - INFO - Successfully profiled column: Sale_CC
+2025-07-12 18:09:30,119 - Profiling - INFO -   Min: 0, Max: 1, Mean: 0.2497, Median: 0.0
+2025-07-12 18:09:30,119 - Profiling - INFO - Profiling column: Sale_CL
+2025-07-12 18:09:30,123 - Profiling - INFO - Successfully profiled column: Sale_CL
+2025-07-12 18:09:30,123 - Profiling - INFO -   Min: 0, Max: 1, Mean: 0.2993, Median: 0.0
+2025-07-12 18:09:30,123 - Profiling - INFO - Profiling column: Revenue_MF
+2025-07-12 18:09:30,133 - Profiling - INFO - Successfully profiled column: Revenue_MF
+2025-07-12 18:09:30,133 - Profiling - INFO -   Min: 0.0, Max: 220.4882142857143, Mean: 1.9250, Median: 0.0
+2025-07-12 18:09:30,133 - Profiling - INFO - Profiling column: Revenue_CC
+2025-07-12 18:09:30,137 - Profiling - INFO - Successfully profiled column: Revenue_CC
+2025-07-12 18:09:30,137 - Profiling - INFO -   Min: 0.0, Max: 407.96250000000003, Mean: 2.7128, Median: 0.0
+2025-07-12 18:09:30,137 - Profiling - INFO - Profiling column: Revenue_CL
+2025-07-12 18:09:30,141 - Profiling - INFO - Successfully profiled column: Revenue_CL
+2025-07-12 18:09:30,141 - Profiling - INFO -   Min: 0.0, Max: 133.27535714285713, Mean: 3.6042, Median: 0.0
+2025-07-12 18:09:30,141 - Profiling - INFO - Profiling column: VolumeCred
+2025-07-12 18:09:30,144 - Profiling - INFO - Successfully profiled column: VolumeCred
+2025-07-12 18:09:30,144 - Profiling - INFO -   Min: 0.0, Max: 107703.80428571429, Mean: 1832.3841, Median: 659.2539285714286
+2025-07-12 18:09:30,144 - Profiling - INFO - Profiling column: VolumeCred_CA
+2025-07-12 18:09:30,146 - Profiling - INFO - Successfully profiled column: VolumeCred_CA
+2025-07-12 18:09:30,146 - Profiling - INFO -   Min: 0.0, Max: 98717.675, Mean: 1482.1603, Median: 634.4328571428571
+2025-07-12 18:09:30,146 - Profiling - INFO - Profiling column: TransactionsCred
+2025-07-12 18:09:30,151 - Profiling - INFO - Successfully profiled column: TransactionsCred
+2025-07-12 18:09:30,151 - Profiling - INFO -   Min: 0, Max: 63, Mean: 5.6509, Median: 4.0
+2025-07-12 18:09:30,151 - Profiling - INFO - Profiling column: TransactionsCred_CA
+2025-07-12 18:09:30,151 - Profiling - INFO - Successfully profiled column: TransactionsCred_CA
+2025-07-12 18:09:30,151 - Profiling - INFO -   Min: 0, Max: 48, Mean: 4.2965, Median: 3.0
+2025-07-12 18:09:30,151 - Profiling - INFO - Profiling column: VolumeDeb
+2025-07-12 18:09:30,155 - Profiling - INFO - Successfully profiled column: VolumeDeb
+2025-07-12 18:09:30,156 - Profiling - INFO -   Min: 0.0, Max: 64608.361428571436, Mean: 1704.6025, Median: 691.6428571428571
+2025-07-12 18:09:30,156 - Profiling - INFO - Profiling column: VolumeDeb_CA
+2025-07-12 18:09:30,156 - Profiling - INFO - Successfully profiled column: VolumeDeb_CA
+2025-07-12 18:09:30,156 - Profiling - INFO -   Min: 0.0, Max: 64178.18535714286, Mean: 1504.2482, Median: 667.6071428571429
+2025-07-12 18:09:30,158 - Profiling - INFO - Profiling column: VolumeDebCash_Card
+2025-07-12 18:09:30,160 - Profiling - INFO - Successfully profiled column: VolumeDebCash_Card
+2025-07-12 18:09:30,160 - Profiling - INFO -   Min: 0.0, Max: 23571.428571428572, Mean: 270.8935, Median: 89.28571428571429
+2025-07-12 18:09:30,160 - Profiling - INFO - Profiling column: VolumeDebCashless_Card
+2025-07-12 18:09:30,162 - Profiling - INFO - Successfully profiled column: VolumeDebCashless_Card
+2025-07-12 18:09:30,162 - Profiling - INFO -   Min: 0.0, Max: 3637.616785714286, Mean: 157.7302, Median: 26.789285714285715
+2025-07-12 18:09:30,162 - Profiling - INFO - Profiling column: VolumeDeb_PaymentOrder
+2025-07-12 18:09:30,163 - Profiling - INFO - Successfully profiled column: VolumeDeb_PaymentOrder
+2025-07-12 18:09:30,165 - Profiling - INFO -   Min: 0.0, Max: 61955.10392857143, Mean: 719.3465, Median: 178.14285714285714
+2025-07-12 18:09:30,165 - Profiling - INFO - Profiling column: TransactionsDeb
+2025-07-12 18:09:30,165 - Profiling - INFO - Successfully profiled column: TransactionsDeb
+2025-07-12 18:09:30,165 - Profiling - INFO -   Min: 0, Max: 102, Mean: 16.3659, Median: 12.0
+2025-07-12 18:09:30,165 - Profiling - INFO - Profiling column: TransactionsDeb_CA
+2025-07-12 18:09:30,168 - Profiling - INFO - Successfully profiled column: TransactionsDeb_CA
+2025-07-12 18:09:30,168 - Profiling - INFO -   Min: 0, Max: 83, Mean: 13.8212, Median: 11.0
+2025-07-12 18:09:30,168 - Profiling - INFO - Profiling column: TransactionsDebCash_Card
+2025-07-12 18:09:30,170 - Profiling - INFO - Successfully profiled column: TransactionsDebCash_Card
+2025-07-12 18:09:30,170 - Profiling - INFO -   Min: 0, Max: 25, Mean: 2.0189, Median: 1.0
+2025-07-12 18:09:30,170 - Profiling - INFO - Profiling column: TransactionsDebCashless_Card
+2025-07-12 18:09:30,171 - Profiling - INFO - Successfully profiled column: TransactionsDebCashless_Card
+2025-07-12 18:09:30,171 - Profiling - INFO -   Min: 0, Max: 60, Mean: 5.3607, Median: 1.0
+2025-07-12 18:09:30,171 - Profiling - INFO - Profiling column: TransactionsDeb_PaymentOrder
+2025-07-12 18:09:30,174 - Profiling - INFO - Successfully profiled column: TransactionsDeb_PaymentOrder
+2025-07-12 18:09:30,174 - Profiling - INFO -   Min: 0, Max: 34, Mean: 4.6299, Median: 3.0
+2025-07-12 18:09:30,174 - Profiling - INFO - Profiling column: Count_CA
+2025-07-12 18:09:30,177 - Profiling - INFO - Successfully profiled column: Count_CA
+2025-07-12 18:09:30,177 - Profiling - INFO -   Min: 1, Max: 4, Mean: 1.0753, Median: 1.0
+2025-07-12 18:09:30,177 - Profiling - INFO - Profiling column: Count_SA
+2025-07-12 18:09:30,178 - Profiling - INFO - Successfully profiled column: Count_SA
+2025-07-12 18:09:30,178 - Profiling - INFO -   Min: 1.0, Max: 3.0, Mean: 1.1811, Median: 1.0
+2025-07-12 18:09:30,178 - Profiling - INFO - Profiling column: Count_MF
+2025-07-12 18:09:30,179 - Profiling - INFO - Successfully profiled column: Count_MF
+2025-07-12 18:09:30,179 - Profiling - INFO -   Min: 1.0, Max: 79.0, Mean: 5.1793, Median: 2.0
+2025-07-12 18:09:30,179 - Profiling - INFO - Profiling column: Count_OVD
+2025-07-12 18:09:30,181 - Profiling - INFO - Successfully profiled column: Count_OVD
+2025-07-12 18:09:30,181 - Profiling - INFO -   Min: 1.0, Max: 1.0, Mean: 1.0000, Median: 1.0
+2025-07-12 18:09:30,181 - Profiling - INFO - Profiling column: Count_CC
+2025-07-12 18:09:30,184 - Profiling - INFO - Successfully profiled column: Count_CC
+2025-07-12 18:09:30,184 - Profiling - INFO -   Min: 1.0, Max: 1.0, Mean: 1.0000, Median: 1.0
+2025-07-12 18:09:30,184 - Profiling - INFO - Profiling column: Count_CL
+2025-07-12 18:09:30,184 - Profiling - INFO - Successfully profiled column: Count_CL
+2025-07-12 18:09:30,184 - Profiling - INFO -   Min: 1.0, Max: 2.0, Mean: 1.1139, Median: 1.0
+2025-07-12 18:09:30,184 - Profiling - INFO - Profiling column: ActBal_CA
+2025-07-12 18:09:30,188 - Profiling - INFO - Successfully profiled column: ActBal_CA
+2025-07-12 18:09:30,188 - Profiling - INFO -   Min: 0.0, Max: 74934.95607142858, Mean: 2493.0263, Median: 536.9514285714286
+2025-07-12 18:09:30,188 - Profiling - INFO - Profiling column: ActBal_SA
+2025-07-12 18:09:30,190 - Profiling - INFO - Successfully profiled column: ActBal_SA
+2025-07-12 18:09:30,190 - Profiling - INFO -   Min: 0.0, Max: 389883.8307142857, Mean: 14427.7735, Median: 4352.067857142857
+2025-07-12 18:09:30,190 - Profiling - INFO - Profiling column: ActBal_MF
+2025-07-12 18:09:30,192 - Profiling - INFO - Successfully profiled column: ActBal_MF
+2025-07-12 18:09:30,192 - Profiling - INFO -   Min: 0.0, Max: 761235.5042857144, Mean: 21250.4717, Median: 1953.7764285714286
+2025-07-12 18:09:30,192 - Profiling - INFO - Profiling column: ActBal_OVD
+2025-07-12 18:09:30,194 - Profiling - INFO - Successfully profiled column: ActBal_OVD
+2025-07-12 18:09:30,194 - Profiling - INFO -   Min: 0.0, Max: 2055.3253571428572, Mean: 147.2946, Median: 0.0
+2025-07-12 18:09:30,194 - Profiling - INFO - Profiling column: ActBal_CC
+2025-07-12 18:09:30,194 - Profiling - INFO - Successfully profiled column: ActBal_CC
+2025-07-12 18:09:30,194 - Profiling - INFO -   Min: -15.479285714285714, Max: 1767.785357142857, Mean: 280.9085, Median: 37.125
+2025-07-12 18:09:30,194 - Profiling - INFO - Profiling column: ActBal_CL
+2025-07-12 18:09:30,197 - Profiling - INFO - Successfully profiled column: ActBal_CL
+2025-07-12 18:09:30,197 - Profiling - INFO -   Min: 63.80321428571428, Max: 17300.489642857145, Mean: 3952.6551, Median: 2906.9817857142857
+2025-07-12 18:09:30,197 - Profiling - INFO - Profiling column: Age
+2025-07-12 18:09:30,200 - Profiling - INFO - Successfully profiled column: Age
+2025-07-12 18:09:30,200 - Profiling - INFO -   Min: 0, Max: 90, Mean: 42.9835, Median: 41.0
+2025-07-12 18:09:30,200 - Profiling - INFO - Profiling column: Tenure
+2025-07-12 18:09:30,201 - Profiling - INFO - Successfully profiled column: Tenure
+2025-07-12 18:09:30,201 - Profiling - INFO -   Min: 0, Max: 271, Mean: 100.3932, Median: 95.0
+2025-07-12 18:09:30,201 - Profiling - INFO - Profiling completed. Total columns profiled: 35
+2025-07-12 18:09:30,201 - Profiling - INFO - Profiling Summary:
+2025-07-12 18:09:30,201 - Profiling - INFO -   Column: Client
+2025-07-12 18:09:30,201 - Profiling - INFO -     Range: 1 to 1615
+2025-07-12 18:09:30,201 - Profiling - INFO -     Mean: 814.7812, Median: 819.0
+2025-07-12 18:09:30,201 - Profiling - INFO -     Skewness: -0.0170, Kurtosis: -1.1802
+2025-07-12 18:09:30,201 - Profiling - INFO -   Column: Sale_MF
+2025-07-12 18:09:30,201 - Profiling - INFO -     Range: 0 to 1
+2025-07-12 18:09:30,201 - Profiling - INFO -     Mean: 0.1992, Median: 0.0
+2025-07-12 18:09:30,201 - Profiling - INFO -     Skewness: 1.5088, Kurtosis: 0.2770
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: Sale_CC
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 1
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 0.2497, Median: 0.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 1.1581, Kurtosis: -0.6602
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: Sale_CL
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 1
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 0.2993, Median: 0.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 0.8780, Kurtosis: -1.2317
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: Revenue_MF
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 220.4882142857143
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 1.9250, Median: 0.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 13.3182, Kurtosis: 253.4448
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: Revenue_CC
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 407.96250000000003
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 2.7128, Median: 0.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 16.3893, Kurtosis: 324.7865
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: Revenue_CL
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 133.27535714285713
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 3.6042, Median: 0.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 6.1086, Kurtosis: 82.6805
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeCred
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 107703.80428571429
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 1832.3841, Median: 659.2539285714286
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 11.6091, Kurtosis: 168.2743
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeCred_CA
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 98717.675
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 1482.1603, Median: 634.4328571428571
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 13.3584, Kurtosis: 227.3845
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: TransactionsCred
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 63
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 5.6509, Median: 4.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 3.2522, Kurtosis: 14.4458
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: TransactionsCred_CA
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 48
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 4.2965, Median: 3.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 3.5858, Kurtosis: 16.6187
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeDeb
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 64608.361428571436
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 1704.6025, Median: 691.6428571428571
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 8.0646, Kurtosis: 82.3659
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeDeb_CA
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 64178.18535714286
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 1504.2482, Median: 667.6071428571429
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 9.1370, Kurtosis: 102.5302
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeDebCash_Card
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 23571.428571428572
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 270.8935, Median: 89.28571428571429
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 20.6683, Kurtosis: 536.4170
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeDebCashless_Card
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 3637.616785714286
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 157.7302, Median: 26.789285714285715
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 5.4852, Kurtosis: 44.1863
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: VolumeDeb_PaymentOrder
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0.0 to 61955.10392857143
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 719.3465, Median: 178.14285714285714
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 12.3532, Kurtosis: 195.8155
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: TransactionsDeb
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 102
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 16.3659, Median: 12.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 1.8240, Kurtosis: 4.1498
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: TransactionsDeb_CA
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 83
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 13.8212, Median: 11.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 1.7375, Kurtosis: 4.1600
+2025-07-12 18:09:30,203 - Profiling - INFO -   Column: TransactionsDebCash_Card
+2025-07-12 18:09:30,203 - Profiling - INFO -     Range: 0 to 25
+2025-07-12 18:09:30,203 - Profiling - INFO -     Mean: 2.0189, Median: 1.0
+2025-07-12 18:09:30,203 - Profiling - INFO -     Skewness: 2.4763, Kurtosis: 10.4228
+2025-07-12 18:09:30,205 - Profiling - INFO -   Column: TransactionsDebCashless_Card
+2025-07-12 18:09:30,205 - Profiling - INFO -     Range: 0 to 60
+2025-07-12 18:09:30,205 - Profiling - INFO -     Mean: 5.3607, Median: 1.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Skewness: 2.2748, Kurtosis: 6.3433
+2025-07-12 18:09:30,205 - Profiling - INFO -   Column: TransactionsDeb_PaymentOrder
+2025-07-12 18:09:30,205 - Profiling - INFO -     Range: 0 to 34
+2025-07-12 18:09:30,205 - Profiling - INFO -     Mean: 4.6299, Median: 3.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Skewness: 1.6769, Kurtosis: 3.6367
+2025-07-12 18:09:30,205 - Profiling - INFO -   Column: Count_CA
+2025-07-12 18:09:30,205 - Profiling - INFO -     Range: 1 to 4
+2025-07-12 18:09:30,205 - Profiling - INFO -     Mean: 1.0753, Median: 1.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Skewness: 4.8064, Kurtosis: 24.9762
+2025-07-12 18:09:30,205 - Profiling - INFO -   Column: Count_SA
+2025-07-12 18:09:30,205 - Profiling - INFO -     Range: 1.0 to 3.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Mean: 1.1811, Median: 1.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Skewness: 2.5623, Kurtosis: 5.9883
+2025-07-12 18:09:30,205 - Profiling - INFO -   Column: Count_MF
+2025-07-12 18:09:30,205 - Profiling - INFO -     Range: 1.0 to 79.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Mean: 5.1793, Median: 2.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Skewness: 4.9939, Kurtosis: 30.8133
+2025-07-12 18:09:30,205 - Profiling - INFO -   Column: Count_OVD
+2025-07-12 18:09:30,205 - Profiling - INFO -     Range: 1.0 to 1.0
+2025-07-12 18:09:30,205 - Profiling - INFO -     Mean: 1.0000, Median: 1.0
+2025-07-12 18:09:30,205 - Profiling - ERROR - Error during profiling: unsupported format string passed to NoneType.__format__
+2025-07-12 18:09:30,209 - Profiling - INFO - Database connection closed
+2025-07-12 18:09:30,209 - Profiling - ERROR - ❌ Numerical data profiling failed: unsupported format string passed to NoneType.__format__

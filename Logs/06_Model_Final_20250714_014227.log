@@ -1,0 +1,39 @@
+2025-07-14 01:42:27,570 - FinalModelTraining - INFO - Starting final XGBoost model training process
+2025-07-14 01:42:27,570 - FinalModelTraining - INFO - Training final model for: Sale_MF
+2025-07-14 01:42:27,570 - FinalModelTraining - INFO - Using predictive variables: ['TransactionsDebCashless_Card', 'Count_MF', 'Age', 'VolumeCred_CA']
+2025-07-14 01:42:27,572 - FinalModelTraining - INFO - Using categorical variables: []
+2025-07-14 01:42:27,572 - FinalModelTraining - INFO - Loading data from silver.train
+2025-07-14 01:42:27,572 - FinalModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 01:42:27,693 - FinalModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-14 01:42:27,693 - FinalModelTraining - INFO - Data shape: (969, 36)
+2025-07-14 01:42:27,697 - FinalModelTraining - INFO - Loading best parameters from models.xgboost_mf_sales_top
+2025-07-14 01:42:27,758 - FinalModelTraining - INFO - Best AUC score: 0.6074
+2025-07-14 01:42:27,758 - FinalModelTraining - INFO - Best parameters: {'max_depth': 9, 'min_child_weight': 18, 'gamma': 2.0, 'reg_lambda': 6, 'colsample_bytree': 0.8, 'reg_alpha': 5, 'learning_rate': 0.15000000000000002, 'n_estimators': 300, 'scale_pos_weight': 4.020725388601036}
+2025-07-14 01:42:27,766 - FinalModelTraining - INFO - Starting final XGBoost binary classifier training
+2025-07-14 01:42:27,766 - FinalModelTraining - INFO - Response variable: Sale_MF
+2025-07-14 01:42:27,766 - FinalModelTraining - INFO - Predictive variables: ['TransactionsDebCashless_Card', 'Count_MF', 'Age', 'VolumeCred_CA']
+2025-07-14 01:42:27,766 - FinalModelTraining - INFO - Categorical variables: []
+2025-07-14 01:42:27,766 - FinalModelTraining - INFO - Model name: final_xgboost_mf_model
+2025-07-14 01:42:27,766 - FinalModelTraining - INFO - Preparing data...
+2025-07-14 01:42:27,771 - FinalModelTraining - INFO - Data after cleaning: (969, 5)
+2025-07-14 01:42:27,777 - FinalModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-14 01:42:27,777 - FinalModelTraining - INFO - Numerical variables: ['TransactionsDebCashless_Card', 'Count_MF', 'Age', 'VolumeCred_CA']
+2025-07-14 01:42:27,777 - FinalModelTraining - INFO - Categorical variables: []
+2025-07-14 01:42:27,777 - FinalModelTraining - INFO - XGBoost parameters: {'objective': 'binary:logistic', 'eval_metric': 'aucpr', 'random_state': 42, 'n_jobs': -1, 'verbosity': 1, 'max_depth': 9, 'min_child_weight': 18, 'gamma': 2.0, 'reg_lambda': 6, 'colsample_bytree': 0.8, 'reg_alpha': 5, 'learning_rate': 0.15000000000000002, 'n_estimators': 300, 'scale_pos_weight': 4.020725388601036}
+2025-07-14 01:42:27,777 - FinalModelTraining - INFO - Training final model...
+2025-07-14 01:42:27,838 - FinalModelTraining - INFO - Model training completed in 0.06 seconds
+2025-07-14 01:42:27,862 - FinalModelTraining - INFO - Final model evaluation metrics:
+2025-07-14 01:42:27,862 - FinalModelTraining - INFO -   AUC Score: 0.7307
+2025-07-14 01:42:27,864 - FinalModelTraining - INFO -   Accuracy: 0.7203
+2025-07-14 01:42:27,864 - FinalModelTraining - INFO -   Precision: 0.3700
+2025-07-14 01:42:27,864 - FinalModelTraining - INFO -   Recall: 0.5751
+2025-07-14 01:42:27,864 - FinalModelTraining - INFO -   F1 Score: 0.4503
+2025-07-14 01:42:27,864 - FinalModelTraining - INFO -   Confusion Matrix: TN=587, FP=189, FN=82, TP=111
+2025-07-14 01:42:27,875 - FinalModelTraining - INFO - Model saved to: C:\Users\jason\assignment\Models\final_xgboost_mf_model_Sale_MF_20250714_014227.joblib
+2025-07-14 01:42:27,875 - FinalModelTraining - INFO - Model metrics saved to: C:\Users\jason\assignment\Models\final_xgboost_mf_model_Sale_MF_20250714_014227_metrics.json
+2025-07-14 01:42:27,883 - FinalModelTraining - INFO - Model pickle backup saved to: C:\Users\jason\assignment\Models\final_xgboost_mf_model_Sale_MF_20250714_014227.pkl
+2025-07-14 01:42:27,883 - FinalModelTraining - INFO - Saving final model metrics to models.final_xgboost_mf_model
+2025-07-14 01:42:27,910 - FinalModelTraining - INFO - Created/verified schema: models
+2025-07-14 01:42:27,927 - FinalModelTraining - INFO - Successfully saved final model metrics to models.final_xgboost_mf_model
+2025-07-14 01:42:27,928 - FinalModelTraining - INFO - Total records in table: 1
+2025-07-14 01:42:27,980 - FinalModelTraining - INFO - ✅ Final model training completed successfully

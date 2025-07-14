@@ -1,0 +1,18 @@
+2025-07-12 22:25:03,169 - ModelTraining - INFO - Starting XGBoost model training process with Dask
+2025-07-12 22:25:06,543 - ModelTraining - INFO - Dask client created successfully
+2025-07-12 22:25:06,543 - ModelTraining - INFO - Dashboard link: http://127.0.0.1:8787/status
+2025-07-12 22:25:06,546 - ModelTraining - INFO - Workers: 5
+2025-07-12 22:25:06,546 - ModelTraining - INFO - Loading data from silver.train
+2025-07-12 22:25:06,546 - ModelTraining - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-12 22:25:06,639 - ModelTraining - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-12 22:25:06,640 - ModelTraining - INFO - Data shape: (969, 36)
+2025-07-12 22:25:06,644 - ModelTraining - INFO - Starting model training with Dask...
+2025-07-12 22:25:06,644 - ModelTraining - INFO - Starting XGBoost binary classifier training with Dask
+2025-07-12 22:25:06,644 - ModelTraining - INFO - Response variable: Sale_MF
+2025-07-12 22:25:06,644 - ModelTraining - INFO - Predictive variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure', 'Sex']
+2025-07-12 22:25:06,644 - ModelTraining - INFO - Categorical variables: ['Sex']
+2025-07-12 22:25:06,644 - ModelTraining - INFO - Preparing data...
+2025-07-12 22:25:06,652 - ModelTraining - INFO - Data after cleaning: (969, 30)
+2025-07-12 22:25:06,655 - ModelTraining - INFO - Target distribution: {0: 776, 1: 193}
+2025-07-12 22:25:06,657 - ModelTraining - INFO - Setting up parallel training with Dask...
+2025-07-12 22:25:06,713 - ModelTraining - INFO - Created 200 parallel training tasks

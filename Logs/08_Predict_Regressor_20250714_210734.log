@@ -1,0 +1,40 @@
+2025-07-14 21:07:34,655 - PredictRegressor - INFO - Starting prediction process for test data
+2025-07-14 21:07:34,655 - PredictRegressor - INFO - Using model: final_xgboost_cl_revenue_model_Revenue_CL_20250714_021157.joblib
+2025-07-14 21:07:34,655 - PredictRegressor - INFO - Prediction column name: Predicted_Revenue_CL
+2025-07-14 21:07:34,655 - PredictRegressor - INFO - Getting predictor variables from models.final_xgboost_cl_revenue_model
+2025-07-14 21:07:34,756 - PredictRegressor - INFO - Found 6 predictor variables: ['VolumeCred_CA', 'TransactionsDeb', 'Tenure', 'VolumeDeb_PaymentOrder', 'VolumeCred', 'VolumeDebCash_Card']
+2025-07-14 21:07:34,778 - PredictRegressor - INFO - Loading test data from silver.test
+2025-07-14 21:07:34,778 - PredictRegressor - INFO - Selecting predictor variables: ['VolumeCred_CA', 'TransactionsDeb', 'Tenure', 'VolumeDeb_PaymentOrder', 'VolumeCred', 'VolumeDebCash_Card']
+2025-07-14 21:07:34,830 - PredictRegressor - INFO - Successfully loaded 636 rows and 7 columns
+2025-07-14 21:07:34,830 - PredictRegressor - INFO - Data shape: (636, 7)
+2025-07-14 21:07:34,830 - PredictRegressor - INFO - Test data summary:
+2025-07-14 21:07:34,830 - PredictRegressor - INFO - Available predictor variables: ['VolumeCred_CA', 'TransactionsDeb', 'Tenure', 'VolumeDeb_PaymentOrder', 'VolumeCred', 'VolumeDebCash_Card']
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Applying preprocessing to test data...
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Original data shape: (636, 7)
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Filled missing values in numerical column 'VolumeCred_CA' with 0
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Filled missing values in numerical column 'TransactionsDeb' with 0
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Filled missing values in numerical column 'Tenure' with 0
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Filled missing values in numerical column 'VolumeDeb_PaymentOrder' with 0
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Filled missing values in numerical column 'VolumeCred' with 0
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Filled missing values in numerical column 'VolumeDebCash_Card' with 0
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Data shape after preprocessing: (636, 7)
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Preprocessing completed
+2025-07-14 21:07:34,837 - PredictRegressor - INFO - Loading trained model from: C:\Users\jason\assignment\Models\final_xgboost_cl_revenue_model_Revenue_CL_20250714_021157.joblib
+2025-07-14 21:07:35,019 - PredictRegressor - INFO - Successfully loaded trained pipeline
+2025-07-14 21:07:35,019 - PredictRegressor - INFO - No response scaler found - predictions will be on original scale
+2025-07-14 21:07:35,019 - PredictRegressor - INFO - Making predictions on test data...
+2025-07-14 21:07:35,032 - PredictRegressor - INFO - Using 6 predictor variables for prediction
+2025-07-14 21:07:35,032 - PredictRegressor - INFO - Test data shape for prediction: (636, 6)
+2025-07-14 21:07:35,039 - PredictRegressor - INFO - Generated 636 predictions
+2025-07-14 21:07:35,039 - PredictRegressor - INFO - No scaling applied to predictions
+2025-07-14 21:07:35,039 - PredictRegressor - INFO - Prediction statistics:
+2025-07-14 21:07:35,039 - PredictRegressor - INFO -   Mean prediction: 10.7383
+2025-07-14 21:07:35,039 - PredictRegressor - INFO -   Std prediction: 0.3304
+2025-07-14 21:07:35,041 - PredictRegressor - INFO -   Min prediction: 10.2721
+2025-07-14 21:07:35,041 - PredictRegressor - INFO -   Max prediction: 11.2281
+2025-07-14 21:07:35,041 - PredictRegressor - INFO - Saving predictions to predictions.test_revenue_cl_predictions
+2025-07-14 21:07:35,067 - PredictRegressor - INFO - Created/verified schema: predictions
+2025-07-14 21:07:35,079 - PredictRegressor - INFO - Successfully saved 636 predictions to predictions.test_revenue_cl_predictions
+2025-07-14 21:07:35,079 - PredictRegressor - INFO - Verified: 636 rows in predictions.test_revenue_cl_predictions
+2025-07-14 21:07:35,157 - PredictRegressor - INFO - Predictions saved to CSV: C:\Users\jason\assignment\Results\test_revenue_cl_predictions_20250714_210735.csv
+2025-07-14 21:07:35,157 - PredictRegressor - INFO - ✅ Prediction process completed successfully

@@ -448,7 +448,7 @@ if __name__ == "__main__":
         #	  - final_xgboost_cc_model
 
 		# model_filename:
-        # 	- final_xgboost_cl_model_Sale_CL_20250714_020030
+        # 	- final_xgboost_cl_model_Sale_CL_20250714_020030.joblib
         #	- final_xgboost_mf_model_Sale_MF_20250714_014227.joblib
         #   - final_xgboost_cc_model_Sale_CC_20250714_015428.joblib"
 
@@ -463,8 +463,8 @@ if __name__ == "__main__":
         #	- test_predictions_cc_sales.csv
 
         # Configuration
-        model_table_name = "final_xgboost_cc_model"
-        model_filename = "final_xgboost_cc_model_Sale_CC_20250714_015428.joblib"
+        model_table_name = "final_xgboost_cl_model"
+        model_filename = "final_xgboost_cl_model_Sale_CL_20250714_020030.joblib"
         categorical_variables = []  # Update if there were categorical variables in training
 
         logger.info(f"Using model table: {model_table_name}")
@@ -505,15 +505,15 @@ if __name__ == "__main__":
         # Step 6: Save predictions to database
         save_predictions_to_db(
             predictions=predictions,
-            target_schema_name="models",
-            target_table_name="test_predictions_cc_sales",
+            target_schema_name="predictions",
+            target_table_name="test_predictions_cl_sales",
             duckdb_name="assignment.duckdb"
         )
 
         # Step 7: Save predictions to CSV
         csv_path = save_predictions_to_csv(
             predictions=predictions,
-            filename="test_predictions_cc_sales.csv"
+            filename="test_predictions_cl_sales.csv"
         )
 
         logger.info("✅ Model prediction process completed successfully")
@@ -526,7 +526,7 @@ if __name__ == "__main__":
         print(f"Predictions with Class 1: {predictions['predicted_class'].sum()}")
         print(f"Predictions with Class 0: {(predictions['predicted_class'] == 0).sum()}")
         print(f"Average Probability: {predictions['predicted_probability'].mean():.4f}")
-        print(f"Results saved to: models.test_predictions_cl")
+        print(f"Results saved to: predictions")
         print(f"CSV saved to: {csv_path}")
 
         # Show sample predictions

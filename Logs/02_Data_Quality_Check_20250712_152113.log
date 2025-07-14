@@ -1,0 +1,312 @@
+2025-07-12 15:21:13,268 - INFO - ============================================================
+2025-07-12 15:21:13,268 - INFO - STARTING DATA QUALITY CHECKS
+2025-07-12 15:21:13,268 - INFO - ============================================================
+2025-07-12 15:21:13,342 - INFO - Found 31 quality checks to process
+2025-07-12 15:21:13,342 - INFO - ============================================================
+2025-07-12 15:21:13,342 - INFO - Running Quality Check 1/31: soc_dem_client_validation
+2025-07-12 15:21:13,342 - INFO - ============================================================
+2025-07-12 15:21:13,419 - INFO - Checking field 'client' in bronze.soc_dem
+2025-07-12 15:21:13,419 - INFO - Total records: 1615
+2025-07-12 15:21:13,439 - INFO - PASSED unique: 1615/1615 records passed
+2025-07-12 15:21:13,439 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,440 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 15:21:13,440 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,440 - INFO - ============================================================
+2025-07-12 15:21:13,440 - INFO - Running Quality Check 2/31: soc_dem_sex_validation
+2025-07-12 15:21:13,440 - INFO - ============================================================
+2025-07-12 15:21:13,459 - INFO - Checking field 'sex' in bronze.soc_dem
+2025-07-12 15:21:13,460 - INFO - Total records: 1615
+2025-07-12 15:21:13,468 - INFO - PASSED enum: 1615/1615 records passed
+2025-07-12 15:21:13,468 - INFO - FAILED non_null: 1612/1615 records passed
+2025-07-12 15:21:13,468 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,468 - INFO - ============================================================
+2025-07-12 15:21:13,470 - INFO - Running Quality Check 3/31: soc_dem_age_validation
+2025-07-12 15:21:13,470 - INFO - ============================================================
+2025-07-12 15:21:13,484 - INFO - Checking field 'age' in bronze.soc_dem
+2025-07-12 15:21:13,488 - INFO - Total records: 1615
+2025-07-12 15:21:13,492 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,492 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 15:21:13,494 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,494 - INFO - ============================================================
+2025-07-12 15:21:13,494 - INFO - Running Quality Check 4/31: soc_dem_tenure_validation
+2025-07-12 15:21:13,494 - INFO - ============================================================
+2025-07-12 15:21:13,509 - INFO - Checking field 'tenure' in bronze.soc_dem
+2025-07-12 15:21:13,509 - INFO - Total records: 1615
+2025-07-12 15:21:13,515 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,515 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 15:21:13,515 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,515 - INFO - ============================================================
+2025-07-12 15:21:13,515 - INFO - Running Quality Check 5/31: products_actbalance_client_validation
+2025-07-12 15:21:13,515 - INFO - ============================================================
+2025-07-12 15:21:13,536 - INFO - Checking field 'client' in bronze.products_actbalance
+2025-07-12 15:21:13,536 - INFO - Total records: 1615
+2025-07-12 15:21:13,546 - INFO - PASSED unique: 1615/1615 records passed
+2025-07-12 15:21:13,546 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,546 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 15:21:13,546 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,547 - INFO - ============================================================
+2025-07-12 15:21:13,547 - INFO - Running Quality Check 6/31: products_actbalance_Count_CA_validation
+2025-07-12 15:21:13,547 - INFO - ============================================================
+2025-07-12 15:21:13,564 - INFO - Checking field 'Count_CA' in bronze.products_actbalance
+2025-07-12 15:21:13,564 - INFO - Total records: 1615
+2025-07-12 15:21:13,575 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,575 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 15:21:13,575 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,575 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,575 - INFO - FAILED sync_zero: 1521/1615 records passed
+2025-07-12 15:21:13,575 - INFO - ============================================================
+2025-07-12 15:21:13,575 - INFO - Running Quality Check 7/31: products_actbalance_Count_SA_validation
+2025-07-12 15:21:13,578 - INFO - ============================================================
+2025-07-12 15:21:13,596 - INFO - Checking field 'Count_SA' in bronze.products_actbalance
+2025-07-12 15:21:13,596 - INFO - Total records: 1615
+2025-07-12 15:21:13,609 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,609 - INFO - FAILED non_null: 426/1615 records passed
+2025-07-12 15:21:13,611 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,611 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,611 - INFO - FAILED sync_zero: 1599/1615 records passed
+2025-07-12 15:21:13,611 - INFO - ============================================================
+2025-07-12 15:21:13,611 - INFO - Running Quality Check 8/31: products_actbalance_Count_MF_validation
+2025-07-12 15:21:13,611 - INFO - ============================================================
+2025-07-12 15:21:13,629 - INFO - Checking field 'Count_MF' in bronze.products_actbalance
+2025-07-12 15:21:13,629 - INFO - Total records: 1615
+2025-07-12 15:21:13,636 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,636 - INFO - FAILED non_null: 306/1615 records passed
+2025-07-12 15:21:13,636 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,636 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,636 - INFO - FAILED sync_zero: 1504/1615 records passed
+2025-07-12 15:21:13,636 - INFO - ============================================================
+2025-07-12 15:21:13,636 - INFO - Running Quality Check 9/31: products_actbalance_Count_OVD_validation
+2025-07-12 15:21:13,636 - INFO - ============================================================
+2025-07-12 15:21:13,654 - INFO - Checking field 'Count_OVD' in bronze.products_actbalance
+2025-07-12 15:21:13,654 - INFO - Total records: 1615
+2025-07-12 15:21:13,662 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,662 - INFO - FAILED non_null: 419/1615 records passed
+2025-07-12 15:21:13,662 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,662 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,662 - INFO - FAILED sync_zero: 1316/1615 records passed
+2025-07-12 15:21:13,662 - INFO - ============================================================
+2025-07-12 15:21:13,663 - INFO - Running Quality Check 10/31: products_actbalance_Count_CL_validation
+2025-07-12 15:21:13,663 - INFO - ============================================================
+2025-07-12 15:21:13,679 - INFO - Checking field 'Count_CL' in bronze.products_actbalance
+2025-07-12 15:21:13,679 - INFO - Total records: 1615
+2025-07-12 15:21:13,685 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,685 - INFO - FAILED non_null: 135/1615 records passed
+2025-07-12 15:21:13,685 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,685 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,685 - INFO - FAILED sync_zero: 1614/1615 records passed
+2025-07-12 15:21:13,685 - INFO - ============================================================
+2025-07-12 15:21:13,685 - INFO - Running Quality Check 11/31: products_actbalance_ActBal_CA_validation
+2025-07-12 15:21:13,688 - INFO - ============================================================
+2025-07-12 15:21:13,704 - INFO - Checking field 'ActBal_CA' in bronze.products_actbalance
+2025-07-12 15:21:13,704 - INFO - Total records: 1615
+2025-07-12 15:21:13,710 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,710 - INFO - PASSED non_null: 1615/1615 records passed
+2025-07-12 15:21:13,710 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,713 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,713 - INFO - FAILED sync_zero: 1521/1615 records passed
+2025-07-12 15:21:13,713 - INFO - ============================================================
+2025-07-12 15:21:13,713 - INFO - Running Quality Check 12/31: products_actbalance_ActBal_SA_validation
+2025-07-12 15:21:13,713 - INFO - ============================================================
+2025-07-12 15:21:13,728 - INFO - Checking field 'ActBal_SA' in bronze.products_actbalance
+2025-07-12 15:21:13,728 - INFO - Total records: 1615
+2025-07-12 15:21:13,736 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,736 - INFO - FAILED non_null: 426/1615 records passed
+2025-07-12 15:21:13,738 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,738 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,738 - INFO - FAILED sync_zero: 1599/1615 records passed
+2025-07-12 15:21:13,738 - INFO - ============================================================
+2025-07-12 15:21:13,738 - INFO - Running Quality Check 13/31: products_actbalance_ActBal_MF_validation
+2025-07-12 15:21:13,738 - INFO - ============================================================
+2025-07-12 15:21:13,755 - INFO - Checking field 'ActBal_MF' in bronze.products_actbalance
+2025-07-12 15:21:13,755 - INFO - Total records: 1615
+2025-07-12 15:21:13,761 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,761 - INFO - FAILED non_null: 306/1615 records passed
+2025-07-12 15:21:13,761 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,761 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,761 - INFO - FAILED sync_zero: 1504/1615 records passed
+2025-07-12 15:21:13,763 - INFO - ============================================================
+2025-07-12 15:21:13,763 - INFO - Running Quality Check 14/31: products_actbalance_ActBal_OVD_validation
+2025-07-12 15:21:13,763 - INFO - ============================================================
+2025-07-12 15:21:13,781 - INFO - Checking field 'ActBal_OVD' in bronze.products_actbalance
+2025-07-12 15:21:13,781 - INFO - Total records: 1615
+2025-07-12 15:21:13,787 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,789 - INFO - FAILED non_null: 419/1615 records passed
+2025-07-12 15:21:13,789 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,789 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,789 - INFO - FAILED sync_zero: 1316/1615 records passed
+2025-07-12 15:21:13,789 - INFO - ============================================================
+2025-07-12 15:21:13,789 - INFO - Running Quality Check 15/31: products_actbalance_ActBal_CC_validation
+2025-07-12 15:21:13,789 - INFO - ============================================================
+2025-07-12 15:21:13,807 - INFO - Checking field 'ActBal_CC' in bronze.products_actbalance
+2025-07-12 15:21:13,807 - INFO - Total records: 1615
+2025-07-12 15:21:13,814 - INFO - FAILED positive: 1610/1615 records passed
+2025-07-12 15:21:13,814 - INFO - FAILED non_null: 170/1615 records passed
+2025-07-12 15:21:13,814 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,814 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,814 - INFO - FAILED sync_zero: 1599/1615 records passed
+2025-07-12 15:21:13,814 - INFO - ============================================================
+2025-07-12 15:21:13,814 - INFO - Running Quality Check 16/31: products_actbalance_ActBal_CL_validation
+2025-07-12 15:21:13,816 - INFO - ============================================================
+2025-07-12 15:21:13,830 - INFO - Checking field 'ActBal_CL' in bronze.products_actbalance
+2025-07-12 15:21:13,830 - INFO - Total records: 1615
+2025-07-12 15:21:13,838 - INFO - PASSED positive: 1615/1615 records passed
+2025-07-12 15:21:13,838 - INFO - FAILED non_null: 135/1615 records passed
+2025-07-12 15:21:13,838 - INFO - PASSED type: 1615/1615 records passed
+2025-07-12 15:21:13,838 - INFO - PASSED sync_null: 1615/1615 records passed
+2025-07-12 15:21:13,839 - INFO - FAILED sync_zero: 1614/1615 records passed
+2025-07-12 15:21:13,839 - INFO - ============================================================
+2025-07-12 15:21:13,839 - INFO - Running Quality Check 17/31: inflow_outflow_Client_validation
+2025-07-12 15:21:13,839 - INFO - ============================================================
+2025-07-12 15:21:13,855 - INFO - Checking field 'Client' in bronze.inflow_outflow
+2025-07-12 15:21:13,855 - INFO - Total records: 1587
+2025-07-12 15:21:13,861 - INFO - PASSED unique: 1587/1587 records passed
+2025-07-12 15:21:13,861 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:13,861 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:13,861 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:13,861 - INFO - ============================================================
+2025-07-12 15:21:13,861 - INFO - Running Quality Check 18/31: inflow_outflow_VolumeCred_validation
+2025-07-12 15:21:13,861 - INFO - ============================================================
+2025-07-12 15:21:13,874 - INFO - Checking field 'VolumeCred' in bronze.inflow_outflow
+2025-07-12 15:21:13,874 - INFO - Total records: 1587
+2025-07-12 15:21:13,887 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:13,889 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:13,889 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:13,889 - INFO - PASSED sync_null: 1587/1587 records passed
+2025-07-12 15:21:13,889 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:13,889 - INFO - ============================================================
+2025-07-12 15:21:13,889 - INFO - Running Quality Check 19/31: inflow_outflow_VolumeCred_CA_validation
+2025-07-12 15:21:13,889 - INFO - ============================================================
+2025-07-12 15:21:13,905 - INFO - Checking field 'VolumeCred_CA' in bronze.inflow_outflow
+2025-07-12 15:21:13,905 - INFO - Total records: 1587
+2025-07-12 15:21:13,910 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:13,910 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:13,910 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:13,910 - INFO - PASSED sync_null: 1587/1587 records passed
+2025-07-12 15:21:13,910 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:13,910 - INFO - ============================================================
+2025-07-12 15:21:13,910 - INFO - Running Quality Check 20/31: inflow_outflow_TransactionsCred_validation
+2025-07-12 15:21:13,913 - INFO - ============================================================
+2025-07-12 15:21:13,924 - INFO - Checking field 'TransactionsCred' in bronze.inflow_outflow
+2025-07-12 15:21:13,924 - INFO - Total records: 1587
+2025-07-12 15:21:13,934 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:13,934 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:13,934 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:13,934 - INFO - PASSED sync_null: 1587/1587 records passed
+2025-07-12 15:21:13,934 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:13,934 - INFO - ============================================================
+2025-07-12 15:21:13,934 - INFO - Running Quality Check 21/31: inflow_outflow_TransactionsCred_CA_validation
+2025-07-12 15:21:13,934 - INFO - ============================================================
+2025-07-12 15:21:13,947 - INFO - Checking field 'TransactionsCred_CA' in bronze.inflow_outflow
+2025-07-12 15:21:13,947 - INFO - Total records: 1587
+2025-07-12 15:21:13,960 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:13,960 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:13,960 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:13,960 - INFO - PASSED sync_null: 1587/1587 records passed
+2025-07-12 15:21:13,960 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:13,960 - INFO - ============================================================
+2025-07-12 15:21:13,960 - INFO - Running Quality Check 22/31: inflow_outflow_VolumeDeb_validation
+2025-07-12 15:21:13,962 - INFO - ============================================================
+2025-07-12 15:21:13,974 - INFO - Checking field 'VolumeDeb' in bronze.inflow_outflow
+2025-07-12 15:21:13,978 - INFO - Total records: 1587
+2025-07-12 15:21:13,984 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:13,984 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:13,984 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:13,984 - INFO - PASSED sync_null: 1587/1587 records passed
+2025-07-12 15:21:13,984 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:13,984 - INFO - ============================================================
+2025-07-12 15:21:13,984 - INFO - Running Quality Check 23/31: inflow_outflow_VolumeDeb_CA_validation
+2025-07-12 15:21:13,984 - INFO - ============================================================
+2025-07-12 15:21:14,005 - INFO - Checking field 'VolumeDeb_CA' in bronze.inflow_outflow
+2025-07-12 15:21:14,005 - INFO - Total records: 1587
+2025-07-12 15:21:14,011 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,011 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,011 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,011 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,011 - INFO - ============================================================
+2025-07-12 15:21:14,011 - INFO - Running Quality Check 24/31: inflow_outflow_VolumeDebCash_Card_validation
+2025-07-12 15:21:14,011 - INFO - ============================================================
+2025-07-12 15:21:14,029 - INFO - Checking field 'VolumeDebCash_Card' in bronze.inflow_outflow
+2025-07-12 15:21:14,029 - INFO - Total records: 1587
+2025-07-12 15:21:14,035 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,035 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,035 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,035 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,035 - INFO - ============================================================
+2025-07-12 15:21:14,035 - INFO - Running Quality Check 25/31: inflow_outflow_VolumeDebCashless_Card_validation
+2025-07-12 15:21:14,035 - INFO - ============================================================
+2025-07-12 15:21:14,052 - INFO - Checking field 'VolumeDebCashless_Card' in bronze.inflow_outflow
+2025-07-12 15:21:14,052 - INFO - Total records: 1587
+2025-07-12 15:21:14,058 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,058 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,058 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,060 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,060 - INFO - ============================================================
+2025-07-12 15:21:14,060 - INFO - Running Quality Check 26/31: inflow_outflow_VolumeDeb_PaymentOrder_validation
+2025-07-12 15:21:14,060 - INFO - ============================================================
+2025-07-12 15:21:14,079 - INFO - Checking field 'VolumeDeb_PaymentOrder' in bronze.inflow_outflow
+2025-07-12 15:21:14,079 - INFO - Total records: 1587
+2025-07-12 15:21:14,085 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,085 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,085 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,085 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,085 - INFO - ============================================================
+2025-07-12 15:21:14,087 - INFO - Running Quality Check 27/31: inflow_outflow_TransactionsDeb_validation
+2025-07-12 15:21:14,087 - INFO - ============================================================
+2025-07-12 15:21:14,101 - INFO - Checking field 'TransactionsDeb' in bronze.inflow_outflow
+2025-07-12 15:21:14,101 - INFO - Total records: 1587
+2025-07-12 15:21:14,110 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,110 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,110 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,110 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,110 - INFO - ============================================================
+2025-07-12 15:21:14,110 - INFO - Running Quality Check 28/31: inflow_outflow_TransactionsDeb_CA_validation
+2025-07-12 15:21:14,110 - INFO - ============================================================
+2025-07-12 15:21:14,124 - INFO - Checking field 'TransactionsDeb_CA' in bronze.inflow_outflow
+2025-07-12 15:21:14,124 - INFO - Total records: 1587
+2025-07-12 15:21:14,132 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,132 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,132 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,132 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,132 - INFO - ============================================================
+2025-07-12 15:21:14,132 - INFO - Running Quality Check 29/31: inflow_outflow_TransactionsDebCash_Card_validation
+2025-07-12 15:21:14,132 - INFO - ============================================================
+2025-07-12 15:21:14,149 - INFO - Checking field 'TransactionsDebCash_Card' in bronze.inflow_outflow
+2025-07-12 15:21:14,149 - INFO - Total records: 1587
+2025-07-12 15:21:14,157 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,157 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,157 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,157 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,157 - INFO - ============================================================
+2025-07-12 15:21:14,157 - INFO - Running Quality Check 30/31: inflow_outflow_TransactionsDebCashless_Card_validation
+2025-07-12 15:21:14,157 - INFO - ============================================================
+2025-07-12 15:21:14,175 - INFO - Checking field 'TransactionsDebCashless_Card' in bronze.inflow_outflow
+2025-07-12 15:21:14,175 - INFO - Total records: 1587
+2025-07-12 15:21:14,181 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,181 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,181 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,181 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,181 - INFO - ============================================================
+2025-07-12 15:21:14,181 - INFO - Running Quality Check 31/31: inflow_outflow_TransactionsDeb_PaymentOrder_validation
+2025-07-12 15:21:14,181 - INFO - ============================================================
+2025-07-12 15:21:14,198 - INFO - Checking field 'TransactionsDeb_PaymentOrder' in bronze.inflow_outflow
+2025-07-12 15:21:14,198 - INFO - Total records: 1587
+2025-07-12 15:21:14,206 - INFO - PASSED positive: 1587/1587 records passed
+2025-07-12 15:21:14,206 - INFO - PASSED non_null: 1587/1587 records passed
+2025-07-12 15:21:14,206 - INFO - PASSED type: 1587/1587 records passed
+2025-07-12 15:21:14,206 - INFO - PASSED sync_zero: 1587/1587 records passed
+2025-07-12 15:21:14,206 - INFO - ============================================================
+2025-07-12 15:21:14,206 - INFO - Saving results to DuckDB...
+2025-07-12 15:21:14,208 - INFO - ============================================================
+2025-07-12 15:21:14,249 - INFO - Created/verified dq schema
+2025-07-12 15:21:14,263 - INFO - Saved 137 quality check results to dq.dq_results
+2025-07-12 15:21:14,271 - INFO - Quality Check Summary:
+2025-07-12 15:21:14,271 - INFO -   enum: 1 checks, 0.0 failures, 1615.0 records checked
+2025-07-12 15:21:14,271 - INFO -   non_null: 31 checks, 11796.0 failures, 49645.0 records checked
+2025-07-12 15:21:14,271 - INFO -   positive: 30 checks, 5.0 failures, 48030.0 records checked
+2025-07-12 15:21:14,271 - INFO -   sync_null: 16 checks, 0.0 failures, 25700.0 records checked
+2025-07-12 15:21:14,271 - INFO -   sync_zero: 25 checks, 1058.0 failures, 39983.0 records checked
+2025-07-12 15:21:14,271 - INFO -   type: 31 checks, 0.0 failures, 49645.0 records checked
+2025-07-12 15:21:14,271 - INFO -   unique: 3 checks, 0.0 failures, 4817.0 records checked
+2025-07-12 15:21:14,294 - INFO - ============================================================
+2025-07-12 15:21:14,294 - INFO - All quality checks completed!
+2025-07-12 15:21:14,294 - INFO - ============================================================

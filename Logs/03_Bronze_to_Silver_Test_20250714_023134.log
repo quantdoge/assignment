@@ -1,0 +1,65 @@
+2025-07-14 02:31:34,398 - BronzeToSilver - INFO - Starting Bronze to Silver transformation process
+2025-07-14 02:31:34,398 - BronzeToSilver - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 02:31:34,428 - BronzeToSilver - INFO - Connected to DuckDB database: C:\Users\jason\assignment\assignment.duckdb
+2025-07-14 02:31:34,428 - BronzeToSilver - INFO - Created silver schema
+2025-07-14 02:31:34,446 - BronzeToSilver - INFO - Found bronze.sales_revenues
+2025-07-14 02:31:34,451 - BronzeToSilver - INFO - Found bronze.inflow_outflow
+2025-07-14 02:31:34,455 - BronzeToSilver - INFO - Found bronze.products_actbalance
+2025-07-14 02:31:34,458 - BronzeToSilver - INFO - Found bronze.soc_dem
+2025-07-14 02:31:34,458 - BronzeToSilver - INFO - Analyzing table schemas...
+2025-07-14 02:31:34,461 - BronzeToSilver - INFO - bronze.sales_revenues has 7 columns
+2025-07-14 02:31:34,463 - BronzeToSilver - INFO - bronze.inflow_outflow has 15 columns
+2025-07-14 02:31:34,467 - BronzeToSilver - INFO - bronze.products_actbalance has 13 columns
+2025-07-14 02:31:34,470 - BronzeToSilver - INFO - bronze.soc_dem has 4 columns
+2025-07-14 02:31:34,470 - BronzeToSilver - INFO - Building JOIN query...
+2025-07-14 02:31:34,470 - BronzeToSilver - INFO - Executing JOIN query to create silver.test table...
+2025-07-14 02:31:34,486 - BronzeToSilver - INFO - Successfully created silver.test table with JOINs
+2025-07-14 02:31:34,486 - BronzeToSilver - INFO - Handling NULL values...
+2025-07-14 02:31:34,492 - BronzeToSilver - INFO - Verified: 646 rows in silver.test table
+2025-07-14 02:31:34,492 - BronzeToSilver - INFO - Final table schema:
+2025-07-14 02:31:34,504 - BronzeToSilver - INFO - 
+                     column_name data_type
+0                         Client    BIGINT
+1                            Sex   VARCHAR
+2                            Age    BIGINT
+3                         Tenure    BIGINT
+4                       Count_CA    BIGINT
+5                       Count_SA    DOUBLE
+6                       Count_MF    DOUBLE
+7                      Count_OVD    DOUBLE
+8                       Count_CC    DOUBLE
+9                       Count_CL    DOUBLE
+10                     ActBal_CA    DOUBLE
+11                     ActBal_SA    DOUBLE
+12                     ActBal_MF    DOUBLE
+13                    ActBal_OVD    DOUBLE
+14                     ActBal_CC    DOUBLE
+15                     ActBal_CL    DOUBLE
+16                    VolumeCred    DOUBLE
+17                 VolumeCred_CA    DOUBLE
+18              TransactionsCred    BIGINT
+19           TransactionsCred_CA    BIGINT
+20                     VolumeDeb    DOUBLE
+21                  VolumeDeb_CA    DOUBLE
+22            VolumeDebCash_Card    DOUBLE
+23        VolumeDebCashless_Card    DOUBLE
+24        VolumeDeb_PaymentOrder    DOUBLE
+25               TransactionsDeb    BIGINT
+26            TransactionsDeb_CA    BIGINT
+27      TransactionsDebCash_Card    BIGINT
+28  TransactionsDebCashless_Card    BIGINT
+29  TransactionsDeb_PaymentOrder    BIGINT
+2025-07-14 02:31:34,504 - BronzeToSilver - INFO - First 3 rows of silver.test:
+2025-07-14 02:31:34,535 - BronzeToSilver - INFO - 
+   Client Sex  ...  TransactionsDebCashless_Card  TransactionsDeb_PaymentOrder
+0       3   M  ...                             1                             1
+1       4   M  ...                            12                            13
+2       5   F  ...                            17                            13
+
+[3 rows x 30 columns]
+2025-07-14 02:31:34,535 - BronzeToSilver - INFO - Data summary:
+2025-07-14 02:31:34,535 - BronzeToSilver - INFO - Total columns: 30
+2025-07-14 02:31:34,535 - BronzeToSilver - INFO - Total rows: 646
+2025-07-14 02:31:34,535 - BronzeToSilver - INFO - NULL clients: 0
+2025-07-14 02:31:34,607 - BronzeToSilver - INFO - Database connection closed
+2025-07-14 02:31:34,607 - BronzeToSilver - INFO - ✅ Bronze to Silver transformation process completed successfully

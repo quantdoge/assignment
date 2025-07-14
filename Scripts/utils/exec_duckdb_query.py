@@ -184,3 +184,34 @@ save_queried(final_mf_sales_result,file_name='final_mf_sales_result.csv')
 cl_sales_predictions_query= 'SELECT * FROM models.test_predictions_cl_sales'
 cl_sales_predictions= execute_query(query=cl_sales_predictions_query)
 save_queried(cl_sales_predictions,file_name='cl_sales_predictions_query.csv')
+
+predict_combined_query = 'SELECT * FROM predictions.test_predictions_combined'
+predict_combined_result = execute_query(query=predict_combined_query)
+save_queried(predict_combined_result, file_name='predict_combined_result.csv')
+
+predict_rank_query = 'SELECT * FROM predictions.optimized_outcome'
+predict_rank_result = execute_query(query=predict_rank_query)
+save_queried(predict_rank_result, file_name='predict_rank_result.csv')
+
+predict_rank_query_02 = 'SELECT * FROM predictions.optimized_outcome WHERE max_expected_revenue > 0 ORDER BY max_expected_revenue DESC'
+predict_rank_result_02 = execute_query(query=predict_rank_query_02)
+save_queried(predict_rank_result_02, file_name='predict_rank_result_02.csv')
+
+predict_rank_query_best = 'SELECT * FROM predictions.optimized_outcome WHERE max_expected_revenue > 0 ORDER BY max_expected_revenue DESC LIMIT 100'
+predict_rank_result_best = execute_query(query=predict_rank_query_best)
+save_queried(predict_rank_result_best, file_name='predict_rank_result_best.csv')
+
+predict_rank_query_best_details= '''
+WITH filtered AS (
+	SELECT Client
+	FROM predictions.optimized_outcome
+	WHERE max_expected_revenue > 0
+	ORDER BY max_expected_revenue DESC
+	LIMIT 100
+ )
+ SELECT *
+ FROM predictions.test_predictions_combined
+ WHERE Client IN (SELECT Client FROM filtered)
+ '''
+predict_rank_result_best_details = execute_query(query=predict_rank_query_best_details)
+save_queried(predict_rank_result_best_details, file_name='predict_rank_result_best_details.csv')

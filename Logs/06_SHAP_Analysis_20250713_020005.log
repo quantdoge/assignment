@@ -1,0 +1,50 @@
+2025-07-13 02:00:05,566 - SHAPAnalysis - INFO - Starting SHAP analysis
+2025-07-13 02:00:05,566 - SHAPAnalysis - INFO - Loading training data...
+2025-07-13 02:00:05,566 - SHAPAnalysis - INFO - Loading data from silver.train
+2025-07-13 02:00:05,566 - SHAPAnalysis - INFO - Database path: C:\Users\jason\assignment\assignment.duckdb
+2025-07-13 02:00:05,633 - SHAPAnalysis - INFO - Successfully loaded 969 rows and 36 columns
+2025-07-13 02:00:05,633 - SHAPAnalysis - INFO - Data shape: (969, 36)
+2025-07-13 02:00:05,641 - SHAPAnalysis - INFO - Loading best model parameters from training results...
+2025-07-13 02:00:05,644 - SHAPAnalysis - INFO - Loading best model parameters from models.xgboost_cc_sales
+2025-07-13 02:00:05,698 - SHAPAnalysis - INFO - Best model AUC score: 0.6236
+2025-07-13 02:00:05,698 - SHAPAnalysis - INFO - Best model parameters loaded successfully
+2025-07-13 02:00:05,707 - SHAPAnalysis - INFO - Using parameters: max_depth=3, min_child_weight=5, gamma=0.5, reg_lambda=1.0, colsample_bytree=0.6, reg_alpha=0.0, learning_rate=0.25, n_estimators=500
+2025-07-13 02:00:05,707 - SHAPAnalysis - INFO - Building and training XGBoost model...
+2025-07-13 02:00:05,707 - SHAPAnalysis - INFO - Building XGBoost model with specified parameters
+2025-07-13 02:00:05,707 - SHAPAnalysis - INFO - Parameters: max_depth=3, min_child_weight=5, gamma=0.5, reg_lambda=1.0, colsample_bytree=0.6, reg_alpha=0.0, learning_rate=0.25, n_estimators=500
+2025-07-13 02:00:05,707 - SHAPAnalysis - INFO - Preparing data...
+2025-07-13 02:00:05,715 - SHAPAnalysis - INFO - Data after cleaning: (969, 30)
+2025-07-13 02:00:05,715 - SHAPAnalysis - INFO - Target distribution: {0: 727, 1: 242}
+2025-07-13 02:00:05,721 - SHAPAnalysis - INFO - Training set size: (775, 29)
+2025-07-13 02:00:05,721 - SHAPAnalysis - INFO - Test set size: (194, 29)
+2025-07-13 02:00:05,721 - SHAPAnalysis - INFO - Numerical variables: ['VolumeCred', 'VolumeCred_CA', 'TransactionsCred', 'TransactionsCred_CA', 'VolumeDeb', 'VolumeDeb_CA', 'VolumeDebCash_Card', 'VolumeDebCashless_Card', 'VolumeDeb_PaymentOrder', 'TransactionsDeb', 'TransactionsDeb_CA', 'TransactionsDebCash_Card', 'TransactionsDebCashless_Card', 'TransactionsDeb_PaymentOrder', 'Count_CA', 'Count_SA', 'Count_MF', 'Count_OVD', 'Count_CC', 'Count_CL', 'ActBal_CA', 'ActBal_SA', 'ActBal_MF', 'ActBal_OVD', 'ActBal_CC', 'ActBal_CL', 'Age', 'Tenure']
+2025-07-13 02:00:05,721 - SHAPAnalysis - INFO - Categorical variables: ['Sex']
+2025-07-13 02:00:05,721 - SHAPAnalysis - INFO - Training model...
+2025-07-13 02:00:05,857 - SHAPAnalysis - INFO - Model training completed
+2025-07-13 02:00:05,857 - SHAPAnalysis - INFO - Test AUC score: 0.5325
+2025-07-13 02:00:05,857 - SHAPAnalysis - INFO - Computing SHAP values...
+2025-07-13 02:00:05,857 - SHAPAnalysis - INFO - Computing SHAP values...
+2025-07-13 02:00:05,857 - SHAPAnalysis - INFO - Sample size for SHAP: 1000
+2025-07-13 02:00:05,857 - SHAPAnalysis - INFO - Background size for SHAP: 100
+2025-07-13 02:00:05,865 - SHAPAnalysis - INFO - Feature names after preprocessing: 30 features
+2025-07-13 02:00:05,865 - SHAPAnalysis - INFO - Using 194 samples for SHAP computation
+2025-07-13 02:00:05,865 - SHAPAnalysis - INFO - Using 100 background samples
+2025-07-13 02:00:05,865 - SHAPAnalysis - INFO - Creating SHAP TreeExplainer...
+2025-07-13 02:00:05,924 - SHAPAnalysis - INFO - Computing SHAP values...
+2025-07-13 02:00:06,220 - SHAPAnalysis - INFO - SHAP values computed successfully
+2025-07-13 02:00:06,220 - SHAPAnalysis - INFO - SHAP values shape: (194, 30)
+2025-07-13 02:00:06,220 - SHAPAnalysis - INFO - Creating SHAP visualizations...
+2025-07-13 02:00:06,220 - SHAPAnalysis - INFO - Saving SHAP visualizations to: C:\Users\jason\assignment\Outputs\SHAP_Analysis
+2025-07-13 02:00:06,220 - SHAPAnalysis - INFO - Using file prefix: cc_shap
+2025-07-13 02:00:06,222 - SHAPAnalysis - INFO - Creating SHAP summary plot (bar)...
+2025-07-13 02:00:06,962 - SHAPAnalysis - INFO - Creating SHAP summary plot (beeswarm)...
+2025-07-13 02:00:07,750 - SHAPAnalysis - INFO - Creating SHAP waterfall plot...
+2025-07-13 02:00:08,526 - SHAPAnalysis - INFO - Creating SHAP force plots...
+2025-07-13 02:00:08,537 - SHAPAnalysis - INFO - SHAP visualizations created successfully
+2025-07-13 02:00:08,537 - SHAPAnalysis - INFO - Saving SHAP results to database...
+2025-07-13 02:00:08,537 - SHAPAnalysis - INFO - Saving SHAP results to models.shap_analysis_cc_sales
+2025-07-13 02:00:08,563 - SHAPAnalysis - INFO - Saved SHAP summary to models.shap_analysis_cc_sales_summary
+2025-07-13 02:00:08,580 - SHAPAnalysis - INFO - Saved detailed SHAP values to models.shap_analysis_cc_sales_detailed
+2025-07-13 02:00:08,581 - SHAPAnalysis - INFO - Verified: 30 features in summary table
+2025-07-13 02:00:08,581 - SHAPAnalysis - INFO - Verified: 5820 SHAP value records in detailed table
+2025-07-13 02:00:08,624 - SHAPAnalysis - INFO - ✅ SHAP analysis completed successfully
